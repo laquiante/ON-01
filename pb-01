@@ -36,7 +36,7 @@
     - name: Durchstarten der Schnittstelle
       shell: /sbin/ifreload -a
       
- - hosts: cat02
+- hosts: cat02
   name: Schnittstellen
   become: yes
   tasks:

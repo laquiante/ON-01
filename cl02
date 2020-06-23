@@ -30,12 +30,12 @@ iface eth0 inet dhcp
     
 auto vlan11
 iface vlan11
-    address fd12:3456:789a:1::2/64
-    vlan-id 10
+    address fd12:3456:789a:6::2/64
+    vlan-id 11
     vlan-raw-device bridge
 
-auto vlan20
-iface vlan20
-    address fd12:3456:789a:4::1/64
-    vlan-id 20
+auto vlan21
+iface vlan21
+    address fd12:3456:789a:7::1/64
+    vlan-id 21
     vlan-raw-device bridge

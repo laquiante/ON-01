@@ -10,8 +10,8 @@ iface eth1 inet static
     address fd12:3456:789a:1::1/64
     post-up ip -6 route add default via fd12:3456:789a:1::2
 
-auto eth2
-iface eth2 inet static
-    address fd12:3456:789a:2::1/64
+# auto eth2
+# iface eth2 inet static
+#     address fd12:3456:789a:2::1/64
 
 source /etc/network/interfaces.d/*.cfg

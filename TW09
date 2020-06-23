@@ -1,0 +1,37 @@
+graph "TW09" {
+
+"server01" [function="host" os="generic/ubuntu1804" ssh_user="cumulus" config="tc_files/cldemo2_extra_server_config.sh"]
+"server02" [function="host" os="generic/ubuntu1804" ssh_user="cumulus" config="tc_files/cldemo2_extra_server_config.sh"]
+
+"fw01" [function="host" os="generic/ubuntu1804" ssh_user="cumulus" config="tc_files/cldemo2_extra_server_config.sh"]
+"fw02" [function="host" os="generic/ubuntu1804" ssh_user="cumulus" config="tc_files/cldemo2_extra_server_config.sh"]
+
+ "cat01" [function="leaf" os="CumulusCommunity/cumulus-vx" version="4.1.1" ]
+ "cat02" [function="leaf" os="CumulusCommunity/cumulus-vx" version="4.1.1" ]
+
+ "cl01" [function="leaf" os="CumulusCommunity/cumulus-vx" version="4.1.1" ]
+ "cl02" [function="leaf" os="CumulusCommunity/cumulus-vx" version="4.1.1" ]
+
+ "cat03" [function="leaf" os="CumulusCommunity/cumulus-vx" version="4.1.1" ]
+ "cat04" [function="leaf" os="CumulusCommunity/cumulus-vx" version="4.1.1" ]
+
+"fw01":"eth1" -- "cat01":"swp1"
+"fw01":"eth2" -- "cat02":"swp1"
+
+"fw02":"eth1" -- "cat01":"swp2"
+"fw02":"eth2" -- "cat02":"swp2"
+
+"cat01":"swp10" -- "cl01":"swp10"
+"cat02":"swp10" -- "cl02":"swp10"
+
+"cl01":"swp49" -- "cl02":"spw49"
+"cl01":"swp50" -- "cl02":"spw50"
+"cl01":"swp51" -- "cl02":"spw51"
+
+"cl01":"swp20" -- "cat03":"swp20"
+"cl02":"swp20" -- "cat04":"swp20"
+
+"cat03":"swp1" -- "server01":"eth1"
+"cat04":"swp1" -- "server02":"eth1"
+
+}

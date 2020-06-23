@@ -30,7 +30,7 @@
   tasks:
     - name: IPv6 
       copy: 
-        src: /home/cumulus/ON-01/cat02 
+        src: /home/cumulus/ON-01/cat01 
         dest: /etc/network/interfaces
     # aktivieren
     - name: Durchstarten der Schnittstelle

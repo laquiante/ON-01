@@ -95,3 +95,27 @@
     # aktivieren
     - name: Durchstarten der Schnittstelle
       shell: /sbin/ifreload -a
+      
+- hosts: server01
+  name: Schnittstellen
+  become: yes
+  tasks:
+    - name: IPv6 
+      copy: 
+        src: /home/cumulus/ON-01/server01
+        dest: /etc/network/interfaces
+    # aktivieren
+    - name: Durchstarten der Schnittstelle
+      shell: /sbin/ifreload -a
+      
+- hosts: server02
+  name: Schnittstellen
+  become: yes
+  tasks:
+    - name: IPv6 
+      copy: 
+        src: /home/cumulus/ON-01/server02
+        dest: /etc/network/interfaces
+    # aktivieren
+    - name: Durchstarten der Schnittstelle
+      shell: /sbin/ifreload -a

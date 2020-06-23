@@ -1,5 +1,6 @@
 auto lo
 iface lo inet loopback
+    address 10.0.0.2/32
 
 auto swp10
 iface swp10

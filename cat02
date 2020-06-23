@@ -1,9 +1,9 @@
 auto lo
 iface lo inet loopback
 
-auto swp1
-iface swp1
-    bridge-access 11
+# auto swp1
+# iface swp1
+#     bridge-access 11
     
 auto swp2
 iface swp2
@@ -15,7 +15,7 @@ iface swp10
 
 auto bridge
 iface bridge
-    bridge-ports swp10 swp1
+    bridge-ports swp10 swp2
     bridge-vids 11
     bridge-vlan-aware yes
     

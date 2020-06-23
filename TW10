@@ -24,9 +24,9 @@ graph "TW09" {
 "cat01":"swp10" -- "cl01":"swp10"
 "cat02":"swp10" -- "cl02":"swp10"
 
-"cl01":"swp49" -- "cl02":"spw49"
-"cl01":"swp50" -- "cl02":"spw50"
-"cl01":"swp51" -- "cl02":"spw51"
+"cl01":"swp49" -- "cl02":"swp49"
+"cl01":"swp50" -- "cl02":"swp50"
+"cl01":"swp51" -- "cl02":"swp51"
 
 "cl01":"swp20" -- "cat03":"swp20"
 "cl02":"swp20" -- "cat04":"swp20"

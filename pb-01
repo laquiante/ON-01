@@ -1,12 +1,24 @@
 # FW01  IF Datei
 
 - hosts: fw01
-  name: Konfiguration der Schnittstellen
+  name: Schnittstellen
   become: yes
   tasks:
-    - name: IFs for IPv6 
+    - name: IPv6 
       copy: 
         src: /home/cumulus/ON-01/fw01 
+        dest: /etc/network/interfaces
+    # aktivieren
+    - name: Durchstarten der Schnittstelle
+      shell: /sbin/ifreload -a
+
+- hosts: fw02
+  name: Schnittstellen
+  become: yes
+  tasks:
+    - name: IPv6 
+      copy: 
+        src: /home/cumulus/ON-01/fw02 
         dest: /etc/network/interfaces
     # aktivieren
     - name: Durchstarten der Schnittstelle

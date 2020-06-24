@@ -1,4 +1,4 @@
-graph "TW10" {
+graph "TW11" {
 
 "server01" [function="host" os="generic/ubuntu1804" ssh_user="cumulus" config="tc_files/cldemo2_extra_server_config.sh"]
 "server02" [function="host" os="generic/ubuntu1804" ssh_user="cumulus" config="tc_files/cldemo2_extra_server_config.sh"]

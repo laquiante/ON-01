@@ -21,6 +21,9 @@ graph "TW10" {
 "fw02":"eth1" -- "cat01":"swp2"
 "fw02":"eth2" -- "cat02":"swp2"
 
+"cat01":"swp15" -- "cat02":"swp15"
+"cat01":"swp16" -- "cat02":"swp16"
+
 "cat01":"swp10" -- "cl01":"swp10"
 "cat02":"swp10" -- "cl02":"swp10"
 

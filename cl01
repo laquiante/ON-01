@@ -4,21 +4,17 @@ iface lo inet loopback
 
 auto swp10
 iface swp10
-    bridge-access 10
+    bridge-access 20
 
 auto swp20
 iface swp20
 
-auto swp51
-iface swp51
-    address fd12:3456:789a:3::1/64
-
 auto bridge
 iface bridge
     bridge-ports swp10 swp20
-    bridge-vids 10 20
+    bridge-vids 20
     bridge-vlan-aware yes
-    
+
 auto mgmt
 iface mgmt
     vrf-table auto
@@ -28,15 +24,18 @@ auto eth0
 iface eth0 inet dhcp
     vrf mgmt
     post-up sysctl -w net.ipv6.conf.eth0.accept_ra=2
-    
+
 auto vlan10
 iface vlan10
     address fd12:3456:789a:1::2/64
+    address-virtual 00:00:5a:00:00:01 fd12:3456:789a:1::254/64
     vlan-id 10
-    vlan-raw-device bridge
-
+    
 auto vlan20
 iface vlan20
+    address 192.168.0.200/24
+    address-virtual 00:00:5a:00:01:01 192.168.0.254/24
     address fd12:3456:789a:4::1/64
+    address-virtual 00:00:5a:00:01:2 fd12:3456:789a:2::254/64
     vlan-id 20
     vlan-raw-device bridge

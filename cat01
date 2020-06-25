@@ -22,7 +22,7 @@ iface bridge
     bridge-vids 20
     bridge-vlan-aware no
 
-auto br1
+auto br5
 iface bridge
     bridge-ports cat-01-02
     bridge-vids 5

@@ -1,29 +1,54 @@
 auto lo
 iface lo inet loopback
 
-# auto swp1
-# iface swp1
-#     bridge-access 11
-    
 auto swp2
 iface swp2
-    bridge-access 11
 
 auto swp10
 iface swp10
-    bridge-access 11
 
-auto bridge
-iface bridge
-    bridge-ports swp10 swp2
-    bridge-vids 11
-    bridge-vlan-aware yes
+auto swp10.10
+iface swp10.10
+
+auto swp10.20
+iface swp10.20
+
+auto swp15
+iface swp15
+
+auto swp16
+iface swp16
+
+auto br1
+iface br1
+    bridge-ports swp10
+    bridge-vlan-aware no
+
+auto br10
+iface br10
+    bridge-ports swp10.10 swp2
+    bridge-vlan-aware no
     
+auto br5
+iface br5
+    bridge-ports cat-02-01
+    bridge-vlan-aware no
+
+auto br20
+iface br20
+    bridge-ports swp10.20
+    bridge-vlan-aware no
+
+
+auto cat-02-01
+iface cat-02-01
+    bond-slaves swp15 swp16
+
 auto mgmt
 iface mgmt
     vrf-table auto
     address 127.0.0.1/8
-
+    
 auto eth0
 iface eth0 inet dhcp
     vrf mgmt

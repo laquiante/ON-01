@@ -7,7 +7,8 @@ iface eth0 inet dhcp
 
 auto eth1
 iface eth1 inet static
-    address fd12:3456:789a:7::2/64
-    post-up ip -6 route add default via fd12:3456:789a:7::1
+    address 192.168.0.11/24
+    address fd12:3456:789a:1::2/64
+    post-up ip -6 route add default via fd12:3456:789a:1::254
 
 source /etc/network/interfaces.d/*.cfg

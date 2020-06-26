@@ -3,11 +3,9 @@ iface lo inet loopback
 
 auto swp1
 iface swp1
-    bridge-access 20
 
 auto swp10
 iface swp10
-    bridge-access 20
 
 auto swp15
 iface swp15
@@ -17,21 +15,18 @@ iface swp16
 
 auto br20
 iface bridge
-    address 192.168.0.2/24
     bridge-ports swp10 swp1
-    bridge-vids 20
     bridge-vlan-aware no
 
-auto br5
+auto br1
 iface bridge
     bridge-ports cat-01-02
-    bridge-vids 5
     bridge-vlan-aware no
-    
+
 auto cat-01-02
 iface cat-01-02
     bond-slaves swp15 swp16
-
+    
 auto mgmt
 iface mgmt
     vrf-table auto
@@ -43,4 +38,3 @@ iface eth0 inet dhcp
     post-up sysctl -w net.ipv6.conf.eth0.accept_ra=2
 
 source /etc/network/interfaces.d/*.cfg
-

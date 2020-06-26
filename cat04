@@ -3,7 +3,7 @@ iface lo inet loopback
 
 auto swp1
 iface swp1
-    bridge-access 21
+    bridge-access 20
 
 auto swp20
 iface swp20
@@ -11,7 +11,7 @@ iface swp20
 auto bridge
 iface bridge
     bridge-ports swp20 swp1
-    bridge-vids 21
+    bridge-vids 20
     bridge-vlan-aware yes
 
 auto mgmt

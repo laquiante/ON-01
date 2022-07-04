@@ -1,0 +1,3 @@
+# /home/cumulus
+
+sudo chown -R cumulus:cumulus ./.ansible/

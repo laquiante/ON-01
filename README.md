@@ -27,6 +27,12 @@ Assumption-12: the webserver is able to serve needed images (e.g. cumulus-linux 
 Assumption-13: leaf, spine, and wan switches use 5.1.0 along with NVUE and the externally exposed API, 
 router01, router02, and customer01 are using 4.x and will be configured via IP(route2), hosts are using 20.04 and enjoy netplan
 
+Reminder-01: run scp from alq@ALQ-LT1 MINGW64 from ~/Downloads to stage image at webserver
+
+Reminder-02: Onie-nos-install http://192.168.200.1/expert510.bin
+
+
+
 
 
 

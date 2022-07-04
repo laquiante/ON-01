@@ -1,2 +1,5 @@
 # ON-01
-quick-raw-share
+
+
+
+Assumption: All devices run the intendet NOS in the intendet version

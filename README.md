@@ -14,5 +14,7 @@ Assumption-06: For ease of use or convenience a direct ssh connection to hte oob
 
 Assumption-07: Python 3.6.9 is availalbe on hte oob-mgmt-server
 
+Assumption-08: venv is availalbe (installed), a direktory cl_expert is created and venv "bootcamp" activated
+
 
 

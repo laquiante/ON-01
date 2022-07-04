@@ -1,0 +1,52 @@
+- hosts: cumulus-5x-nodes
+  name: startup
+  become: yes
+  gather_facts: no
+  ignore_errors: yes
+  tasks:
+    - name: clean startup.yaml
+      copy:
+        src: /home/cumulus/ON-01/cleanup/{{ inventory_hostname }}.yaml
+        dest: /etc/nvue.d/startup.yaml
+    # aktivieren
+    - name: activate changes for all cumulus nodes
+      shell:  nv config apply startup -y
+  
+- hosts: cumulus-4x-nodes
+  name: e/n/i
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: Interface
+      copy:
+        src: /home/cumulus/ON-01/cleanup/{{ inventory_hostname }}.if
+        dest: /etc/network/interfaces
+    # aktivieren
+    - name: activate changes for all cumulus nodes
+      shell: ifreload -a
+      
+- hosts: host
+  name: netplan
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: cloud file entfernen
+      ansible.builtin.file:
+        path: /etc/netplan/50-cloud-init.yaml
+        state: absent
+    - name: cloud file entfernen
+      ansible.builtin.file:
+        path: /etc/netplan/config.yaml
+        state: absent
+    - name: copy netplan yaml
+      copy:
+        src: /home/cumulus/ON-01/step-00/{{ inventory_hostname }}
+        dest: /etc/netplan/config.yaml
+    - name: apply netplan yaml
+      shell: netplan apply
+       
+    - name: Check interface 2
+      shell: /sbin/ip -br -4 a | grep 'eth2'
+      ignore_errors: yes
+      register: result
+    - debug: msg={{ result.stdout }}

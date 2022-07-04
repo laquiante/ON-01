@@ -1,0 +1,45 @@
+# ALQ, 4th of JUL-2022
+
+[oob-switch]
+oob-mgmt-switch ansible_host=192.168.200.17
+
+[host]
+host11 ansible_host=192.168.200.8
+host22 ansible_host=192.168.200.14
+
+[leafspine]
+leaf11 ansible_host=192.168.200.2
+leaf12 ansible_host=192.168.200.3
+spine13 ansible_host=192.168.200.4
+spine14 ansible_host=192.168.200.5
+leaf21 ansible_host=192.168.200.9
+leaf22 ansible_host=192.168.200.10
+spine23 ansible_host=192.168.200.11
+spine24 ansible_host=192.168.200.12
+
+[extern]
+customer01 ansible_host=192.168.200.6
+router01 ansible_host=192.168.200.7
+router02 ansible_host=192.168.200.13
+
+[wan]
+wan01 ansible_host=192.168.200.15
+wan02 ansible_host=192.168.200.16
+
+[cumulus-5x-nodes:children]
+leafspine
+wan
+
+[cumulus-4x-nodes:clidren]
+extern
+
+[all:vars]
+ansible_user=cumulus
+ansible_become_pass=CumulusLinux!
+ansible_ssh_pass=CumulusLinux!
+
+[host:vars]
+ansible_user=ubuntu
+ansible_bcome_pass=nvidia
+
+

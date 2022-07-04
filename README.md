@@ -18,7 +18,7 @@ Assumption-08: venv is availalbe (installed), a direktory cl_expert is created a
 
 Assumption-09: within (bootcamp) the following are available Python 3.6.9, Flask 2.0.3 and Werkzeug 2.0.3
 
-Assuption-10: rsa keys are available in a format paramiko expects
+Assumption-10: rsa keys are available in a format paramiko expects
 
 Assumption-11: needed directories are owned by cumulus:cumulus
 

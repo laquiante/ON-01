@@ -12,3 +12,7 @@ Assumption-05: The oob-mgmt-server reuses the key-material of user "ubuntu" for 
 
 Assumption-06: For ease of use or convenience a direct ssh connection to hte oob-mgmt-server with the user cumulus should be provided
 
+Assumption-07: Python 3.6.9 is availalbe on hte oob-mgmt-server
+
+
+

@@ -16,5 +16,10 @@ Assumption-07: Python 3.6.9 is availalbe on hte oob-mgmt-server
 
 Assumption-08: venv is availalbe (installed), a direktory cl_expert is created and venv "bootcamp" activated
 
+Assumption-09: within (bootcamp) the following are available Python 3.6.9, Flask 2.0.3 and Werkzeug 2.0.3
+
+
+
+
 
 

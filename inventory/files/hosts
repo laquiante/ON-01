@@ -30,7 +30,7 @@ wan02 ansible_host=192.168.200.16
 leafspine
 wan
 
-[cumulus-4x-nodes:cildren]
+[cumulus-4x-nodes:children]
 extern
 
 [all:vars]

@@ -17,7 +17,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def start():
-    ergebnis = requests.get('https://192.168.200.2:8765/cue_v1/system', auth=('cumulus','CumulusLinux!'), verify=False)
+    ergebnis = requests.get('https://192.168.200.2:8765/cue_v1/system', auth=('cumulus','Academy123'), verify=False)
     for key in ergebnis.json():
       if key == "build":
         NOS = ergebnis.json()[key]

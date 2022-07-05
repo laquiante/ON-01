@@ -22,6 +22,6 @@ def start():
     for key in ergebnis.json():
       if key == "build":
         nos = (ergebnis.json()[key])
-    return nos
+    return render_template("home.html", nos = nos)
 
 app.run(host='::',debug=True)

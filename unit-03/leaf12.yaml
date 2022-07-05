@@ -1,0 +1,8 @@
+- set:
+    system:
+      hostname: leaf12
+    interface:
+      lo:
+        ip:
+          address:
+            172.16.100.12/32: {}

@@ -1,0 +1,11 @@
+- set:
+    system:
+      hostname: {{ inventory_hostname }}
+      
+      
+    interface:
+      lo:
+        ip:
+          address:
+            {{ hostvars.lo_ip }}: {}   
+      

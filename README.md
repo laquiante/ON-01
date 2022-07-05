@@ -1,6 +1,6 @@
 # ON-01
 
-Assumption-01: All devices run the intendet NOS in the intendet version (esp. spine23)
+Assumption-01: All devices run the intendet NOS in the intendet version (esp. spines in DC-02)
 
 Assumption-02: All hosts (ubuntu 20.04) have a user "cumulus" (password "Academy123") setup for passwordless ssh
 

@@ -13,7 +13,7 @@ body {
   margin: 0;
 }
 
-main {
+.main {
   color: red;
   background-color: yellow;
   max-width: 640px;

@@ -17,11 +17,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def start():
-    nos = []
+    
     ergebnis = requests.get('https://192.168.200.2:8765/cue_v1/system', auth=('cumulus','CumulusLinux!'), verify=False)
     for key in ergebnis.json():
       if key == "build":
-        nos.append(ergebnis.json()[key])
+        nos = (ergebnis.json()[key])
     return nos
 
 app.run(host='::',debug=True)

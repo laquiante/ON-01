@@ -1,1 +1,8 @@
-
+- set:
+    system:
+      hostname: wan02
+    interface:
+      lo:
+        ip:
+          address:
+            4.4.4.4/32: {}

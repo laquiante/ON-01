@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
 # Benutzer: cumulus im Home-Verzeichnis
-# source testumgebung/bin/activate
-# Dafür sollte dann leaf11 vorbereitet sein (API)
+# source bootcamp/bin/activate
+# Dafür sollten dann die API vorbereitet sein
 
 from flask import Flask
 from flask import render_template

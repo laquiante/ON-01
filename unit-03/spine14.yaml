@@ -1,0 +1,8 @@
+- set:
+    system:
+      hostname: spine14
+    interface:
+      lo:
+        ip:
+          address:
+            172.16.100.14/32: {}

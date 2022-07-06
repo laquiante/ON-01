@@ -15,13 +15,18 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 app = Flask(__name__)
 
+SWITCHES = ['leaf11','leaf12']
+
 @app.route('/')
 def start():
-    
-    ergebnis = requests.get('https://192.168.200.2:8765/cue_v1/system', auth=('cumulus','CumulusLinux!'), verify=False)
-    for key in ergebnis.json():
-      if key == "build":
-        nos = (ergebnis.json()[key])
+    for i in SWITCHES:
+        n = 1 - int(i)
+        ziel = 'https://'+SWITCH[n]+':8765/cue_v1/system'
+        ergebnis = requests.get(ziel, auth=('cumulus','CumulusLinux!'), verify=False)
+        for key in ergebnis.json():
+          if key == "build":
+            nos = (ergebnis.json()[key])
+            
     return render_template("home.html", nos = nos)
 
 app.run(host='::',debug=True)

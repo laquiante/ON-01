@@ -31,6 +31,8 @@ Reminder-01: run scp from alq@ALQ-LT1 MINGW64 from ~/Downloads to stage image at
 
 Reminder-02: Onie-nos-install http://192.168.200.1/expert510.bin
 
+Reminder-03: PS1='$(pwd) > '
+
 
 
 

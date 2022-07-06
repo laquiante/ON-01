@@ -7,7 +7,22 @@
   <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  
+  <header class="navbar">
+    <div class="navbar__brand">
+      <img class="navbar__logo" src="/static/HH4.gif" alt="Hamburg" />
+    </div>
+
+    <ul class="navbar__navigation">
+      <li class="navbar__navigation-item">
+        <a href="/" class="navbar__link"> home</a>
+      </li>   
+    <li class="navbar__navigation-item">
+        <a href="/unit-03" class="navbar__link"> unit-03</a>
+      </li>  
+    <li class="navbar__navigation-item">
+        <a href="/unit-04" class="navbar__link"> unit-04</a>
+      </li>  
+  </header>
   {% block content %}
   
   {% endblock %}

@@ -58,3 +58,7 @@ body {
   color: inherit;
 }
 
+.navbar__desc {
+  color: orange;
+  margin-left: 50px;
+}

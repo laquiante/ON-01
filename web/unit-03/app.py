@@ -19,7 +19,7 @@ SWITCHES = ['leaf11','leaf12']
 
 @app.route('/')
 def start():
-    ziel = 'https://'+SWITCH[0]+':8765/cue_v1/system'
+    ziel = 'https://'+SWITCHES[0]+':8765/cue_v1/system'
     ergebnis = requests.get(ziel, auth=('cumulus','CumulusLinux!'), verify=False)
     for key in ergebnis.json():
       if key == "build":

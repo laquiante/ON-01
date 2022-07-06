@@ -26,4 +26,13 @@ def start():
         nos = (ergebnis.json()[key])        
     return render_template("home.html", nos = nos)
 
+@app.route('/unit-03')
+def start():
+    ziel = 'https://'+SWITCHES[0]+':8765/cue_v1/system'
+    ergebnis = requests.get(ziel, auth=('cumulus','CumulusLinux!'), verify=False)
+    for key in ergebnis.json():
+      if key == "build":
+        nos = (ergebnis.json()[key])        
+    return render_template("home.html", nos = nos)
+
 app.run(host='::',debug=True)

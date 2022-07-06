@@ -19,7 +19,7 @@ SWITCHES = ['leaf11','leaf12']
 
 @app.route('/')
 def start():
-    for i in SWITCHES:
+    for i in range(1:len(SWITCHES)):
         n = 1 - int(i)
         ziel = 'https://'+SWITCH[n]+':8765/cue_v1/system'
         ergebnis = requests.get(ziel, auth=('cumulus','CumulusLinux!'), verify=False)

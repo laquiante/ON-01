@@ -27,7 +27,7 @@ def start():
     return render_template("home.html", nos = nos)
 
 @app.route('/unit-03')
-def start():
+def unit_03():
     ziel = 'https://'+SWITCHES[0]+':8765/cue_v1/system'
     ergebnis = requests.get(ziel, auth=('cumulus','CumulusLinux!'), verify=False)
     for key in ergebnis.json():

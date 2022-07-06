@@ -21,4 +21,40 @@ body {
   padding: 0 20px;
 }
 
+.navbar {
+  max-width: 640px;
+  margin: 25px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 20px;
+  background-color: #000000;
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__logo {
+  margin: 20px 0;
+}
+
+.navbar__navigation {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  list-style: none;
+  color: #FFA500;
+}
+
+.navbar__navigation-item {
+  margin-left: 50px;
+}
+
+.navbar__link {
+  text-decoration: none;
+  color: inherit;
+}
 

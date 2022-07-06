@@ -2,7 +2,7 @@
 
 # Benutzer: cumulus/ON-01/web
 # source bootcamp/bin/activate
-# Dafür sollten dann die API vorbereitet sein
+# Dafür sollten dann die API vorbereitet sein (chicken/egg problem da vor unit-04)
 
 from flask import Flask
 from flask import render_template

@@ -1,0 +1,9 @@
+- set:
+    system:
+      hostname: leaf22
+    interface:
+      lo:
+        ip:
+          address:
+            172.16.100.22/32: {}
+        type: loopback

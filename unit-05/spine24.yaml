@@ -12,11 +12,11 @@
           address:
             172.16.100.24/32: {}
         type: loopback
-      swp1,5:
+      swp2,5:
         bridge:
           domain:
             br_A: {}
-      swp1,4-5:
+      swp2,4-5:
         type: swp
       swp4:
         bridge:

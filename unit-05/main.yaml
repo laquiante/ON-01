@@ -11,3 +11,15 @@
     # aktivieren
     - name: activate changes for all cumulus nodes
       shell:  nv config apply startup -y
+
+- hosts: host
+  name: netplan
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: copy netplan yaml
+      copy:
+        src: /home/cumulus/ON-01/unit-05/{{ inventory_hostname }}.yaml
+        dest: /etc/netplan/config.yaml
+    - name: apply netplan yaml
+      shell: netplan apply

@@ -1,4 +1,3 @@
-cumulus@wan02:mgmt:~$ nv config show
 - set:
     system:
       hostname: wan02

@@ -1,0 +1,24 @@
+- set:
+    bridge:
+      domain:
+        br_default:
+          vlan:
+            '10': {}
+    interface:
+      lo:
+        ip:
+          address:
+            172.16.100.13/32: {}
+        type: loopback
+      swp1:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp5:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+    system:
+      hostname: spine13

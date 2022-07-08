@@ -1,0 +1,19 @@
+- set:
+    bridge:
+      domain:
+        br_A:
+          vlan:
+            '10': {}
+    system:
+      hostname: spine14
+    interface:
+      lo:
+        ip:
+          address:
+            172.16.100.14/32: {}
+        type: loopback
+      swp1,5:
+        bridge:
+          domain:
+            br_A: {}
+        type: swp

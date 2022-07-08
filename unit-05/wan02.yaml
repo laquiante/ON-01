@@ -1,3 +1,4 @@
+cumulus@wan02:mgmt:~$ nv config show
 - set:
     system:
       hostname: wan02
@@ -6,3 +7,9 @@
         ip:
           address:
             4.4.4.4/32: {}
+        type: loopback
+      swp3:
+        ip:
+          address:
+            172.16.10.2/30: {}
+        type: swp

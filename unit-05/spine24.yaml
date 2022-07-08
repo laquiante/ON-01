@@ -16,4 +16,10 @@
         bridge:
           domain:
             br_A: {}
+      swp1,4-5:
         type: swp
+      swp4:
+        bridge:
+          domain:
+            br_A:
+              access: 10

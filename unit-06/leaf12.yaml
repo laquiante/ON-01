@@ -5,7 +5,7 @@
           vlan:
             '10': {}
     system:
-      hostname: leaf11
+      hostname: leaf12
     interface:
       bond1:
         bond:

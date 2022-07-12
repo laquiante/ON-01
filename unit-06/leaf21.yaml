@@ -6,7 +6,7 @@
             '10': {}
     mlag:
       backup:
-        192.168.200.10:
+        192.168.200.9:
           vrf: mgmt
       enable: on
       init-delay: 10

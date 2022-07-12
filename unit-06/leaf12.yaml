@@ -4,6 +4,15 @@
         br_default:
           vlan:
             '10': {}
+    mlag:
+      backup:
+        192.168.200.2:
+          vrf: mgmt
+      enable: on
+      init-delay: 10
+      mac-address: 00:00:00:00:00:A1
+      peer-ip: linklocal
+      priority: 2000
     system:
       hostname: leaf12
     interface:
@@ -11,7 +20,20 @@
         bond:
           member:
             swp25: {}
+          mlag:
+            enable: on
+            id: 42
         bridge:
           domain:
             br_default: {}
         type: bond
+      peerlink:
+        bond:
+          member:
+            swp23: {}
+            swp24: {}
+        type: peerlink
+      peerlink.4094:
+        base-interface: peerlink
+        type: sub
+        vlan: 4094

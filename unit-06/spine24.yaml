@@ -4,6 +4,8 @@
         br_default:
           vlan:
             '10': {}
+    system:
+      hostname: spine23
     interface:
       lo:
         ip:

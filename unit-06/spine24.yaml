@@ -5,7 +5,7 @@
           vlan:
             '10': {}
     system:
-      hostname: spine23
+      hostname: spine24
     interface:
       lo:
         ip:

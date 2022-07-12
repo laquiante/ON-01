@@ -1,0 +1,17 @@
+- set:
+    bridge:
+      domain:
+        br_default:
+          vlan:
+            '10': {}
+    system:
+      hostname: leaf11
+    interface:
+      bond1:
+        bond:
+          member:
+            swp25: {}
+        bridge:
+          domain:
+            br_default: {}
+        type: bond

@@ -23,10 +23,11 @@
           mlag:
             enable: on
             id: 42
+        type: bond
+      bond1,swp21-22:
         bridge:
           domain:
             br_default: {}
-        type: bond
       peerlink:
         bond:
           member:
@@ -37,3 +38,5 @@
         base-interface: peerlink
         type: sub
         vlan: 4094
+      swp21-22:
+        type: swp

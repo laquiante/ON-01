@@ -1,19 +1,25 @@
 - set:
     bridge:
       domain:
-        br_default:
+        br_A:
           vlan:
             '10': {}
     system:
       hostname: spine13
     interface:
+      bond_swp5:
+        bond:
+          member:
+            swp5: {}
+        type: bond
       lo:
         ip:
           address:
-            172.16.100.13/32: {}
+            172.16.100.23/32: {}
         type: loopback
-      swp1-2,5:
+      swp1-2:
         bridge:
           domain:
-            br_default: {}
+            br_A: {}
+      swp1-2,5:
         type: swp

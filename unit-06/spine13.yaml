@@ -12,14 +12,14 @@
           member:
             swp5: {}
         type: bond
+      bond_swp5,swp1-2:
+        bridge:
+          domain:
+            br_A: {}
       lo:
         ip:
           address:
             172.16.100.23/32: {}
         type: loopback
-      swp1-2:
-        bridge:
-          domain:
-            br_A: {}
       swp1-2,5:
         type: swp

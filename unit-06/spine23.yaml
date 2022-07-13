@@ -18,9 +18,4 @@
             br_default: {}
       swp1-2,5:
         type: swp
-      swp5:
-        bridge:
-          domain:
-            br_default:
-              stp:
-                bpdu-filter: on
+        

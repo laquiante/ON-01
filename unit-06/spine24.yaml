@@ -1,4 +1,3 @@
-cumulus@spine24:mgmt:~$ nv config show
 - set:
     bridge:
       domain:

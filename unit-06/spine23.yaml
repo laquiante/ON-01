@@ -7,11 +7,19 @@
     system:
       hostname: spine23
     interface:
+      dummy_swp3:
+        bond:
+          member:
+            swp3: {}
+        bridge:
+          domain:
+            br_default: {}
+      dummy_swp3,5:
+        type: bond
       dummy_swp5:
         bond:
           member:
             swp5: {}
-        type: bond
       dummy_swp5,swp1-2:
         bridge:
           domain:
@@ -23,7 +31,3 @@
         type: loopback
       swp1-3:
         type: swp
-      swp3:
-        bridge:
-          domain:
-            br_default: {}

@@ -1,7 +1,8 @@
+cumulus@spine24:mgmt:~$ nv config show
 - set:
     bridge:
       domain:
-        br_default:
+        br_A:
           vlan:
             '10': {}
     system:
@@ -12,9 +13,8 @@
           address:
             172.16.100.24/32: {}
         type: loopback
-      swp1-2:
+      swp1-2,5:
         bridge:
           domain:
-            br_default: {}
-      swp1-2:
+            br_A: {}
         type: swp

@@ -3,4 +3,8 @@
   hosts: localhost
   tasks:
    -  name: test
-      command: ip l
+      ansible.builtin.user:
+        name: cumulus1
+        shell: /bin/bash
+        groups: sudoers
+        append: yes

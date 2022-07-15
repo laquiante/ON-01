@@ -1,0 +1,6 @@
+-
+  name: prepare oob-mgmt-server
+  hosts: localhost
+  tasks:
+   -  name: test
+      command: ip l

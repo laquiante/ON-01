@@ -6,5 +6,11 @@
       ansible.builtin.user:
         name: cumulus1
         shell: /bin/bash
-        groups: sudoers
+        groups: cumulus
         append: yes
+        
+   -  name: test-2
+      shell: usermod -aG sudo cumulus1
+      args:
+        executable: /bin/bash
+      

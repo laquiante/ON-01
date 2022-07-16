@@ -18,7 +18,8 @@
     interface:
       lo:
         ip:
-          address: 172.16.100.2/32
+          address: 
+            172.16.100.2/32: {}
       bond1:
         bond:
           member:

@@ -1,7 +1,7 @@
 - set:
     bridge:
       domain:
-        br_default:
+        br_A:
           vlan:
             '10': {}
     system:
@@ -15,5 +15,6 @@
       swp1-2,5:
         bridge:
           domain:
-            br_default: {}
+            br_A: {}
         type: swp
+

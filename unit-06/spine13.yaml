@@ -23,3 +23,8 @@
         type: loopback
       swp1-2,5:
         type: swp
+      swp5:
+        link:
+          state:
+            up: {}
+

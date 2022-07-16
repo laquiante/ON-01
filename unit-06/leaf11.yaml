@@ -19,7 +19,7 @@
       lo:
         ip:
           address:
-            "{{ loopback_ip }}: "{}
+            "{{loopback_ip }}: "{}
       bond1:
         bond:
           member:

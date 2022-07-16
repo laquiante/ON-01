@@ -16,6 +16,10 @@
     system:
       hostname: leaf12
     interface:
+      lo:
+        ip:
+          address:
+            '{{ loopback_ip }}': {}
       bond1:
         bond:
           member:

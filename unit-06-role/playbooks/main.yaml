@@ -1,0 +1,11 @@
+---
+- hosts: leaf11
+  become: true
+  user: cumulus
+  gather_facts: false
+      
+  roles:
+    - /home/cumulus/ON-01/unit-06-roles/roles/startup
+    
+    
+

@@ -31,3 +31,7 @@
         type: loopback
       swp1-3,5:
         type: swp
+      swp5:
+        link:
+          state:
+            up: {}

@@ -18,8 +18,7 @@
     interface:
       lo:
         ip:
-          address:
-            "{{loopback_ip }}: "{}
+          address:"{{ loopback_ip }}"
       bond1:
         bond:
           member:

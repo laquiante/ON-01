@@ -6,11 +6,11 @@
             '10': {}
     mlag:
       backup:
-        {{backup_ip}}:
+        {{backup_ip }}:
           vrf: mgmt
       enable: on
       init-delay: 10
-      mac-address: {{ system_id|default(00:00:00:00:00:A0)}}
+      mac-address: {{ s ystem_id|default(00:00:00:00:00:A0)}}
       peer-ip: linklocal
       priority: 1000
     system:

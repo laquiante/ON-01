@@ -6,15 +6,15 @@
             '10': {}
     mlag:
       backup:
-        {{backup_ip}}
+        192.168.200.3
           vrf: mgmt
       enable: on
       init-delay: 10
-      mac-address: {{ system_id|default(00:00:00:00:00:A0)}}
+      mac-address: 00:00:00:00:00:A1
       peer-ip: linklocal
       priority: 1000
     system:
-      hostname: {{ host_name }}
+      hostname: leaf11
     interface:
       lo:
         ip:

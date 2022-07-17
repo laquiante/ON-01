@@ -1,0 +1,7 @@
+- name: render startup
+  template:
+    src: "startup.j2"
+    dest: /etc/nvue.d/startup.yaml
+    
+- name: activate changes
+  shell:  nv config apply startup -y

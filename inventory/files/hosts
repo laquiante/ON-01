@@ -8,14 +8,20 @@ host11 ansible_host=192.168.200.8
 host22 ansible_host=192.168.200.14
 
 [leafspine]
-leaf11 ansible_host=192.168.200.2 loopback_ip='172.16.100.2/32: {}'
-leaf12 ansible_host=192.168.200.3 loopback_ip=172.16.100.3/32
-spine13 ansible_host=192.168.200.4 loopback_ip=172.16.100.4/32
-spine14 ansible_host=192.168.200.5 loopback_ip=172.16.100.5/32
-leaf21 ansible_host=192.168.200.9 loopback_ip=172.16.100.9/32
-leaf22 ansible_host=192.168.200.10 loopback_ip=172.16.100.10/32
-spine23 ansible_host=192.168.200.11 loopback_ip=172.16.100.11/32
-spine24 ansible_host=192.168.200.12 loopback_ip=172.16.100.12/32
+leaf11 ansible_host=192.168.200.2 
+leaf12 ansible_host=192.168.200.3 
+spine13 ansible_host=192.168.200.4 
+spine14 ansible_host=192.168.200.5 
+leaf21 ansible_host=192.168.200.9 
+leaf22 ansible_host=192.168.200.10
+spine23 ansible_host=192.168.200.11 
+spine24 ansible_host=192.168.200.12 
+
+[leaf]
+leaf11 ansible_host=192.168.200.2 
+leaf12 ansible_host=192.168.200.3 
+leaf21 ansible_host=192.168.200.9 
+leaf22 ansible_host=192.168.200.10
 
 [extern]
 customer01 ansible_host=192.168.200.6 loopback_ip=172.16.100.6/32

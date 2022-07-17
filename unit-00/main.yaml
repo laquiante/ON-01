@@ -1,28 +1,12 @@
--
-  name: prepare oob-mgmt-server
-  hosts: localhost
-  tasks:
-   -  name: test
-      ansible.builtin.user:
-        name: cumulus1
-        shell: /bin/bash
-        groups: cumulus
-        append: yes
-        
-   -  name: test-2
-      shell: usermod -aG sudo cumulus1
-      args:
-        executable: /bin/bash
-      
 - hosts: localhost
   become: true
   user: ubuntu
   gather_facts: false
-  
+
   tasks:
     - name: add cumulus user
       user: 
-      name: cumulus  
+      name: cumulus2  
       group: admin
       shell: /bin/bash
       comment: "admin user"

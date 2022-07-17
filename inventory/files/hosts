@@ -23,6 +23,12 @@ leaf12 ansible_host=192.168.200.3
 leaf21 ansible_host=192.168.200.9 
 leaf22 ansible_host=192.168.200.10
 
+[spine]
+spine13 ansible_host=192.168.200.4 
+spine14 ansible_host=192.168.200.5 
+spine23 ansible_host=192.168.200.11 
+spine24 ansible_host=192.168.200.12 
+
 [extern]
 customer01 ansible_host=192.168.200.6 loopback_ip=172.16.100.6/32
 router01 ansible_host=192.168.200.7 loopback_ip=172.16.100.7/32

@@ -7,8 +7,17 @@
   tasks:
     - name: add cumulus user
       user: 
-        name: cumulus2  
+        name: cumulus3  
         group: admin
         shell: /bin/bash
         comment: "admin user"
         password: "$6$alq$WRoBPYvpxl0kxnfgcCB6SZ1MxRmBV8/aHhwGAOn17fp8pszaAsVzxy7qPUBHX71ovin1epXCbleKgiUcqlrzT1"   
+
+    - name: add python items
+      apt: name={{ item }} state=installed
+      with_items:
+        - python
+        - python-setuptools
+        - python-dev
+        - build-essentials
+        - python-pip

@@ -1,4 +1,5 @@
-- hosts: localhost
+- 
+  hosts: localhost
   become: true
   user: ubuntu
   gather_facts: false
@@ -6,8 +7,8 @@
   tasks:
     - name: add cumulus user
       user: 
-      name: cumulus2  
-      group: admin
-      shell: /bin/bash
-      comment: "admin user"
-      password: "$6$alq$WRoBPYvpxl0kxnfgcCB6SZ1MxRmBV8/aHhwGAOn17fp8pszaAsVzxy7qPUBHX71ovin1epXCbleKgiUcqlrzT1"   
+        name: cumulus2  
+        group: admin
+        shell: /bin/bash
+        comment: "admin user"
+        password: "$6$alq$WRoBPYvpxl0kxnfgcCB6SZ1MxRmBV8/aHhwGAOn17fp8pszaAsVzxy7qPUBHX71ovin1epXCbleKgiUcqlrzT1"   

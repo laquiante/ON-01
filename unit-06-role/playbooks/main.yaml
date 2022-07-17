@@ -23,7 +23,7 @@
   tasks:
     - name: copy netplan yaml
       copy:
-        src: /home/cumulus/ON-01/inventory/files/{{ inventory_hostname }}-unit-05-mlag
+        src: /home/cumulus/ON-01/inventory/files/{{ inventory_hostname }}-unit-06-mlag
         dest: /etc/netplan/config.yaml
     - name: apply netplan yaml
       shell: netplan apply

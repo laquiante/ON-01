@@ -7,7 +7,7 @@
   tasks:
     - name: add cumulus user
       ansible.builtin.user: 
-        name: cumulus4
+        name: cumulus
         group: admin
         shell: /bin/bash
         comment: "admin user"
@@ -15,23 +15,23 @@
         
     - name: create dir
       ansible.builtin.file:
-        path: /home/cumulus4/.ssh
+        path: /home/cumulus/.ssh
         state: directory
         mode: '0755'
       
     - name: set dir ownership
       ansible.builtin.file:
-        path: /home/cumulus4/.ssh
+        path: /home/cumulus/.ssh
         state: directory
         recurse: yes
-        owner: cumulus4
+        owner: cumulus
         group: admin
       
     - name: copy dir    
       ansible.builtin.copy:
         src: /home/ubuntu/.ssh/
-        dest: /home/cumulus4/.ssh/
-        owner: cumulus4
+        dest: /home/cumulus/.ssh/
+        owner: cumulus
         group: admin
         mode: u+rwx
 

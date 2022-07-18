@@ -34,4 +34,8 @@
         owner: cumulus
         group: admin
         mode: u+rwx
-
+        
+    - name: change permission for rsa private key
+      ansible.builtin.file:
+      path: /home/cumulus/.ssh/id_rsa
+      mode: '0600'

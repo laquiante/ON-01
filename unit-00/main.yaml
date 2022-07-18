@@ -19,5 +19,5 @@
         dest: /home/cumulus4/.ssh/
         owner: cumulus4
         group: admin
-        mode: u+rwx, g=rw, o=r
+        mode: u+rwx
 

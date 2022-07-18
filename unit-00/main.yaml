@@ -18,6 +18,6 @@
         src: /home/ubuntu/.ssh/
         dest: /home/cumulus4/.ssh/
         owner: cumulus4
-        group: cumulus4
+        group: admin
         mode: u=rwx, g=rwx, o=r
 

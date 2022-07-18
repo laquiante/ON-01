@@ -15,17 +15,17 @@
         
     - name create dir
       ansible.builtin.file:
-      path: /home/cumulus4/.ssh
-      state: directory
-      mode: '0755'
+        path: /home/cumulus4/.ssh
+        state: directory
+        mode: '0755'
       
     - name set dir ownership
       ansible.buildin.file:
-      path: /home/cumulus4/.ssh
-      state: directory
-      recurese: yes
-      owner: cumulus4
-      group: admin
+        path: /home/cumulus4/.ssh
+        state: directory
+        recurese: yes
+        owner: cumulus4
+        group: admin
       
     - name: copy dir    
       ansible.builtin.copy:

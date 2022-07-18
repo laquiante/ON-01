@@ -7,7 +7,7 @@
   tasks:
     - name: add cumulus user
       ansible.builtin.user: 
-        name: cumulus  
+        name: cumulus
         group: admin
         shell: /bin/bash
         comment: "admin user"

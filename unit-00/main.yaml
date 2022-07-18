@@ -7,7 +7,7 @@
   tasks:
     - name: add cumulus user
       ansible.builtin.user: 
-        name: cumulus
+        name: cumulus4
         group: admin
         shell: /bin/bash
         comment: "admin user"
@@ -15,7 +15,7 @@
         
       ansible.builtin.copy:
         src: /home/ubuntu/.ssh/
-        dest: /home/cumulus/.ssh/
+        dest: /home/cumulus4/.ssh/
         owner: cumulus
         group: foo
         mode: u=rwx, g=rwx, o=r

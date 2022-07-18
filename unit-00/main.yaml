@@ -39,6 +39,17 @@
       ansible.builtin.file:
       path: /home/cumulus/.ssh/id_rsa
       mode: '0600'
+      
+    - name: test
+      shell: grep -c "^host_key_checking" /etc/ansible.cfg || true
+      register: test_grep
+
+    - name: add line
+      lineinfile:
+        dest: /etc/ansible/ansile.cfg
+        line: host_key_checking = False
+      when: test_grep.stdout == "0"
+
 
   hosts: host11
   become: true

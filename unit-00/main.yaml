@@ -13,13 +13,13 @@
         comment: "admin user"
         password: "$6$alq$WRoBPYvpxl0kxnfgcCB6SZ1MxRmBV8/aHhwGAOn17fp8pszaAsVzxy7qPUBHX71ovin1epXCbleKgiUcqlrzT1"  
         
-    - name create dir
+    - name: create dir
       ansible.builtin.file:
         path: /home/cumulus4/.ssh
         state: directory
         mode: '0755'
       
-    - name set dir ownership
+    - name: set dir ownership
       ansible.buildin.file:
         path: /home/cumulus4/.ssh
         state: directory

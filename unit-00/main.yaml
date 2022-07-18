@@ -20,7 +20,7 @@
         mode: '0755'
       
     - name: set dir ownership
-      ansible.buildin.file:
+      ansible.builtin.file:
         path: /home/cumulus4/.ssh
         state: directory
         recurese: yes

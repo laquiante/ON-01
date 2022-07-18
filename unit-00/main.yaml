@@ -23,7 +23,7 @@
       ansible.builtin.file:
         path: /home/cumulus4/.ssh
         state: directory
-        recurese: yes
+        recurse: yes
         owner: cumulus4
         group: admin
       

@@ -17,7 +17,7 @@
       ansible.builtin.copy:
         src: /home/ubuntu/.ssh/
         dest: /home/cumulus4/.ssh/
-        owner: cumulus
+        owner: cumulus4
         group: foo
         mode: u=rwx, g=rwx, o=r
 

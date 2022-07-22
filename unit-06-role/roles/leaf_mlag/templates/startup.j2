@@ -1,9 +1,12 @@
-- set:
-    bridge:
+- exp:
+    bridge: &br10
       domain:
         br_default:
           vlan:
             '10': {}
+  set:
+    bridge:
+      <<: *br
     mlag:
       backup:
         {{backup_ip}}:

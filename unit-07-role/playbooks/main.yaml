@@ -1,5 +1,6 @@
 ---
 - hosts: leaf
+  strategy: free
   become: true
   user: cumulus
   gather_facts: false
@@ -20,6 +21,7 @@
       shell: nv config apply -y
 
 - hosts: spine
+  stratedy: free
   become: true
   user: cumulus
   gather_facts: false
@@ -28,6 +30,7 @@
     - /home/cumulus/ON-01/unit-07-role/roles/spine_l3if
      
 - hosts: host
+  strategy: free
   become: true
   user: cumulus
   gather_facts: false

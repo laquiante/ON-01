@@ -1,0 +1,50 @@
+- exp:
+    bridge: &brA
+      domain:
+        br_default:
+          vlan:
+            '10': {}
+  set:
+    bridge:
+      <<: *brA
+    mlag:
+      backup:
+        {{backup_ip}}:
+          vrf: mgmt
+      enable: on
+      init-delay: 10
+      mac-address: {{system_mac}}
+      peer-ip: linklocal
+      priority: 1000
+    system:
+      hostname: {{host_name}}
+    interface:
+      lo:
+        ip:
+          address: 
+            {{loopback_ip}}: {}
+      bond1:
+        bond:
+          member:
+            swp25: {}
+          mlag:
+            enable: on
+            id: 42
+        type: bond
+      bond1,swp21-22:
+        bridge:
+          domain:
+            br_default: {}
+              access: 10
+      peerlink:
+        bond:
+          member:
+            swp23: {}
+            swp24: {}
+        type: peerlink
+      peerlink.4094:
+        base-interface: peerlink
+        type: sub
+        vlan: 4094
+      swp21-22:
+        type: swp

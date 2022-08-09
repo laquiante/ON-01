@@ -37,11 +37,11 @@
   tasks:
     - name: patch vrf and sub-interfaces
       copy:
-        src: /home/cumulus/ON-01/unit-07-role/playbooks/leaf{{ inventory_hostname }}_patch
-        dest: /etc/nvue.d/leaf{{ inventory_hostname }}_patch.yaml
+        src: /home/cumulus/ON-01/unit-07-role/playbooks/leaf{{inventory_hostname}}_patch
+        dest: /etc/nvue.d/leaf{{inventory_hostname}}_patch.yaml
     
     - name: patch changes
-      shell: nv config patch /etc/nvue.d/{{ inventory_hostname }}_patch.yaml
+      shell: nv config patch /etc/nvue.d/{{inventory_hostname}}_patch.yaml
       
     - name: activate changes
       shell: nv config apply startup

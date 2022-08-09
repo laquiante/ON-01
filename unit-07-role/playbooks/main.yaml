@@ -1,6 +1,5 @@
 ---
 - hosts: leaf
-  strategy: free
   become: true
   user: cumulus
   gather_facts: false

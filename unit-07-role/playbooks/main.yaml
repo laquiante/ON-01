@@ -5,7 +5,7 @@
   gather_facts: false
       
   roles:
-    - /home/cumulus/ON-01/unit-07-role/roles/leaf_mlag
+    - /home/cumulus/ON-01/unit-07-role/roles/leaf_l3if
     
 - hosts: spine
   become: true
@@ -13,7 +13,7 @@
   gather_facts: false
       
   roles:
-    - /home/cumulus/ON-01/unit-07-role/roles/spine_mlag
+    - /home/cumulus/ON-01/unit-07-role/roles/spine_l3if
      
 - hosts: host
   become: true

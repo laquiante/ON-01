@@ -41,7 +41,7 @@
         dest: /tmp/leaf11_patch.yaml
     
     - name: patch changes
-      shell: nv config patch /tmp/leaf11_patch.yaml
+      shell: nv config patch /etc/nvue.d/leaf11_patch.yaml
       
     - name: activate changes
-      shell: nv config apply -y
+      shell: nv config apply startup

@@ -2,4 +2,4 @@ loopback_ip: 172.16.100.11/32
 backup_ip: 192.168.200.3
 host_name: leaf11
 system_mac: 00:00:00:00:00:A1
-vlan10_ip4: 172.16.10.252/24
+# vlan10_ip4: 172.16.10.252/24

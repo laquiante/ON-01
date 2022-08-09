@@ -7,7 +7,7 @@
       vlan10:
         ip:
           address:
-            {{vlan10_ip4}}: {}
+            172.16.10.252: {}
           vrf: A
         type: svi
         vlan: 10

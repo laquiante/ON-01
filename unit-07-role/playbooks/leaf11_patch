@@ -12,3 +12,4 @@
           vrf: A
         type: svi
         vlan: 10
+        

@@ -21,7 +21,7 @@
       shell: nv config apply -y
 
 - hosts: spine
-  stratedy: free
+  strategy: free
   become: true
   user: cumulus
   gather_facts: false

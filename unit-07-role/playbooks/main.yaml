@@ -1,5 +1,6 @@
 ---
 - hosts: leaf
+  strategy: free
   become: true
   user: cumulus
   gather_facts: false
@@ -7,18 +8,6 @@
   roles:
     - /home/cumulus/ON-01/unit-07-role/roles/leaf_l3if
     
-  tasks:
-    - name: patch vrf and sub-interfaces
-      copy:
-        src: /home/cumulus/ON-01/unit-07-role/playbooks/leaf_patch
-        dest: /tmp/leaf_patch.yaml
-    
-    - name: patch changes
-      shell: nv config patch /tmp/leaf_patch.yaml
-      
-    - name: activate changes
-      shell: nv config apply -y
-
 - hosts: spine
   strategy: free
   become: true
@@ -40,3 +29,20 @@
         dest: /etc/netplan/config.yaml
     - name: apply netplan yaml
       shell: netplan apply
+
+- hosts: leaf11
+  strategy: free
+  become: true
+  user: cumulus
+  gather_facts: false
+  tasks:
+    - name: patch vrf and sub-interfaces
+      copy:
+        src: /home/cumulus/ON-01/unit-07-role/playbooks/leaf_patch
+        dest: /tmp/leaf_patch.yaml
+    
+    - name: patch changes
+      shell: nv config patch /tmp/leaf_patch.yaml
+      
+    - name: activate changes
+      shell: nv config apply -y

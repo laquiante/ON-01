@@ -13,8 +13,11 @@
         src: /home/cumulus/ON-01/unit-07-role/playbooks/leaf_patch
         dest: /tmp/leaf_patch.yaml
     
-    - name: activate changes
+    - name: patch changes
       shell: nv config patch /tmp/leaf_patch.yaml
+      
+    - name: activate changes
+      shell: nv config apply -y
 
 - hosts: spine
   become: true

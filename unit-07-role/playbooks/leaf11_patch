@@ -4,3 +4,11 @@
       B: {}
       C: {}
 
+    interface:
+      vlan10:
+        ip:
+          address:
+            172.16.10.252/24: {}
+          vrf: A
+        type: svi
+        vlan: 10

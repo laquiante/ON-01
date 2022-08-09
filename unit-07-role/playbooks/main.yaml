@@ -10,14 +10,17 @@
     
   tasks:
     - name: patch vrf and sub-interfaces
+      ignore_errors: yes
       copy:
         src: /home/cumulus/ON-01/unit-07-role/playbooks/leaf_patch
         dest: /tmp/leaf_patch.yaml
     
     - name: patch changes
+      ignore_errors: yes
       shell: nv config patch /tmp/leaf_patch.yaml
       
     - name: activate changes
+      ignore_errors: yes
       shell: nv config apply -y
 
 - hosts: spine

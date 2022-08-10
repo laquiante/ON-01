@@ -1,0 +1,24 @@
+- name: render patch 
+  template:
+    src: "vrf_light_patch.j2"
+    dest: /tmp/patch.yaml
+    
+- name: wait
+  ansible.builtin.wait_for:
+    timeout: 5
+  delegate_to: localhost
+    
+- name: patch
+  ansible.builtin.command: /usr/bin/nv config patch /tmp/patch.yaml
+
+- name: wait
+  ansible.builtin.wait_for:
+    timeout: 5
+  delegate_to: localhost
+   
+- name: activate changes
+  ansible.builtin.command: 
+    argv:
+      - /usr/bin/nv 
+      - config 
+      - apply

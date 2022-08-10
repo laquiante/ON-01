@@ -3,3 +3,5 @@ backup_ip: 192.168.200.2
 host_name: leaf21
 system_mac: 00:00:00:00:00:A1
 vlan10_ip4: 172.16.10.253/24
+vlan10_vrr_ipv4: 172.16.10.254/24
+vlan10_vrr_mac: 00:00:01:00:00:01

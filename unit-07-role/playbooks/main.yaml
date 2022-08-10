@@ -31,6 +31,8 @@
     - name: apply netplan yaml
       shell: netplan apply
 
+# gewechselt auf j2 mit einer eigenen role
+
 #- hosts: leaf
 #  become: true
 #  user: cumulus

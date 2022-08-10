@@ -1,27 +1,32 @@
 {% if host_name == "leaf11" %}
 - set:
     interface:
-      swp22:
-        description: {{host_name}}
+      swp32.20-22:
+        base-interface: swp32
+        type: sub
+      swp32.20:
+        ip:
+          address:
+            {{swp32_20_ipv4}}: {}
+          vrf: A
+        vlan: 20
+      swp32.21:
+        ip:
+          address:
+            {{swp32_21_ipv4}}: {}
+          vrf: B
+        vlan: 21
+      swp32.22:
+        ip:
+          address:
+            {{swp32_22_ipv4}}: {}
+          vrf: C
+        vlan: 22
 {% endif %}
 
-{% if host_name == "leaf12" %}
+{% if ( host_name == "leaf12" ) or (host_name == "leaf21") or (host_name == "leaf22") %}
 - set:
     interface:
-      swp22:
-        description: {{host_name}}
-{% endif %}
-
-{% if host_name == "leaf21" %}
-- set:
-    interface:
-      swp22:
-        description: {{host_name}}
-{% endif %}
-
-{% if host_name == "leaf22" %}
-- set:
-    interface:
-      swp22:
-        description: {{host_name}}
+      swp32:
+        description: unused
 {% endif %}

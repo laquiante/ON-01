@@ -1,6 +1,7 @@
-- 
+- set:
 {% if inventory_hostname == "leaf11" %}
-  set:
+    system:
+      hostname: {{host_name}}
     interface:
       swp32.20-22:
         base-interface: swp32

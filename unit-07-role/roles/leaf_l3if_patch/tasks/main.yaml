@@ -8,5 +8,11 @@
 #  shell: nv config patch /tmp/patch.yaml
    
 - name: activate changes
-  ansible.buildin.command: /usr/bin/nv config apply
+  ansible.buildin.command: 
+    argv:
+      - /usr/bin/nv 
+      - config 
+      - apply
 #  shell:  nv config apply
+
+

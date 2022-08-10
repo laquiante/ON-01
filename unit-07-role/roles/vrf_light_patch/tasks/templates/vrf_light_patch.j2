@@ -1,7 +1,8 @@
 - set:
-{% if inventory_hostname == "leaf11" %}
     system:
-      hostname: {{host_name}}
+      message:
+        pre-login: welcome cumulus linux expert
+{% if inventory_hostname == "leaf11" %}
     interface:
       swp32.20-22:
         base-interface: swp32

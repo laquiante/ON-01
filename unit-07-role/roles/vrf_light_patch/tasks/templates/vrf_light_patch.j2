@@ -1,8 +1,11 @@
-- set:
-    system:
-      message:
-        pre-login: welcome cumulus linux expert
+- unset:
+    interface:
+      swp22:
+        bridge:
+          domain:
+            br_default: {}
 {% if inventory_hostname == "leaf11" %}
+- set:
     interface:
       swp32.20-22:
         base-interface: swp32

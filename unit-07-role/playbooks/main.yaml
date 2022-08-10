@@ -7,14 +7,6 @@
       
   roles:
     - /home/cumulus/ON-01/unit-07-role/roles/leaf_l3if
- #   - /home/cumulus/ON-01/unit-07-role/roles/leaf_l3if_patch
-
-- hosts: leaf12
-  become: true
-  user: cumulus
-  gather_facts: false
-      
-  roles:
     - /home/cumulus/ON-01/unit-07-role/roles/leaf_l3if_patch
   
 - hosts: spine

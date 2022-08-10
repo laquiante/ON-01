@@ -21,4 +21,4 @@
     argv:
       - /usr/bin/nv 
       - config 
-      - apply
+      - apply -y

@@ -1,7 +1,27 @@
+{% if host_name == "leaf11" %}
 - set:
     interface:
       swp22:
-        bridge:
-          domain:
-            br_default: {}
+        description: {{host_name}}
+{% endif %}
 
+{% if host_name == "leaf12" %}
+- set:
+    interface:
+      swp22:
+        description: {{host_name}}
+{% endif %}
+
+{% if host_name == "leaf21" %}
+- set:
+    interface:
+      swp22:
+        description: {{host_name}}
+{% endif %}
+
+{% if host_name == "leaf22" %}
+- set:
+    interface:
+      swp22:
+        description: {{host_name}}
+{% endif %}

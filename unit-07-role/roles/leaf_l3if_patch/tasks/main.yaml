@@ -6,5 +6,5 @@
 - name: patch
   shell: nv config patch /tmp/patch.yaml
    
-#- name: activate changes
-#  shell:  nv config apply -y
+- name: activate changes
+  shell:  nv config apply

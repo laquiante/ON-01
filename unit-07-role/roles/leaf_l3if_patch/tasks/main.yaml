@@ -4,7 +4,9 @@
     dest: /tmp/patch.yaml
     
 - name: patch
-  shell: nv config patch /tmp/patch.yaml
+  ansible.builtin.command: /usr/bin/nv config patch /tmp/patch.yaml
+#  shell: nv config patch /tmp/patch.yaml
    
 - name: activate changes
-  shell:  nv config apply
+  ansible.buildin.command: /usr/bin/nv config apply
+#  shell:  nv config apply

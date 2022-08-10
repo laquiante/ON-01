@@ -4,4 +4,4 @@ host_name: leaf21
 system_mac: 00:00:00:00:00:A2
 vlan10_ipv4: 172.16.10.251/24
 vlan10_vrr_ipv4: 172.16.10.254/24
-vlan10_vrr_mac: 00:00:01:00:00:01
+vlan10_vrr_mac: 00:00:01:00:00:A1

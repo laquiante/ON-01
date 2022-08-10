@@ -8,6 +8,7 @@
   roles:
     - /home/cumulus/ON-01/unit-07-role/roles/leaf_l3if
     - /home/cumulus/ON-01/unit-07-role/roles/leaf_l3if_patch
+    - /home/cumulus/ON-01/unit-07-role/roles/vrf_light_patch
   
 - hosts: spine
   strategy: free

@@ -1,0 +1,7 @@
+- name: render patch 
+  template:
+    src: "l3if_patch.j2"
+    dest: /etc/nvue.d/startup.yaml
+    
+- name: activate changes
+  shell:  nv config apply startup -y

@@ -7,12 +7,12 @@
     system:
       hostname: {{host_name}}
     interface:
-      dummy_swp5:
+      dci_swp5:
         bond:
           member:
             swp5: {}
         type: bond
-      dummy_swp5,swp1-2:
+      dci_swp5,swp1-2:
         bridge:
           domain:
             br_A: {}

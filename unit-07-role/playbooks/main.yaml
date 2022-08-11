@@ -61,6 +61,18 @@
       - 172.16.21.1/30 dev swp1.21
       - 172.16.22.1/30 dev swp1.22
 
+- hosts: router02
+  name: prepare router02
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: e/n/i file and interface manager activation
+      copy:
+        src: /home/cumulus/ON-01/inventory/files/router02.if
+        dest: /etc/network/interfaces
+    # ifreload
+    - name: activate changes 
+      shell: /sbin/ifreload -a
 
 
 # gewechselt auf j2 mit einer eigenen role

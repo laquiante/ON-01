@@ -31,6 +31,37 @@
         dest: /etc/netplan/config.yaml
     - name: apply netplan yaml
       shell: netplan apply
+      
+- hosts: router01      
+  become: true
+  user: cumulus
+  gather_facts: false
+  
+  tasks:
+    - name: ip link
+       shell: ip link {{ item }}
+       with_items:
+       - add A type vrf table 1002
+       - add B type vrf table 1003
+       - add C type vrf table 1004
+       - add name swp1.20 link swp1 type vlan id 20
+       - add name swp1.21 link swp1 type vlan id 21
+       - add name swp1.22 link swp1 type vlan id 22
+       - set dev swp1 up
+       - set dev A up
+       - set dev B up
+       - set dev C up
+       - set dev swp1.20 master A
+       - set dev swp1.21 master B
+       - set dev swp1.22 master C
+    - name: ip address
+      shell: ip address add {{ item }}
+      with_items: 
+      - 172.16.20.1/30 dev swp1.20
+      - 172.16.21.1/30 dev swp1.21
+      - 172.16.22.1/30 dev swp1.22
+
+
 
 # gewechselt auf j2 mit einer eigenen role
 

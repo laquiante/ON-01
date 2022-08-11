@@ -28,5 +28,12 @@
         link:
           state:
             up: {}
+      vlan10:
+        base-interface: br_A
+        ip:
+          address:
+            {{vlan10_ipv4}}: {}
+        type: svi
+        vlan: 10
 
 

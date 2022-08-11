@@ -1,3 +1,4 @@
 loopback_ip: 172.16.100.24/32
 backup_ip: 
 host_name: spine24
+vlan10_ipv4: 172.16.10.124/24

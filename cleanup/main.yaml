@@ -26,8 +26,10 @@
     - name: activate changes for all cumulus nodes
       shell: ifreload -a
       
-    - name: remove ip(route2) state
-      ansible.builtin.reboot:
+    - name: remove stale state (Holzhammer)
+      shell: reboot
+      async: 300
+      poll: 0
       
 - hosts: host
   name: netplan

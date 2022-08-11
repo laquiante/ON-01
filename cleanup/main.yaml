@@ -27,7 +27,6 @@
       
     - name: remove ip(route2) state
       ansible.builtin.reboot:
-        reboot_timeout: 300
       
 - hosts: host
   name: netplan

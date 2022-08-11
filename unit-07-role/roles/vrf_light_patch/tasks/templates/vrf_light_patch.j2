@@ -24,9 +24,46 @@
         vlan: 22
 {% endif %}
 
-{% if ( host_name == "leaf12" ) or (host_name == "leaf21") or (host_name == "leaf22") %}
+{% if ( host_name == "leaf12" ) or (host_name == "leaf22") %}
 - set:
     interface:
       swp32:
         description: unused
+{% endif %}
+
+{% if host_name == "leaf21" %}
+- set:
+- set:
+    bridge:
+      domain:
+        br_default:
+          vlan:
+            '10': {}
+            '20': {}
+            '21': {}
+            '22': {}
+    interface:
+      swp32:
+        bridge:
+          domain:
+            br_default: {}
+
+      vlan20:
+        ip:
+          address:
+            172.16.20.5/28: {}
+        vlan: 20
+      vlan20-22:
+        type: svi
+      vlan21:
+        ip:
+          address:
+            172.16.21.5/28: {}
+        vlan: 21
+      vlan22:
+        ip:
+          address:
+            172.16.22.5/28: {}
+        vlan: 22
+
 {% endif %}

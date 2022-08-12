@@ -8,3 +8,10 @@ html {
   font-family: Lato, "sans-serif";
 }
 
+body {
+  margin-top: 80px;
+}
+
+header {
+  text-align: center;
+}

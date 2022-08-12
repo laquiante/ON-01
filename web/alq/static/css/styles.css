@@ -30,6 +30,7 @@ body {
   margin-right: 2.5rem;
 }
 
-.nav__link--active {
+.nav__link--active,
+.nav__link:hover {
   font-weight: bold;
 }

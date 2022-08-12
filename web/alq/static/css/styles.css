@@ -34,3 +34,9 @@ body {
 .nav__link:hover {
   font-weight: bold;
 }
+
+.main--about {
+  max-width: 500px;
+  padding: 0 1rem;
+  line-hight: 150%;
+}

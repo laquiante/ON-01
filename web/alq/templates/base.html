@@ -9,34 +9,21 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 </head>
+  
 <body>
  <header class="header">
- <h1>Cumulus Linux Expert Boot Camp</h1>
-  <div class="grid">
-      <ul class="navbar">
-        <li class="navbar__item">Home</li>
-        <li class="navbar__item">About</li>
-        <li class="navbar__item">Contact</li>
-      </ul>
-    </header>
+  <h1>Cumulus Linux Expert Boot Camp</h1>
+
+   <nav class="nav">
+     <a href="{{ url_for('home') }}" class="nav__link {{ 'nav__link--active' if request.path == url_for('home') }}">
+         Units
+     <a href="{{ url_for('about') }}" class="nav__link {{ 'nav__link--active' if request.path == url_for('about') }}">
+         About
+     <a href="{{ url_for('contact') }}" class="nav__link {{ 'nav__link--active' if request.path == url_for('contact') }}">
+         Contact
+  </header>
    
-    <aside class="sidebar">
-      <ul class="contents">
-        <li class="contents__item">Unit 01</li>
-        <li class="contents__item">Unit 02</li>
-        <li class="contents__item">Unit 03</li>
-        <li class="contents__item">Unit 04</li>
-      </ul>
-    </aside>
-   
-    <main class="content">
-      <h2>Vorbereitung</h2>
-      <p>lalala.</p>
-      <p>lalala.</p>
-      <p>lalala.</p>
-      <p>lalala.</p>
-      
-    </main>
+
    
     <footer class="footer">
       Written by ALQ 2022

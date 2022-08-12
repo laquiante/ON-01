@@ -29,3 +29,7 @@ body {
 .nav__link:not(:last-of-type) {
   margin-right: 2.5rem;
 }
+
+.nav__link--active {
+  font-weight: bold;
+}

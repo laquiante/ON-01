@@ -18,21 +18,12 @@ app = Flask(__name__)
 SWITCHES = ['leaf11','leaf12']
 
 @app.route('/')
-def start():
-    ziel = 'https://'+SWITCHES[0]+':8765/cue_v1/system'
-    ergebnis = requests.get(ziel, auth=('cumulus','CumulusLinux!'), verify=False)
-    for key in ergebnis.json():
-      if key == "build":
-        nos = (ergebnis.json()[key])        
-    return render_template("home.html", nos = nos)
+def start():   
+    return render_template("home.html", Zeiger = 0)
 
-@app.route('/unit-03')
-def unit_03():
-    ziel = 'https://'+SWITCHES[0]+':8765/cue_v1/system'
-    ergebnis = requests.get(ziel, auth=('cumulus','CumulusLinux!'), verify=False)
-    for key in ergebnis.json():
-      if key == "build":
-        nos = (ergebnis.json()[key])        
-    return render_template("home.html", nos = nos)
+@app.route('/unit-01')
+def start():   
+    return render_template("home.html", Zeiger = 1)
+
 
 app.run(host='::',debug=True)

@@ -1,34 +1,10 @@
-body {
-  margin: 0;
+*,
+*::before
+*::after {
+  box-sizing: border-box;
 }
 
-.grid > * {
-  border: 1px dashed red;
+html {
+  font-family: Lato, "sans-serif";
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  grid-template-areas:
-    "header header"
-    "sidebar content"
-    ". footer";
-  padding: 8px;
-}
-
-.header {
-  grid-area: header;
-}
-
-.sidebar {
-  grid-area: sidebar;
-}
-
-.content {
-  grid-area: content;
-}
-
-.footer {
-  grid-area: footer;
-  text-align: center;
-}

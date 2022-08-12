@@ -18,7 +18,7 @@ app = Flask(__name__)
 SWITCHES = ['leaf11','leaf12']
 
 @app.route('/')
-def start():   
+def home():   
     return render_template("home.html")
 
 @app.route('/about')

@@ -12,6 +12,11 @@ body {
   margin-top: 80px;
 }
 
-header {
+.header {
   text-align: center;
+}
+
+.nav {
+  margin-bottom: 3rem;
+  font-size: 1.2rem;
 }

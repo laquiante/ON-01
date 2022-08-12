@@ -19,11 +19,14 @@ SWITCHES = ['leaf11','leaf12']
 
 @app.route('/')
 def start():   
-    return render_template("home.html", Zeiger = 0)
+    return render_template("home.html")
 
-@app.route('/unit-01')
-def start():   
-    return render_template("home.html", Zeiger = 1)
+@app.route('/about')
+def about():   
+    return render_template("about.html")
 
+@app.route('/contact')
+def contact():   
+    return render_template("contact.html")
 
 app.run(host='::',debug=True)

@@ -22,7 +22,7 @@ def units():
     return render_template("units.html")
 
 @app.route('/topology')
-def units():   
+def topology():   
     return render_template("topology.html")
 
 @app.route('/about')

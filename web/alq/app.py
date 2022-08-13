@@ -26,6 +26,18 @@ einheiten = [
         "id":   "02"
         "cat":  "base"
         "icon": "/img/test.png"
+    },
+    {
+        "name": "03"
+        "id":   "03"
+        "cat":  "base"
+        "icon": "/img/test.png"
+    },
+    {
+        "name": "Vier"
+        "id":   "04"
+        "cat":  "base"
+        "icon": "/img/test.png"
     }
 ]
 

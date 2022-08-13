@@ -13,6 +13,22 @@ import urllib3
 # nicht schoen aber heute Nachmittag zweckmaessig
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+
+einheiten = [
+    {
+        "name": "Introduction"
+        "id":   "01"
+        "cat":  "base"
+        "icon": "/img/test.png"
+    },
+    {
+        "name": "Hardware & VX"
+        "id":   "02"
+        "cat":  "base"
+        "icon": "/img/test.png"
+    }
+]
+
 app = Flask(__name__)
 
 SWITCHES = ['leaf11','leaf12']

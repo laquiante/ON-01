@@ -9,7 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 </head>
-  <body>
+  
+<body>
    <header class="header">
      <h1>Cumulus Linux Expert Boot Camp</h1>
 
@@ -21,11 +22,10 @@
        <a href="{{ url_for('contact') }}" class="nav__link {{ 'nav__link--active' if request.path == url_for('contact') }}">
          Contact
     </header>
-   </body> 
-  </head>
+
        
        
-    <body>
+
       {% block content %}
       
       {% endblock %}

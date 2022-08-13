@@ -17,28 +17,28 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 einheiten = [
     {
-        "name": "Introduction"
-        "id":   "01"
-        "cat":  "base"
-        "icon": "/img/test.png"
+        "name": "Introduction",
+        "id":   "01",
+        "cat":  "base",
+        "icon": "/img/test.png",
     },
     {
-        "name": "Hardware & VX"
-        "id":   "02"
-        "cat":  "base"
-        "icon": "/img/test.png"
+        "name": "Hardware & VX",
+        "id":   "02",
+        "cat":  "base",
+        "icon": "/img/test.png",
     },
     {
-        "name": "03"
-        "id":   "03"
-        "cat":  "base"
-        "icon": "/img/test.png"
+        "name": "03",
+        "id":   "03",
+        "cat":  "base",
+        "icon": "/img/test.png",
     },
     {
-        "name": "Vier"
-        "id":   "04"
-        "cat":  "base"
-        "icon": "/img/test.png"
+        "name": "Vier",
+        "id":   "04",
+        "cat":  "base",
+        "icon": "/img/test.png",
     }
 ]
 

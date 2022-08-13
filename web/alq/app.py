@@ -3,6 +3,7 @@
 # Benutzer: cumulus/ON-01/web
 # source bootcamp/bin/activate
 # Die Geraete mit 5.x sollten vorbereitet sein
+# Browser: FireFox 101.0.1
 
 from flask import Flask
 from flask import render_template

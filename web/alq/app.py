@@ -18,25 +18,25 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 einheiten = [
     {
         "name": "Introduction",
-        "id":   "01",
+        "id_feld":   "01",
         "cat":  "base",
         "icon": "/img/test.png",
     },
     {
         "name": "Hardware & VX",
-        "id":   "02",
+        "id_feld":   "02",
         "cat":  "base",
         "icon": "/img/test.png",
     },
     {
         "name": "03",
-        "id":   "03",
+        "id_feld":   "03",
         "cat":  "base",
         "icon": "/img/test.png",
     },
     {
         "name": "Vier",
-        "id":   "04",
+        "id_feld":   "04",
         "cat":  "base",
         "icon": "/img/test.png",
     }

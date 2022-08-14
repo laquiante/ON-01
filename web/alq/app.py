@@ -74,5 +74,8 @@ def project(slug):
                abort(404)
            return render_template(f"project_{slug}.html", project=slug_to_project[slug])
            
-
+@app.errorhandler(404)
+def page_nicht_hier(error)
+    return render_templae("404.html"), 404
+        
 app.run(host='::',debug=True)

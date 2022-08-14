@@ -50,3 +50,17 @@ body {
   padding: 0 1rem;
   line-hight: 150%;
 }
+
+.u-bare-link {
+  text-decoration: none;
+}
+
+.projects {
+  display: grid;
+  grid-template-colums: 3fr;
+  column-gap: 1.25rem;
+  justify-content: center;
+  jusstify-items: center;
+  margin: 0 auto;
+}
+

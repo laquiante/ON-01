@@ -10,6 +10,11 @@
                   <img class="project-card__image"
                   src ="{{ url_for('static', filename=project['icon']) }}" 
                   />
+                  <header class"project-card__meta">
+                      <ul class="categories">
+                          {% for name in project["name"] %}
+                          <li lcass"categories__tag">{{name}}</li>
+                          {% endfor %}
               </article>
           </a>
        {% endfor %}

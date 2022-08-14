@@ -76,6 +76,6 @@ def project(slug):
            
 @app.errorhandler(404)
 def page_nicht_hier(error):
-    return render_templae("404.html"), 404
+    return render_template("404.html"), 404
         
 app.run(host='::',debug=True)

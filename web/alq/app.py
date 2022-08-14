@@ -5,7 +5,7 @@
 # Die Geraete mit 5.x sollten vorbereitet sein
 # Browser: FireFox 101.0.1
 
-from flask import Flask
+from flask import Flask, abort
 from flask import render_template
 
 import requests
@@ -46,6 +46,8 @@ projects = [
     }
 ]
 
+slug_to_project = {project["slug"]: project for project in projects}
+
 app = Flask(__name__)
 
 SWITCHES = ['leaf11','leaf12']
@@ -65,5 +67,12 @@ def about():
 @app.route('/contact')
 def contact():   
     return render_template("contact.html")
+
+@app.route('/project/<string:slug>")
+def project(slug):
+           if slug not in slug_to_project:
+               abort(404)
+           retrun render_template(f"project_{slug}.html", project=slug_to_project[slug])
+           
 
 app.run(host='::',debug=True)

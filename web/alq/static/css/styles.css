@@ -88,7 +88,7 @@ body {
 .project-card__name {
   margin: 0;
   font-size: 1.5rem;
-  color: #1c1c1c
+  color: #3d84a3;
 }
 
 .project-card:hover .project-card__image {

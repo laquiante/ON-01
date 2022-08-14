@@ -57,10 +57,25 @@ body {
 
 .projects {
   display: grid;
-  grid-template-colums: 3fr;
+  grid-template-colums: 1fr;
   column-gap: 1.25rem;
   justify-content: center;
   jusstify-items: center;
+  max-width: 21.875rem;
   margin: 0 auto;
+}
+
+@media (min-width: 48.75rem) {
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 45rem;
+  }
+}
+
+@media (min-width: 70rem) {
+  .projects {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 68rem;
+  }
 }
 

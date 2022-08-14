@@ -32,7 +32,7 @@ projects = [
         "name": "03",
         "id_feld":   "03",
         "cat":  "base",
-        "icon": "/img/thumb_schlunung_03.png",
+        "icon": "/img/thumb_schulung_03.png",
     },
     {
         "name": "Vier",

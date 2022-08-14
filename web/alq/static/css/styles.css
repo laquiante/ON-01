@@ -56,6 +56,10 @@ body {
   line-hight: 150%;
 }
 
+.contact__image {
+  max-width: 100%;
+}
+
 .projects {
   display: grid;
   grid-template-colums: 1fr;

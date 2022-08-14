@@ -29,13 +29,13 @@ projects = [
         "icon": "/img/thumb_schulung_02.png",
     },
     {
-        "name": "03",
+        "name": "Out-Of-Band",
         "id_feld":   "03",
         "cat":  "base",
         "icon": "/img/thumb_schulung_03.png",
     },
     {
-        "name": "Vier",
+        "name": "NVUE & Co.",
         "id_feld":   "04",
         "cat":  "base",
         "icon": "/img/thumb_schulung_04.png",

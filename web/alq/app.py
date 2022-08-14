@@ -68,7 +68,7 @@ def about():
 def contact():   
     return render_template("contact.html")
 
-@app.route('/project/<string:slug>")
+@app.route('/project/<string:slug>')
 def project(slug):
            if slug not in slug_to_project:
                abort(404)

@@ -85,10 +85,6 @@ body {
   transition: transform 0.2s ease-in-out;
 }
 
-.project-card__meta {
-  padding: 0 1.25rem;
-}
-
 .project-card__name {
   margin: 0;
   font-size: 1,5rem;

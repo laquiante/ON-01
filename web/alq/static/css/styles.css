@@ -95,6 +95,10 @@ body {
   transform: translateY(-0.5rem);
 }
 
+.project-card:hover .project-card__name {
+  text-decoration: underline;
+}
+
 .u-bare-link {
   text-decoration: none;
 }

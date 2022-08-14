@@ -43,14 +43,14 @@ body {
 
 .main--about,
 .main-error {
-  flex-direction: columen;
+  flex-direction: column;
   max-width: 500px;
   padding: 0 1rem;
   line-hight: 150%;
 }
 
 .main--contact {
-  flex-direction: columen;
+  flex-direction: column;
   max-width: 500ps;
   padding: 0 1rem;
   line-hight: 150%;

@@ -20,25 +20,25 @@ projects = [
         "name": "Introduction",
         "id_feld":   "01",
         "cat":  "base",
-        "icon": "/img/test.png",
+        "icon": "/img/thumb_schulung_01.png",
     },
     {
         "name": "Hardware & VX",
         "id_feld":   "02",
         "cat":  "base",
-        "icon": "/img/test.png",
+        "icon": "/img/thumb_schulung_02.png",
     },
     {
         "name": "03",
         "id_feld":   "03",
         "cat":  "base",
-        "icon": "/img/test.png",
+        "icon": "/img/thumb_schlunung_03.png",
     },
     {
         "name": "Vier",
         "id_feld":   "04",
         "cat":  "base",
-        "icon": "/img/test.png",
+        "icon": "/img/thumb_schulung_04.png",
     }
 ]
 

@@ -36,16 +36,21 @@ body {
 }
 
 .main {
+  display: flex;
+  justify-content: center;
   margin: 0 auto;
 }
 
-.main--about {
+.main--about,
+.main-error {
+  flex-direction: columen;
   max-width: 500px;
   padding: 0 1rem;
   line-hight: 150%;
 }
 
 .main--contact {
+  flex-direction: columen;
   max-width: 500ps;
   padding: 0 1rem;
   line-hight: 150%;

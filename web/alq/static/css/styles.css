@@ -79,3 +79,29 @@ body {
   }
 }
 
+.project-card {
+  padding: 0.75rem 0;
+}
+
+.project-card__image {
+  max-width: 100%;
+  margin-bottom: 1rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.project-card__meta {
+  padding: 0 1.25rem;
+}
+
+.project-card__name {
+  margin: 0;
+  font-size: 1,5rem;
+}
+
+.project-card: hover .project-card__image {
+  transform: translatev(-0.5rem);
+}
+
+
+}
+

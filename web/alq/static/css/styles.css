@@ -45,14 +45,10 @@ body {
   line-hight: 150%;
 }
 
-.main--content {
+.main--contact {
   max-width: 500ps;
   padding: 0 1rem;
   line-hight: 150%;
-}
-
-.u-bare-link {
-  text-decoration: none;
 }
 
 .projects {
@@ -102,6 +98,7 @@ body {
   transform: translatev(-0.5rem);
 }
 
-
+.u-bare-link {
+  text-decoration: none;
 }
 

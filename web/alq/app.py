@@ -72,7 +72,7 @@ def contact():
 def project(slug):
            if slug not in slug_to_project:
                abort(404)
-           retrun render_template(f"project_{slug}.html", project=slug_to_project[slug])
+           return render_template(f"project_{slug}.html", project=slug_to_project[slug])
            
 
 app.run(host='::',debug=True)

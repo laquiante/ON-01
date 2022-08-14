@@ -15,7 +15,7 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
-einheiten = [
+project = [
     {
         "name": "Introduction",
         "id_feld":   "01",

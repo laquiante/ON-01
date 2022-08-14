@@ -48,7 +48,7 @@ SWITCHES = ['leaf11','leaf12']
 
 @app.route('/')
 def units():   
-    return render_template("units.html", einheiten=einheiten)
+    return render_template("units.html", projects=projects)
 
 @app.route('/topology')
 def topology():   

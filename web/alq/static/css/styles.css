@@ -12,6 +12,10 @@ body {
   margin-top: 80px;
 }
 
+body * {
+  border: 1px dashed red;
+}
+
 .header {
   text-align: center;
 }

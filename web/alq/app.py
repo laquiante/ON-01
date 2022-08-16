@@ -10,47 +10,18 @@ from flask import render_template
 
 import requests
 import urllib3
+import ast
 
 # nicht schoen aber heute Nachmittag zweckmaessig
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
-projects = [
-    {
-        "name": "Introduction",
-        "id_feld":   "01",
-        "cat":  "base",
-        "icon": "/img/thumb_schulung_01.png",
-        "slug": "beginn",
-    },
-    {
-        "name": "Hardware & VX",
-        "id_feld":   "02",
-        "cat":  "base",
-        "icon": "/img/thumb_schulung_02.png",
-        "slug": "geraete",
-    },
-    {
-        "name": "Out-Of-Band",
-        "id_feld":   "03",
-        "cat":  "base",
-        "icon": "/img/thumb_schulung_03.png",
-        "slug": "zugang",
-    },
-    {
-        "name": "NVUE & Co.",
-        "id_feld":   "04",
-        "cat":  "base",
-        "icon": "/img/thumb_schulung_04.png",
-        "slug": "befehle"
-    }
-]
-
 slug_to_project = {project["slug"]: project for project in projects}
 
 app = Flask(__name__)
 
-SWITCHES = ['leaf11','leaf12']
+with open('project.txt') as f:
+    projects = ast.literal_eval(f.read())
 
 @app.route('/')
 def units():   

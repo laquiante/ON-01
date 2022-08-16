@@ -43,6 +43,34 @@ projects = [
         "cat":  "base",
         "icon": "/img/thumb_schulung_04.png",
         "slug": "befehle"
+    },
+    {
+        "name": "IF and Bridges",
+        "id_feld":   "05",
+        "cat":  "base",
+        "icon": "/img/thumb_schulung_05.png",
+        "slug": "schnittstellen"
+    },
+    {
+        "name": "LAG & MLAG",
+        "id_feld":   "06",
+        "cat":  "base",
+        "icon": "/img/thumb_schulung_06.png",
+        "slug": "cluster"
+    },
+    {
+        "name": "L3 IF",
+        "id_feld":   "07",
+        "cat":  "base",
+        "icon": "/img/thumb_schulung_07.png",
+        "slug": "schicht 3"
+    },
+    {
+        "name": "BGP",
+        "id_feld":   "08",
+        "cat":  "base",
+        "icon": "/img/thumb_schulung_08.png",
+        "slug": "MP-BGP"
     }
 ]
 

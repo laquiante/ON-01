@@ -10,17 +10,15 @@ from flask import render_template
 
 import requests
 import urllib3
-import ast
+import projects
+
 
 # nicht schoen aber heute Nachmittag zweckmaessig
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-projects = []
-
-with open('project.txt') as f:
-    projects = ast.literal_eval(f.read())
-    
 print(projects)
+print(type(projects))
+
 
 slug_to_project = {project["slug"]: project for project in projects}
 

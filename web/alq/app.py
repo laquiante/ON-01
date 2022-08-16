@@ -15,6 +15,8 @@ import ast
 # nicht schoen aber heute Nachmittag zweckmaessig
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+projects = []
+
 with open('project.txt') as f:
     projects = ast.literal_eval(f.read())
     

@@ -22,6 +22,8 @@ app = Flask(__name__)
 
 with open('project.txt') as f:
     projects = ast.literal_eval(f.read())
+    
+print(projects)
 
 @app.route('/')
 def units():   

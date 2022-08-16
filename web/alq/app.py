@@ -15,15 +15,16 @@ import ast
 # nicht schoen aber heute Nachmittag zweckmaessig
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+with open('project.txt') as f:
+    projects = ast.literal_eval(f.read())
+    
+print(projects)
 
 slug_to_project = {project["slug"]: project for project in projects}
 
 app = Flask(__name__)
 
-with open('project.txt') as f:
-    projects = ast.literal_eval(f.read())
-    
-print(projects)
+
 
 @app.route('/')
 def units():   

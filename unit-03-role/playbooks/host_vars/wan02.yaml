@@ -1,0 +1,3 @@
+loopback_ip: 4.4.4.4./32
+backup_ip: 
+host_name: wan02

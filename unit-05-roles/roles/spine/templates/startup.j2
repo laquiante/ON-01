@@ -1,0 +1,24 @@
+- set:
+    bridge:
+      domain:
+        br_default:
+          vlan:
+            '10': {}
+    interface:
+      lo:
+        ip:
+          address:
+            {{loopback_ip}}: {}
+        type: loopback
+      swp1:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp5:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+    system:
+      hostname: {{host_name}}

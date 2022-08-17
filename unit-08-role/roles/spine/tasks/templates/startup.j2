@@ -1,0 +1,55 @@
+- set:
+    router:
+      bgp:
+        autonomous-system: {{asn}}
+        enable: on
+        router-id: {{router_id}}
+    system:
+      hostname: spine13
+    vrf:
+      default:
+        router:
+          bgp:
+            address-family:
+              ipv4-unicast:
+                enable: on
+                network:
+                  {{loopback_ip}}: {}
+            enable: on
+            neighbor:
+              192.168.42.2:
+                address-family:
+                  ipv4-unicast:
+                    soft-reconfiguration: on
+                remote-as: external
+                type: numbered
+              swp1:
+                address-family:
+                  ipv4-unicast:
+                    soft-reconfiguration: on
+                remote-as: external
+                type: unnumbered
+              swp2:
+                address-family:
+                  ipv4-unicast:
+                    soft-reconfiguration: on
+                remote-as: external
+                type: unnumbered
+              swp5:
+                address-family:
+                  ipv4-unicast:
+                    soft-reconfiguration: on
+                remote-as: external
+                type: unnumbered
+    interface:
+      lo:
+        ip:
+          address:
+            {{loopback_ip}}: {}
+        type: loopback
+      swp1-2,4-5:
+        type: swp
+      swp4:
+        ip:
+          address:
+            192.168.42.1/30: {}

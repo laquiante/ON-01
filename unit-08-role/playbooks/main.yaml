@@ -1,0 +1,17 @@
+- hosts: leaf
+#  strategy: free
+  become: true
+  user: cumulus
+  gather_facts: false
+      
+  roles:
+    - /home/cumulus/ON-01/unit-08-role/roles/leaf
+
+- hosts: spine
+  strategy: free
+  become: true
+  user: cumulus
+  gather_facts: false
+      
+  roles:
+    - /home/cumulus/ON-01/unit-08-role/roles/spine

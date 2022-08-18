@@ -18,9 +18,16 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # nos = ''
 
-switche = [192.168.200.2, 
-           192.168.200.3,
-           192.168.200.4
+switche = [{
+           "id": 1,
+           "name": "leaf11", 
+           "ip": 192.168.200.2
+           },
+           {
+           "id": 2,
+           "name": "leaf12", 
+           "ip": 192.168.200.3
+           },
           ]
 
 projects = [
@@ -113,7 +120,7 @@ def project(slug):
 # 18-AUG-2022
                nos = ''
                if slug == 'beginn': 
-                 ziel = 'https://'+switch[1]+':8765/cue_v1/system'
+                 ziel = 'https://'+switch[1][ip]+':8765/cue_v1/system'
                  ergebnis = requests.get(ziel, auth=('cumulus','CumulusLinux!'), verify=False)
                  for key in ergebnis.json():
                    if key == "build":

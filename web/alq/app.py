@@ -21,12 +21,12 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 switche = [{
            "id": 1,
            "name": "leaf11", 
-           "ip": 192.168.200.2
+           "ip": "192.168.200.2"
            },
            {
            "id": 2,
            "name": "leaf12", 
-           "ip": 192.168.200.3
+           "ip": "192.168.200.3"
            },
           ]
 

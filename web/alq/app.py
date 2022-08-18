@@ -101,7 +101,17 @@ def contact():
 def project(slug):
            if slug not in slug_to_project:
                abort(404)
-           return render_template(f"project_{slug}.html", project=slug_to_project[slug])
+
+# 18-AUG-2022
+               nos = ''
+               if slug == 'beginn': 
+                 ziel = 'https://192.168.200.2:8765/cue_v1/system'
+                 ergebnis = requests.get(ziel, auth=('cumulus','CumulusLinux!'), verify=False)
+                 for key in ergebnis.json():
+                   if key == "build":
+                     nos = (ergebnis.json()[key])        
+   
+           return render_template(f"project_{slug}.html", project=slug_to_project[slug], nos = nos)
            
 @app.errorhandler(404)
 def page_nicht_hier(error):

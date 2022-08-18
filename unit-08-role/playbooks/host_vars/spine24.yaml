@@ -1,0 +1,6 @@
+loopback_ip: 172.16.100.24/32
+router_id: 172.16.100.24
+host_name: spine24
+asn: 65102
+nbr: 192.168.142.6
+swp4_ipv4: 192.168.142.4/30

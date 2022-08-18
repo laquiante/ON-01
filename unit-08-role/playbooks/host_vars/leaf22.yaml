@@ -1,0 +1,4 @@
+loopback_ip: 172.16.100.22/32
+router_id: 172.16.100.22
+host_name: leaf22
+asn: 65122

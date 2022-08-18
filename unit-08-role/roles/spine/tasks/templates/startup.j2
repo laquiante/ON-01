@@ -17,7 +17,7 @@
                   {{loopback_ip}}: {}
             enable: on
             neighbor:
-              192.168.42.2:
+              {{nbr}}:
                 address-family:
                   ipv4-unicast:
                     soft-reconfiguration: on
@@ -52,4 +52,4 @@
       swp4:
         ip:
           address:
-            192.168.42.1/30: {}
+            {{swp4_ipv4}}: {}

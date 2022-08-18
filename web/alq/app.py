@@ -113,7 +113,7 @@ def project(slug):
 # 18-AUG-2022
                nos = ''
                if slug == 'beginn': 
-                 ziel = 'https://#+switche[0]+':8765/cue_v1/system'
+                 ziel = 'https://'+switch[1]+':8765/cue_v1/system'
                  ergebnis = requests.get(ziel, auth=('cumulus','CumulusLinux!'), verify=False)
                  for key in ergebnis.json():
                    if key == "build":

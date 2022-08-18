@@ -18,7 +18,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # nos = ''
 
-switche = [{
+switch = [{
            "id": 1,
            "name": "leaf11", 
            "ip": "192.168.200.2"

@@ -15,6 +15,8 @@ import urllib3
 
 # nicht schoen aber heute Nachmittag zweckmaessig
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+nos = ''
 projects = [
     {
         "name": "Introduction",
@@ -101,7 +103,7 @@ def contact():
 def project(slug):
            if slug not in slug_to_project:
                abort(404)
-
+           else:
 # 18-AUG-2022
                nos = ''
                if slug == 'beginn': 
@@ -111,7 +113,7 @@ def project(slug):
                    if key == "build":
                      nos = (ergebnis.json()[key])        
    
-           return render_template(f"project_{slug}.html", project=slug_to_project[slug], nos = nos)
+               return render_template(f"project_{slug}.html", project=slug_to_project[slug], nos = nos)
            
 @app.errorhandler(404)
 def page_nicht_hier(error):

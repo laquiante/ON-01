@@ -1,0 +1,4 @@
+loopback_ip: 172.16.100.24/32
+router_id: 172.16.100.24
+host_name: spine24
+asn: 65102

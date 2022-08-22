@@ -2,3 +2,5 @@ loopback_ip: 172.16.100.11/32
 router_id: 172.16.100.11
 host_name: leaf11
 asn: 65111
+mac_bond01: 44:38:39:FF:0:01
+svi10_ipv4: 172.16.10.252/24

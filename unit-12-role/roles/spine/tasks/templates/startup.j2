@@ -1,0 +1,47 @@
+- set:
+    router:
+      bgp:
+        autonomous-system: {{asn}}
+        enable: on
+        router-id: {{router_id}}
+    system:
+      hostname: spine13
+    vrf:
+      default:
+        router:
+          bgp:
+            address-family:
+              ipv4-unicast:
+                enable: on
+                network:
+                  {{loopback_ip}}: {}
+              l2vpn-evpn:
+                enable: on
+            enable: on
+            neighbor:
+              swp1:
+                address-family:
+                  l2vpn-evpn:
+                    enable: on
+                remote-as: external
+                type: unnumbered
+              swp2:
+                address-family:
+                  l2vpn-evpn:
+                    enable: on
+                remote-as: external
+                type: unnumbered
+              swp5:
+                address-family:
+                  l2vpn-evpn:
+                    enable: on
+                remote-as: external
+                type: unnumbered
+    interface:
+      lo:
+        ip:
+          address:
+            {{loopback_ip}}: {}
+        type: loopback
+      swp1-2,5:
+        type: swp

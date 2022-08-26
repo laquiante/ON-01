@@ -1,0 +1,29 @@
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    eth0:
+      dhcp4: true
+    eth1:
+      dhcp4: false
+    eth2:
+      dhcp4: false
+    eth3:
+      dhcp4: false
+      addresses:
+      - 172.16.74.2/30
+  bonds:
+    bond1:
+      interfaces:
+      - eth1
+      - eth2
+      addresses:
+      - 172.16.10.2/24
+      routes:
+      - to: 172.16.0.0/8
+        via: 172.16.10.254
+      parameters:
+        mode: 802.3ad
+        lacp-rate: fast
+        mii-monitor-interval: 100
+        transmit-hash-policy: layer2+3

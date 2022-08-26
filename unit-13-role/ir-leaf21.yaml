@@ -1,0 +1,96 @@
+- set:
+    bridge:
+      domain:
+        br_default:
+          vlan:
+            '1': {}
+            '20': {}
+    evpn:
+      enable: on
+      multihoming:
+        enable: on
+    nve:
+      vxlan:
+        enable: on
+    router:
+      bgp:
+        autonomous-system: 65121
+        enable: on
+        router-id: 172.16.100.21
+      vrr:
+        enable: on
+    system:
+      hostname: leaf21
+    vrf:
+      A1:
+        evpn:
+          enable: on
+          vni:
+            '4001': {}
+      default:
+        router:
+          bgp:
+            address-family:
+              ipv4-unicast:
+                enable: on
+                network:
+                  172.16.100.21/32: {}
+              l2vpn-evpn:
+                enable: on
+            enable: on
+            neighbor:
+              swp21:
+                address-family:
+                  l2vpn-evpn:
+                    enable: on
+                remote-as: external
+                type: unnumbered
+              swp22:
+                address-family:
+                  l2vpn-evpn:
+                    enable: on
+                remote-as: external
+                type: unnumbered
+            path-selection:
+              multipath:
+                aspath-ignore: on
+    interface:
+      bond01:
+        bond:
+          member:
+            swp25: {}
+        bridge:
+          domain:
+            br_default:
+              access: 20
+        evpn:
+          multihoming:
+            segment:
+              df-preference: 1000
+              enable: on
+              local-id: 1
+              mac-address: 44:38:39:FF:00:02
+        type: bond
+      lo:
+        ip:
+          address:
+            172.16.100.21/32: {}
+        type: loopback
+      swp21-22:
+        evpn:
+          multihoming:
+            uplink: on
+      swp21-22,25:
+        type: swp
+      vlan20:
+        ip:
+          address:
+            172.16.20.250/24: {}
+          vrf: A1
+          vrr:
+            address:
+              172.16.20.254/24: {}
+            enable: on
+            mac-id: 2
+        type: svi
+        vlan: 20

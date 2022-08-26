@@ -20,7 +20,7 @@ network:
       addresses:
       - 172.16.10.1/24
       routes:
-      - to: 172.16.0.0/8
+      - to: 172.0.0.0/8
         via: 172.16.10.254
       parameters:
         mode: 802.3ad

@@ -4,4 +4,5 @@ host_name: leaf21
 asn: 65121
 mac_bond01: 44:38:39:FF:00:02
 svi10_ipv4: 172.16.10.250/24
+svi20_ipv4: 172.16.20.250/24
 es_id: 2

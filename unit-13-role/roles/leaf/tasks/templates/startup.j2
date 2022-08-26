@@ -1,12 +1,20 @@
 - set:
+{% if ({{host_name}} == leaf11) or ({{host_name}} == leaf12)
     bridge:
       domain:
         br_default:
           vlan:
             '1': {}
+            {% if ({{host_name}} == leaf11) or ({{host_name}} == leaf12)
             '10':
               vni:
                 '10': {}
+            {% else %}
+            '20':
+              vni:
+                '20': {}
+            {% endif %}
+
     evpn:
       enable: on
       multihoming:
@@ -54,13 +62,17 @@
         bridge:
           domain:
             br_default:
-              access: 10
+            {% if ({{host_name}} == leaf11) or ({{host_name}} == leaf12)
+            access: 10
+            {% else %}
+            access: 20
+            {% endif %}
         evpn:
           multihoming:
             segment:
               df-preference: 1000
               enable: on
-              local-id: 1
+              local-id: {{es_id}}
               mac-address: {{mac_bond01}}
         type: bond
       lo:

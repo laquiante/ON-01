@@ -4,4 +4,5 @@ host_name: leaf12
 asn: 65112
 mac_bond01: 44:38:39:FF:00:01
 svi10_ipv4: 172.16.10.253/24
+svi20_ipv4: 1.1.1.2/24
 es_id: 1

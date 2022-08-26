@@ -1,0 +1,6 @@
+loopback_ip: 172.16.100.21/32
+router_id: 172.16.100.21
+host_name: leaf21
+asn: 65121
+mac_bond01: 44:38:39:FF:00:02
+svi10_ipv4: 172.16.10.250/24

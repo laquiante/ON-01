@@ -62,9 +62,9 @@
           domain:
             br_default:
             {% if (host_name == 'leaf11') or (host_name == 'leaf12') %}
-            access: 10
+              access: 10
             {% else %}
-            access: 20
+              access: 20
             {% endif %}
         evpn:
           multihoming:

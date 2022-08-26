@@ -16,7 +16,7 @@
   roles:
     - /home/cumulus/ON-01/unit-13-role/roles/spine
 
-- hosts: host22
+- hosts: host
   name: netplan
   become: yes
   gather_facts: no

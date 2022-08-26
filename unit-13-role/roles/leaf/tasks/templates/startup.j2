@@ -4,7 +4,7 @@
         br_default:
           vlan:
             '1': {}
-            {% if ({{host_name}} == leaf11) or ({{host_name}} == leaf12)}
+            {% if ({{host_name}} == leaf11) or ({{host_name}} == leaf12) %}
             '10':
               vni:
                 '10': {}
@@ -61,7 +61,7 @@
         bridge:
           domain:
             br_default:
-            {% if ({{host_name}} == leaf11) or ({{host_name}} == leaf12)}
+            {% if ({{host_name}} == leaf11) or ({{host_name}} == leaf12) %}
             access: 10
             {% else %}
             access: 20
@@ -85,7 +85,7 @@
             uplink: on
         type: swp
         
-      {% if ({{host_name}} == leaf11) or ({{host_name}} == leaf12)}  
+      {% if ({{host_name}} == leaf11) or ({{host_name}} == leaf12) %}  
       vlan10:
         ip:
           address:

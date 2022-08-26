@@ -1,3 +1,4 @@
+{% if (host_name == 'leaf11') %}
 - set:
     bridge:
       domain:
@@ -7,12 +8,6 @@
             '10':
               vni:
                 '10': {}
-            {% if (host_name == 'leaf21') %}
-            '20':
-              vni:
-                '20': {}
-            {% endif %}
-
     evpn:
       enable: on
       multihoming:
@@ -60,11 +55,7 @@
         bridge:
           domain:
             br_default:
-            {% if (host_name == 'leaf11') or (host_name == 'leaf12') %}
               access: 10
-            {% else %}
-              access: 20
-            {% endif %}
         evpn:
           multihoming:
             segment:
@@ -83,19 +74,11 @@
           multihoming:
             uplink: on
         type: swp
-        
-      {% if (host_name == 'leaf11') or (host_name == 'leaf12') %}  
+
       vlan10:
         ip:
           address:
             {{svi10_ipv4}}: {}
         type: svi
         vlan: 10
-      {% else %}  
-      vlan20:
-        ip:
-          address:
-            {{svi20_ipv4}}: {}
-        type: svi
-        vlan: 20
-      {% endif %}
+ {% endif %}

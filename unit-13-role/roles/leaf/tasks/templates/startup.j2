@@ -85,9 +85,19 @@
           multihoming:
             uplink: on
         type: swp
+        
+      {% if ({{host_name}} == leaf11) or ({{host_name}} == leaf12)  
       vlan10:
         ip:
           address:
             {{svi10_ipv4}}: {}
         type: svi
         vlan: 10
+      {% else %}  
+      vlan20:
+        ip:
+          address:
+            {{svi20_ipv4}}: {}
+        type: svi
+        vlan: 20
+      {% endif %}

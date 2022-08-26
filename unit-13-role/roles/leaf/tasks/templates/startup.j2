@@ -4,11 +4,10 @@
         br_default:
           vlan:
             '1': {}
-            {% if (host_name == 'leaf11') or (host_name == 'leaf12') %}
             '10':
               vni:
                 '10': {}
-            {% else %}
+            {% if (host_name == 'leaf21') %}
             '20':
               vni:
                 '20': {}

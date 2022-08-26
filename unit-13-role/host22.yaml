@@ -19,6 +19,9 @@ network:
       - eth2
       addresses:
       - 172.16.20.2/24
+      routes:
+      - to: 172.16.0.0/8
+        via: 172.16.20.254
       parameters:
         mode: 802.3ad
         lacp-rate: fast

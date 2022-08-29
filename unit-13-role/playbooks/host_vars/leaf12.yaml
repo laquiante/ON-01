@@ -9,3 +9,4 @@ anycast_id: 1
 svi20_ipv4: 1.1.1.2/24
 es_id: 1
 vid: '10'
+svi: vlan10

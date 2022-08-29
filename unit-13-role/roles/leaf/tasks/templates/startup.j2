@@ -1,12 +1,11 @@
-{% if (host_name == 'leaf11') %}
 - set:
     bridge:
       domain:
         br_default:
           vlan:
-            '10':
+            {{vid}}:
               vni:
-                '10': {}
+                {{vid}}: {}
     evpn:
       enable: on
       multihoming:
@@ -73,7 +72,7 @@
           multihoming:
             uplink: on
         type: swp
-      vlan10:
+      {{svi}}:
         ip:
           address:
             {{svi10_ipv4}}: {}
@@ -84,107 +83,6 @@
             enable: on
             mac-id: {{anycast_id}}
         type: svi
-        vlan: 10
+        vlan: {{vid}}
 
- {% endif %}
 
-{% if (host_name == 'leaf12') %}
-- set:
-    bridge:
-      domain:
-        br_default:
-          vlan:
-            '10':
-              vni:
-                '10': {}
-    evpn:
-      enable: on
-      multihoming:
-        enable: on
-    nve:
-      vxlan:
-        enable: on
-    router:
-      bgp:
-        autonomous-system: {{asn}}
-        enable: on
-        router-id: {{router_id}}
-      vrr:
-        enable: on
-    system:
-      hostname: {{host_name}}
-    vrf:
-      A1:
-        evpn:
-          enable: on
-          vni:
-            '4001': {}
-      default:
-        router:
-          bgp:
-            address-family:
-              ipv4-unicast:
-                enable: on
-                network:
-                  {{loopback_ip}}: {}
-              l2vpn-evpn:
-                enable: on
-            enable: on
-            neighbor:
-              swp21:
-                address-family:
-                  l2vpn-evpn:
-                    enable: on
-                remote-as: external
-                type: unnumbered
-    interface:
-      bond01:
-        bond:
-          member:
-            swp25: {}
-        bridge:
-          domain:
-            br_default:
-              access: 10
-        evpn:
-          multihoming:
-            segment:
-              enable: on
-              local-id: {{es_id}}
-              mac-address: {{mac_bond01}}
-        type: bond
-      lo:
-        ip:
-          address:
-            {{loopback_ip}}: {}
-        type: loopback
-      swp21:
-        evpn:
-          multihoming:
-            uplink: on
-        type: swp
-      vlan10:
-        ip:
-          address:
-            {{svi10_ipv4}}: {}
-          vrf: A1
-          vrr:
-            address:
-              {{svi10_ipv4_vrr}}: {}
-            enable: on
-            mac-id: {{anycast_id}}
-        type: svi
-        vlan: 10
- {% endif %}
- 
-{% if (host_name == 'leaf21') %}
-- set:
-    system:
-      hostname: leaf21     
- {% endif %}
- 
-{% if (host_name == 'leaf22') %}
-- set:
-    system:
-      hostname: leaf22
- {% endif %}

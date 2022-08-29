@@ -1,4 +1,4 @@
-- hosts: leaf11
+- hosts: leaf11 leaf12
 #  strategy: free
   become: true
   user: cumulus

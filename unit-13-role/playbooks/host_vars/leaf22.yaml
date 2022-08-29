@@ -2,7 +2,9 @@ loopback_ip: 172.16.100.22/32
 router_id: 172.16.100.22
 host_name: leaf22
 asn: 65122
-mac_bond01: 44:38:39:FF:00:02
+mac_bond02: 44:38:39:FF:00:02
 svi10_ipv4: 172.16.10.251/24
 svi20_ipv4: 172.16.20.251/24
+svi20_ipv4_vrr: 172.16.20.254/24
+anycast_id: 1
 es_id: 2

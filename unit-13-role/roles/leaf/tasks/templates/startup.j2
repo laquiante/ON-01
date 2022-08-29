@@ -90,12 +90,11 @@
  {% endif %}
 
 {% if (host_name == 'leaf12') %}
-  set:
+- set:
     bridge:
       domain:
         br_default:
           vlan:
-            '1': {}
             '10':
               vni:
                 '10': {}
@@ -111,9 +110,16 @@
         autonomous-system: {{asn}}
         enable: on
         router-id: {{router_id}}
+      vrr:
+        enable: on
     system:
       hostname: {{host_name}}
     vrf:
+      A1:
+        evpn:
+          enable: on
+          vni:
+            '4001': {}
       default:
         router:
           bgp:
@@ -132,12 +138,6 @@
                     enable: on
                 remote-as: external
                 type: unnumbered
-              swp22:
-                address-family:
-                  l2vpn-evpn:
-                    enable: on
-                remote-as: external
-                type: unnumbered
     interface:
       bond01:
         bond:
@@ -150,7 +150,6 @@
         evpn:
           multihoming:
             segment:
-              df-preference: 1000
               enable: on
               local-id: {{es_id}}
               mac-address: {{mac_bond01}}
@@ -160,16 +159,21 @@
           address:
             {{loopback_ip}}: {}
         type: loopback
-      swp21-22:
+      swp21:
         evpn:
           multihoming:
             uplink: on
         type: swp
-
       vlan10:
         ip:
           address:
             {{svi10_ipv4}}: {}
+          vrf: A1
+          vrr:
+            address:
+              {{svi10_ipv4_vrr}}: {}
+            enable: on
+            mac-id: {{anycast-id}}
         type: svi
         vlan: 10
  {% endif %}

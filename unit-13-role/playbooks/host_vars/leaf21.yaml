@@ -2,10 +2,9 @@ loopback_ip: 172.16.100.21/32
 router_id: 172.16.100.21
 host_name: leaf21
 asn: 65121
-mac_bond02: 44:38:39:FF:00:02
-svi10_ipv4: 172.16.10.250/24
-svi20_ipv4: 172.16.20.250/24
-svi20_ipv4_vrr: 172.16.20.254/24
+mac_bond: 44:38:39:FF:00:02
+svi_ipv4: 172.16.20.250/24
+svi_ipv4_vrr: 172.16.20.254/24
 anycast_id: 1
 es_id: 2
 vid: '20'

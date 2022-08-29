@@ -60,7 +60,7 @@
             segment:
               enable: on
               local-id: {{es_id}}
-              mac-address: {{mac_bond01}}
+              mac-address: {{mac_bond}}
         type: bond
       lo:
         ip:
@@ -75,11 +75,11 @@
       {{svi}}:
         ip:
           address:
-            {{svi10_ipv4}}: {}
+            {{svi_ipv4}}: {}
           vrf: A1
           vrr:
             address:
-              {{svi10_ipv4_vrr}}: {}
+              {{svi_ipv4_vrr}}: {}
             enable: on
             mac-id: {{anycast_id}}
         type: svi

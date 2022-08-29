@@ -179,9 +179,29 @@
  {% endif %}
  
 {% if (host_name == 'leaf21') %}
+- set:
+    bridge:
+      domain:
+        br_default:
+          vlan:
+            '10':
+              vni:
+                '10': {}
 
+    system:
+      hostname: {{host_name}}
  {% endif %}
  
 {% if (host_name == 'leaf22') %}
+- set:
+    bridge:
+      domain:
+        br_default:
+          vlan:
+            '10':
+              vni:
+                '10': {}
 
+    system:
+      hostname: {{host_name}}
  {% endif %}

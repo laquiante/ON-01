@@ -179,7 +179,7 @@
  {% endif %}
  
  {% if (host_name == 'leaf21') %}
- - set:
+- set:
     bridge:
       domain:
         br_default:
@@ -228,7 +228,7 @@
                 remote-as: external
                 type: unnumbered
     interface:
-      bond02:
+      bond01:
         bond:
           member:
             swp25: {}
@@ -266,7 +266,7 @@
         type: svi
         vlan: 20
  {% endif %}
- 
+
  {% if (host_name == 'leaf22') %}
 - set:
     bridge:
@@ -317,7 +317,7 @@
                 remote-as: external
                 type: unnumbered
     interface:
-      bond02:
+      bond01:
         bond:
           member:
             swp25: {}

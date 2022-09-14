@@ -4,8 +4,30 @@
 # chmod
 # ./prepare
 
-echo "runnig ownership to fix format and owner"
+PFAD="$HOME/ON-01/preparation"
 
-/home/cumulus/ON-01/ownership
+# ruft jetzt die scripte unter ~/ON-01/preparation auf
+
+echo "STEP-01: runnig ownership to fix format and owner"
+
+"$PFAD/ownership"
+
+echo "STEP-02: running script to prepare NVUE API Access
+
+ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts "$HOME/api_file.yaml"
+
+erg=$(curl  -u 'cumulus:CumulusLinux!' --insecure https://192.168.200.2:8765/cue_v1/interface)
+
+if [[ $erg == *"Authorization Required"* ]]; then
+  echo "Please verify if nginx is correctly configured on leaf11 and up & running"
+fi
+
+# Zum Testen
+
+erg=$(curl  -u 'cumulus:BadPassword' --insecure https://192.168.200.2:8765/cue_v1/interface)
+
+#if [[ $erg == *"Authorization Required"* ]]; then
+#  echo "Please verify if nginx is correctly configured on leaf11 and up & running"
+#fi
 
 exit 0

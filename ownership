@@ -1,4 +1,37 @@
-# /home/cumulus
+#!/bin/bash
 
-sudo ssh-keygen -p -m PEM -f ~/.ssh/id_rsa
-sudo chown -R cumulus:cumulus ./.ansible/
+# ALQ, Wittdün 2022
+
+# /home/cumulus
+# Hilfe wenn die Berechtigungen oder Formatierung
+# auf dem 18.04 nicht richtig gesetzt sind
+
+# mit ./ starten oder den Pfad setzen
+
+if [[ $EUID -ne 0 ]]; then
+   echo "Good morning $USER, please run with root privileges. Your privileges today are not sufficient"
+   exit 1
+fi
+
+echo "EUID :$EUID"
+
+if [[ $USER -ne cumulus ]]; then
+   echo "Good morning $USER, please change to become user cumulus"
+   exit 1
+fi
+
+echo "USER :$USER"
+
+
+cd $HOME
+echo "HOME :"$HOME
+
+# kein Kommentar
+
+ssh-keygen -p -m PEM -f "$HOME/.ssh/id_rsa"
+
+# Gruppen sind unter /etc/group zu finden
+
+chown -R cumulus "$HOME/.ansible/"
+
+exit 0

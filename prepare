@@ -15,7 +15,7 @@ sudo bash "$PFAD/ownership"
 
 echo "STEP-02: running script to prepare NVUE API Access
 
-sudo ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts "$HOME/api_file.yaml"
+sudo ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts $HOME/api_file.yaml
 
 erg=$(curl  -u 'cumulus:CumulusLinux!' --insecure https://192.168.200.2:8765/cue_v1/interface)
 
@@ -25,7 +25,7 @@ fi
 
 # Zum Testen
 
-erg=$(curl  -u 'cumulus:BadPassword' --insecure https://192.168.200.2:8765/cue_v1/interface)
+#erg=$(curl  -u 'cumulus:BadPassword' --insecure https://192.168.200.2:8765/cue_v1/interface)
 
 #if [[ $erg == *"Authorization Required"* ]]; then
 #  echo $WARNUNG

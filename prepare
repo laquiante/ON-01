@@ -21,15 +21,13 @@ echo
 
 sudo ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts $PFAD/api_file.yaml
 
+echo "nach dem playbook api_file"
+
 erg=$(curl  -u 'cumulus:CumulusLinux!' --insecure https://192.168.200.2:8765/cue_v1/interface)
 echo "$erg"
 
 if [[ $erg == *"Authorization Required"* ]]; then
   echo $WARNUNG
-else
-  echo
-  echo "***** looks great, good job! *****"
-  echo
 fi
 
 curl -u 'cumulus:CumulusLinux!' --insecure https://192.168.200.2:8765/cue_v1/interface

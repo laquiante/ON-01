@@ -1,1 +1,9 @@
+#!/bin/bash
+
+# ALQ, Wittdün 2022
+# 
+# sudo ./r_unit-03
+
 ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-03-role/playbooks/main.yaml
+
+exit 0

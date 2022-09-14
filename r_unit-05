@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# ALQ, Wittdün 2022
+# 
+# sudo ./r_unit-05
+
+echo "configuring for unit-05 IF and Bridges"
+echo "creating L2 end-to-end connectivity"
+echo 
+echo "exptected outcome: host11 (172.16.10.1) can reach host22 (172.16.10.2)"
+echo
+
+ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/main.yaml
+
+exit 0
+

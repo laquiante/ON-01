@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# ALQ, Wittdün 2022
+
+echo "runnig ownership to fix format and owner"
+
+/home/cumulus/ON-01/ownership
+
+exit 0

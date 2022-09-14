@@ -11,11 +11,11 @@ WARNUNG='Please verify if nginx is correctly configured (tested on leaf11 for al
 
 echo "STEP-01: runnig ownership to fix format and owner"
 
-"$PFAD/ownership"
+sudo "$PFAD/ownership"
 
 echo "STEP-02: running script to prepare NVUE API Access
 
-ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts "$HOME/api_file.yaml"
+sudo ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts "$HOME/api_file.yaml"
 
 erg=$(curl  -u 'cumulus:CumulusLinux!' --insecure https://192.168.200.2:8765/cue_v1/interface)
 

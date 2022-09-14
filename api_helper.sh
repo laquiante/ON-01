@@ -59,6 +59,6 @@ fi
 
 erg=$(curl  -u 'cumulus:BadPassword' --insecure https://192.168.200.2:8765/cue_v1/interface)
 
-if [[ $erg == *"Authorization Required"* ]]; then
-  echo "Please verify if nginx is correctly configured on leaf11 and up & running"
-fi
+#if [[ $erg == *"Authorization Required"* ]]; then
+#  echo "Please verify if nginx is correctly configured on leaf11 and up & running"
+#fi

@@ -4,6 +4,8 @@
 # chmod
 # ./prepare
 
+# problem $HOME wird das Ursprungs-Home sein...
+
 PFAD="$HOME/ON-01/preparation"
 WARNUNG='Please verify if nginx is correctly configured (tested on leaf11 for all) and up & running'
 

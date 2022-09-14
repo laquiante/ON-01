@@ -28,6 +28,7 @@ echo "HOME :"$HOME
 
 # kein Kommentar
 
+echo "within this lab press enter (twice) for the passphrase"
 ssh-keygen -p -m PEM -f "$HOME/.ssh/id_rsa"
 
 # Gruppen sind unter /etc/group zu finden

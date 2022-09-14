@@ -15,7 +15,9 @@ echo "STEP-01: runnig ownership to fix format and owner"
 
 sudo bash "$PFAD/ownership"
 
+echo
 echo "STEP-02: running script to prepare NVUE API Access"
+echo
 
 sudo ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts $PFAD/api_file.yaml
 

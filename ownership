@@ -31,6 +31,7 @@ echo "HOME :"$HOME
 ssh-keygen -p -m PEM -f "$HOME/.ssh/id_rsa"
 
 # Gruppen sind unter /etc/group zu finden
+# to do : Überarbeitung der von user und group ...
 
 chown -R cumulus "$HOME/.ansible/"
 

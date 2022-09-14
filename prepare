@@ -11,7 +11,7 @@ WARNUNG='Please verify if nginx is correctly configured (tested on leaf11 for al
 
 echo "STEP-01: runnig ownership to fix format and owner"
 
-sudo "$PFAD/ownership"
+sudo bash "$PFAD/ownership"
 
 echo "STEP-02: running script to prepare NVUE API Access
 

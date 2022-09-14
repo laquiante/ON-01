@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # ALQ, Wittdün 2022
+# chmod
+# ./prepare
 
 echo "runnig ownership to fix format and owner"
 

@@ -20,6 +20,7 @@ echo "STEP-02: running script to prepare NVUE API Access"
 sudo ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts $PFAD/api_file.yaml
 
 erg=$(curl  -u 'cumulus:CumulusLinux!' --insecure https://192.168.200.2:8765/cue_v1/interface)
+echo "$erg"
 
 if [[ $erg == *"Authorization Required"* ]]; then
   echo $WARNUNG
@@ -28,6 +29,8 @@ else
   echo "***** looks great, good job! *****"
   echo
 fi
+
+curl -u 'cumulus:CumulusLinux!' --insecure https://192.168.200.2:8765/cue_v1/interface
 
 # Zum Testen
 

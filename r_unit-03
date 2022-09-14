@@ -4,6 +4,12 @@
 # 
 # sudo ./r_unit-03
 
+echo "moving to end of unit-03 taks"
+echo "configuring host11 and host22"
+echo "configuring router01 and router02"
+echo "configuring customer01"
+echo
+
 ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-03-role/playbooks/main.yaml
 
 exit 0

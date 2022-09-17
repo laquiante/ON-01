@@ -1,5 +1,5 @@
 ---
-- hosts: leaf11
+- hosts: leaf
   become: true
   user: cumulus
   gather_facts: false

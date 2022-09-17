@@ -14,7 +14,7 @@ echo "expected outcome 03: all access-ports use vlan 10 but host11/22 are isolat
 echo
 
 PS3='Please enter your choice: '
-options=("move to final unit status" "hands-on leaf11" "handes-on leaf11 and spine24" "Quit")
+options=("move to final unit status" "hands-on leaf11" "hands-on leaf11 and spine24" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in

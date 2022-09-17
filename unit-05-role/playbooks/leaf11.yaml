@@ -1,0 +1,9 @@
+- set:
+    interface:
+      lo:
+        ip:
+          address:
+            172.16.100.11/32: {}
+        type: loopback
+    system:
+      hostname: leaf11

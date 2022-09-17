@@ -21,17 +21,20 @@ do
         "move to final unit status")
             echo "configuring final status"
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/main.yaml
+            break
             ;;
         "hands-on leaf11")
             echo "hands-on leaf11"
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/main.yaml
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/l11.yaml
+            break
             ;;
         "hands-on leaf11 and spine24")
             echo "you chose choice hands-on leaf11 and spine24"
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/main.yaml
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/l11.yaml
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/s24.yaml
+            break
             ;;
         "Quit")
             break

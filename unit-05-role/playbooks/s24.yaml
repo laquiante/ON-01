@@ -1,0 +1,13 @@
+- hosts: spine24
+  name: startup
+  become: yes
+  gather_facts: no
+  ignore_errors: yes
+  tasks:
+    - name: clean startup.yaml
+      copy:
+        src: /home/cumulus/ON-01/unit-05-role/{{ inventory_hostname }}.yaml
+        dest: /etc/nvue.d/startup.yaml
+    # aktivieren
+    - name: activate changes for all cumulus nodes
+      shell:  nv config apply startup -y

@@ -30,7 +30,8 @@ do
         "hands-on leaf11 and spine24")
             echo "you chose choice hands-on leaf11 and spine24"
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/main.yaml
-            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/l11s24.yaml
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/l11.yaml
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/s24.yaml
             ;;
         "Quit")
             break

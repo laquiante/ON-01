@@ -6,7 +6,7 @@
   tasks:
     - name: clean startup.yaml
       copy:
-        src: /home/cumulus/ON-01/unit-05-role/{{ inventory_hostname }}.yaml
+        src: /home/cumulus/ON-01/unit-05-role/playbooks/{{ inventory_hostname }}.yaml
         dest: /etc/nvue.d/startup.yaml
     # aktivieren
     - name: activate changes for all cumulus nodes

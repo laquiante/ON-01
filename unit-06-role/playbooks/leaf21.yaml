@@ -1,0 +1,23 @@
+- set:
+    bridge:
+      domain:
+        br_default:
+          vlan:
+            '10': {}
+    system:
+      hostname: leaf21
+    interface:
+      bond1:
+        bond:
+          member:
+            swp25: {}
+          mlag:
+            enable: on
+            id: 42
+        type: bond
+      bond1,swp21-22:
+        bridge:
+          domain:
+            br_default: {}
+      swp21-22:
+        type: swp

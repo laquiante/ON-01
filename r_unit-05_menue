@@ -4,6 +4,8 @@
 #
 # sudo ./r_unit-05
 
+clear
+
 echo
 echo "configuring for unit-05 IF and Bridges"
 echo "creating L2 end-to-end connectivity"

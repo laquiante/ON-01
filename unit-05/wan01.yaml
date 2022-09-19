@@ -1,8 +1,0 @@
-- set:
-    system:
-      hostname: wan01
-    interface:
-      lo:
-        ip:
-          address:
-            8.8.8.8/32: {}

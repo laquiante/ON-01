@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# ALQ, Hamburg 2022
+#
+# sudo ./r_unit-06
+
+clear
+
+echo
+echo "configuring for unit-06 MLAG"
+echo "creating L2 end-to-end connectivity"
+echo
+echo "expected outcome 01: host11 (172.16.10.1) can reach host22 (172.16.10.2)"
+echo "expected outcome 02: MLAG is setup"
+echo "expected outcome 03: restriction and optional steps are satisfied"
+echo
+
+PS3='Please enter your choice: '
+options=("base setup" "base without MLAG" "Quit")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "base setup troubleshooting")
+            echo "configuring base setup for troubleshooting"
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-06-role/playbooks/main.yaml
+            break
+            ;;
+        "base without Leaf11 and Leaf21 + troubleshooting")
+            echo "hands-on leaf11/12/21/22"
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-06-role/playbooks/main.yaml
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-06-role/playbooks/l11.yaml
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-06-role/playbooks/l21.yaml
+            break
+            ;;
+        "Quit")
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done

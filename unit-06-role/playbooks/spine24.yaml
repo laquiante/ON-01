@@ -1,0 +1,29 @@
+- set:
+    bridge:
+      domain:
+        br_A:
+          vlan:
+            '10': {}
+    system:
+      hostname: spine24
+    interface:
+      dummy_swp5:
+        bond:
+          member:
+            swp5: {}
+        type: bond
+      dummy_swp5,swp1-2:
+        bridge:
+          domain:
+            br_A: {}
+      lo:
+        ip:
+          address:
+            172.16.100.24/32: {}
+        type: loopback
+      swp1-2,5:
+        type: swp
+      swp5:
+        link:
+          state:
+            down: {}

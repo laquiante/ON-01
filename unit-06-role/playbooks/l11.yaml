@@ -4,7 +4,7 @@
   gather_facts: no
   ignore_errors: yes
   tasks:
-    - name: unit-05 lab startup.yaml
+    - name: unit-06 
       copy:
         src: /home/cumulus/ON-01/unit-06-role/playbooks/{{ inventory_hostname }}.yaml
         dest: /etc/nvue.d/startup.yaml

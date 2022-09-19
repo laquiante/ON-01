@@ -25,7 +25,7 @@ do
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-06-role/playbooks/main.yaml
             break
             ;;
-        "base without Leaf11 and Leaf21 + troubleshooting")
+        "base without MLAG portion on (Leaf11 and Leaf21) + troubleshooting")
             echo "hands-on leaf11/12/21/22"
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-06-role/playbooks/main.yaml
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-06-role/playbooks/l11.yaml

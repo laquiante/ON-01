@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# ALQ, Hamburg 2022
+
+LF='/tmp/unit_07_monitor.log'
+
+declare -i counter=1
+
+touch $LF
+
+date >> "$LF"
+
+cat $LF
+
+echo "start while loop"
+
+while [ $counter -lt 100 ]
+do
+    echo "Zaehler: $counter"
+
+    datum=$(date)
+    ping -c 2 172.16.20.6 &> /dev/null
+
+    if [ $? -eq 0 ]; then
+        logline="$datum | 172.16.20.6 reachable"
+        echo $logline
+    else
+        logline="$datum | 172.16.20.6 not reachable"
+        echo $logline
+    fi
+
+    echo $logline >> $LF
+
+    counter=counter+1
+
+done

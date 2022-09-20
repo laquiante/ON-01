@@ -1,10 +1,18 @@
 #!/bin/bash
+# -*- tab-width: 4; c-basic-offset: 4; indent-tabs-mode: nil -*-
 
 # ALQ, Wittdün 2022
 # chmod
 # ./prepare
 
 # problem $HOME wird das Ursprungs-Home sein...
+
+if [ -f /home/ubuntu/ON-03/start ]; then
+        echo "ok"
+else
+        echo "wrong sequence"
+        exit 1
+fi
 
 PFAD="$HOME/ON-01/preparation"
 WARNUNG='Please verify if nginx is correctly configured (tested on leaf11 for all) and up & running'

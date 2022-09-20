@@ -1,0 +1,20 @@
+#!/bin/bash
+# ex:ts=4:sw=4:sts=4:et
+# -*- tab-width: 4; c-basic-offset: 4; indent-tabs-mode: nil -*-
+
+# ALQ, Wittdün 2022
+# 
+# sudo ./r_unit-05
+
+if [ -f /home/cumulus/ON-01/additional.conf ]; then
+        . /home/cumulus/ON-01/additional.conf
+fi
+
+echo
+echo "configuring for unit-08 BGP unnumbered"
+echo "creating L3 end-to-end connectivity"
+echo
+echo "expected outcome 01: announcing all loopbacks"
+echo
+
+ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-08-role/playbooks/main.yaml

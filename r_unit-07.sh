@@ -1,1 +1,17 @@
+#!/bin/bash
+# ex:ts=4:sw=4:sts=4:et
+# -*- tab-width: 4; c-basic-offset: 4; indent-tabs-mode: nil -*-
+
+# ALQ, Hamburg 2022
+# 
+# sudo ./r_unit-07
+
+if [ -f /home/cumulus/ON-01/additional.conf ]; then
+        . /home/cumulus/ON-01/additional.conf
+fi
+
+echo
+echo "configuring for unit-07 some L3 interfaces"
+echo
+
 ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-07-role/playbooks/main.yaml

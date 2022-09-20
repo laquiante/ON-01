@@ -17,4 +17,32 @@ echo
 echo "expected outcome 01: announcing all loopbacks"
 echo
 
-ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-08-role/playbooks/main.yaml
+PS3='Please enter your choice: '
+options=("move to final unit status" "hands-on leaf11" "hands-on leaf11 and spine13" "Quit")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "move to final unit status")
+            echo "configuring final status"
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-08-role/playbooks/main.yaml
+            break
+            ;;
+        "hands-on leaf11")
+            echo "hands-on leaf11"
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-08-role/playbooks/main.yaml
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-08-role/playbooks/l11.yaml
+            break
+            ;;
+        "hands-on leaf11 and spine13")
+            echo "you chose choice hands-on leaf11 and spine13"
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-08-role/playbooks/main.yaml
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-08-role/playbooks/l11.yaml
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-08-role/playbooks/s13.yaml
+            break
+            ;;
+        "Quit")
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done

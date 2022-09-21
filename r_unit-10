@@ -17,13 +17,19 @@ echo
 echo
 
 PS3='Please enter your choice: '
-options=("move to final unit status" "Quit")
+options=("start" "move to final unit status" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
+         "start")
+            echo "configuring the starting point"
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-10-role/playbooks/main.yaml
+            break
+            ;;
         "move to final unit status")
             echo "configuring final status"
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-10-role/playbooks/main.yaml
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-10-role/playbooks/spine.yaml
             break
             ;;
         "Quit")

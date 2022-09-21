@@ -1,0 +1,88 @@
+- set:
+    router:
+      bgp:
+        autonomous-system: 65101
+        enable: on
+        router-id: 172.16.100.13
+      policy:
+        prefix-list:
+          prefix_test:
+            rule:
+              '1':
+                action: permit
+                match:
+                  4.4.4.4/32: {}
+              '2':
+                action: permit
+                match:
+                  8.8.8.8/32: {}
+              '3':
+                action: permit
+                match:
+                  192.168.42.0/30: {}
+        route-map:
+          test:
+            rule:
+              '10':
+                action:
+                  permit: {}
+                match:
+                  ip-prefix-list: prefix_test
+                  type: ipv4
+    system:
+      hostname: spine13
+    vrf:
+      default:
+        router:
+          bgp:
+            address-family:
+              ipv4-unicast:
+                enable: on
+                network:
+                  172.16.100.13/32: {}
+              l2vpn-evpn:
+                enable: on
+            enable: on
+            neighbor:
+              192.168.42.2:
+                address-family:
+                  ipv4-unicast:
+                    policy:
+                      inbound:
+                        route-map: test
+                    soft-reconfiguration: on
+                remote-as: external
+                type: numbered
+              swp1:
+                address-family:
+                  l2vpn-evpn:
+                    enable: on
+                remote-as: external
+                type: unnumbered
+              swp2:
+                address-family:
+                  l2vpn-evpn:
+                    enable: on
+                remote-as: external
+                type: unnumbered
+              swp5:
+                address-family:
+                  l2vpn-evpn:
+                    enable: on
+                remote-as: external
+                type: unnumbered
+    interface:
+      lo:
+        ip:
+          address:
+            172.16.100.13/32: {}
+        type: loopback
+      swp1-2,4-5:
+        type: swp
+      swp4:
+        ip:
+          address:
+            192.168.42.1/30: {}
+        link:
+          state:
+            up: {}

@@ -1,4 +1,12 @@
 - set:
+    bridge:
+      domain:
+        br_default:
+          vlan:
+            '1': {}
+            '10':
+              vni:
+                '10': {}
     router:
       bgp:
         autonomous-system: {{asn}}

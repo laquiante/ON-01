@@ -25,7 +25,7 @@
   roles:
     - /home/cumulus/ON-01/unit-11-role/roles/wan
 
-- hosts: customer01
+- hosts: router01
   name: e/n/i
   become: yes
   gather_facts: no

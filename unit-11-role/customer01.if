@@ -1,0 +1,8 @@
+auto swp1
+iface swp1
+        address 192.168.0.1/30
+
+auto eth0
+iface eth0 inet dhcp
+        vrf mgmt
+        post-up sysctl -w net.ipv6.conf.eth0.accept_ra=2

@@ -1,0 +1,41 @@
+#!/bin/bash
+# ex:ts=4:sw=4:sts=4:et
+# -*- tab-width: 4; c-basic-offset: 4; indent-tabs-mode: nil -*-
+
+# ALQ, Hamburg 2022
+# 
+# sudo ./r_unit-11
+
+if [ -f /home/cumulus/ON-01/additional.conf ]; then
+        . /home/cumulus/ON-01/additional.conf
+fi
+
+echo
+echo "configuring for unit-11 tunnel"
+echo "Tunnel type vxlan"
+echo "Control static"
+echo
+
+PS3='Please enter your choice: '
+options=("final" "hands-on" "Quit")
+select opt in "${options[@]}"
+do
+    case $opt in
+         "final")
+            echo "the working solution"
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-11-role/playbooks/main.yaml
+            break
+            ;;
+        "hands-on")
+            echo "configuring final status"
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-11-role/playbooks/main.yaml
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-10-role/playbooks/L11.yaml
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-10-role/playbooks/L22.yaml
+            break
+            ;;
+        "Quit")
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done

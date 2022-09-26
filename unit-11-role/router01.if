@@ -1,0 +1,39 @@
+auto swp1
+iface swp1
+
+auto swp1.20
+iface swp1.20
+        address 172.16.20.2/30
+        vrf A
+
+auto swp1.21
+iface swp1.21
+        address 172.16.21.2/30
+        vrf B
+
+auto swp1.22
+iface swp1.22
+        address 172.16.22.2/30
+        vrf C
+
+auto A
+iface A
+        vrf-table auto
+
+auto B
+iface B
+        vrf-table auto
+
+auto C
+iface C
+        vrf-table auto
+
+auto mgmt
+iface mgmt
+        vrf-table auto
+        address 127.0.0.1/8
+
+auto eth0
+iface eth0 inet dhcp
+        vrf mgmt
+        post-up sysctl -w net.ipv6.conf.eth0.accept_ra=2

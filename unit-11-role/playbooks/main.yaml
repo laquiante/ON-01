@@ -35,6 +35,7 @@
         src: /home/cumulus/ON-01/unit-11-role/{{ inventory_hostname }}.if
         dest: /etc/network/interfaces
         
+  # customer01 might need some attention SEP-2022
 - hosts: router01 router02
   name: e/n/i
   become: yes

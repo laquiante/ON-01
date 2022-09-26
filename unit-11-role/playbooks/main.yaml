@@ -36,7 +36,7 @@
         dest: /etc/network/interfaces
         
   # customer01 might need some attention SEP-2022
-- hosts: router01 router02
+- hosts: router01 router02 customer01
   name: e/n/i
   become: yes
   gather_facts: no

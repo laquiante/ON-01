@@ -1,0 +1,59 @@
+- set:
+    router:
+      bgp:
+        autonomous-system: {{asn}}
+        enable: on
+        router-id: {{router_id}}
+    system:
+      hostname: {{host_name}}
+    vrf:
+      default:
+        router:
+          bgp:
+            address-family:
+              ipv4-unicast:
+                enable: on
+                network:
+                  {{nw1}}: {}
+                  {{nw2}}: {}
+                  {{nw3}}: {}
+            enable: on
+            neighbor:
+              {{nbr1}}:
+                address-family:
+                  ipv4-unicast:
+                    soft-reconfiguration: on
+                remote-as: internal
+                type: numbered
+              {{nbr2}}:
+                address-family:
+                  ipv4-unicast:
+                    soft-reconfiguration: on
+                remote-as: external
+                type: numbered
+              {{nbr3}}:
+                address-family:
+                  ipv4-unicast:
+                    soft-reconfiguration: on
+                remote-as: external
+                type: numbered
+    interface:
+      lo:
+        ip:
+          address:
+            {{loopback_ip}}: {}
+        type: loopback
+      swp1:
+        ip:
+          address:
+            {{swp1_ipv4}}: {}
+      swp1-3:
+        type: swp
+      swp2:
+        ip:
+          address:
+            {{swp2_ipv4}}: {}
+      swp3:
+        ip:
+          address:
+            {{swp3_ipv4}}: {}

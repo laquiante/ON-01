@@ -39,5 +39,3 @@ do
         *) echo "invalid option $REPLY";;
     esac
 done
-
-ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-12-role/playbooks/main.yaml

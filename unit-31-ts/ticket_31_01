@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# ALQ, Hamburg 2022
+#
+# Layer 2 Troubleshooting
+# based on unit-06: MLAG
+#
+
+# run r_unit_06
+# host11 can reach host22
+#
+

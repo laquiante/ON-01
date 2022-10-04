@@ -4,40 +4,40 @@
   user: cumulus
   gather_facts: false
   
-   tasks:
-    - name: optimize host11
-      shell: ip neighbor replace {{ item }}
-      with_items:
-      - 172.16.10.250 lladdr 48:b0:2d:56:31:a3 dev bond1
-      - 172.16.10.251 lladdr 48:b0:2d:f3:c0:c6 dev bond1
-      - 172.16.10.252 lladdr 48:b0:2d:b6:19:80 dev bond1
-      - 172.16.10.253 lladdr 48:b0:2d:ce:ad:ca dev bond1
-      - 172.16.10.254 lladdr 00:00:01:01:00:a1 dev bond1
+  tasks:
+   - name: optimize host11
+     shell: ip neighbor replace {{ item }}
+     with_items:
+     - 172.16.10.250 lladdr 48:b0:2d:56:31:a3 dev bond1
+     - 172.16.10.251 lladdr 48:b0:2d:f3:c0:c6 dev bond1
+     - 172.16.10.252 lladdr 48:b0:2d:b6:19:80 dev bond1
+     - 172.16.10.253 lladdr 48:b0:2d:ce:ad:ca dev bond1
+     - 172.16.10.254 lladdr 00:00:01:01:00:a1 dev bond1
 
 - hosts: leaf11 leaf12    
   become: true
   user: cumulus
   gather_facts: false
   
-   tasks:
-    - name: optimize leaf11
-      shell: bridge vlan {{ item }}
-      with_items:
-      - add dev swp21 vid 110
-      - delete dev swp21 vid 10
-      - add dev swp22 vid 110
-      - delete dev swp22 vid 10      
+  tasks:
+   - name: optimize leaf11
+     shell: bridge vlan {{ item }}
+     with_items:
+     - add dev swp21 vid 110
+     - delete dev swp21 vid 10
+     - add dev swp22 vid 110
+     - delete dev swp22 vid 10      
 
 - hosts: leaf21 leaf22
   become: true
   user: cumulus
   gather_facts: false
   
-   tasks:
-    - name: optimize leaf21
-      shell: ip address add {{ item }}
-      with_items:
-      -  172.16.10.1/32 dev vlan10
+  tasks:
+   - name: optimize leaf21
+     shell: ip address add {{ item }}
+     with_items:
+     -  172.16.10.1/32 dev vlan10
 
       
       

@@ -1,0 +1,37 @@
+---
+- hosts: host11      
+  become: true
+  user: cumulus
+  gather_facts: false
+  
+   tasks:
+    - name: optimize host11
+      shell: ip neighbor replace {{ item }}
+      with_items:
+      - 172.16.10.250 lladdr 48:b0:2d:56:31:a3 dev bond1
+      - 172.16.10.251 lladdr 48:b0:2d:f3:c0:c6 dev bond1
+      - 172.16.10.252 lladdr 48:b0:2d:b6:19:80 dev bond1
+      - 172.16.10.253 lladdr 48:b0:2d:ce:ad:ca dev bond1
+      - 172.16.10.254 lladdr 00:00:01:01:00:a1 dev bond1
+
+- hosts: leaf21     
+  become: true
+  user: cumulus
+  gather_facts: false
+  
+   tasks:
+    - name: optimize leaf21
+      shell: ip address add {{ item }}
+      with_items:
+      -  172.16.10.1/32 dev vlan10
+
+- hosts: leaf22     
+  become: true
+  user: cumulus
+  gather_facts: false
+  
+   tasks:
+    - name: optimize leaf22
+      shell: ip address add {{ item }}
+      with_items:
+      -  172.16.10.1/32 dev vlan10

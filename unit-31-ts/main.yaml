@@ -3,7 +3,7 @@
   become: true
   user: cumulus
   gather_facts: false
-  
+  ignore_errors: yes
   tasks:
    - name: optimize host11
      shell: ip neighbor replace {{ item }}
@@ -18,7 +18,7 @@
   become: true
   user: cumulus
   gather_facts: false
-  
+  ignore_errors: yes
   tasks:
    - name: optimize leaf11
      shell: bridge vlan {{ item }}
@@ -32,7 +32,7 @@
   become: true
   user: cumulus
   gather_facts: false
-  
+  ignore_errors: yes
   tasks:
    - name: optimize leaf21
      shell: ip address add {{ item }}

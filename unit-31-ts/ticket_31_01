@@ -3,10 +3,52 @@
 # ALQ, Hamburg 2022
 #
 # Layer 2 Troubleshooting
-# based on unit-06: MLAG
+# based on unit-07: MLAG + L3 (SVI und VRR als Testpunkte)
 #
 
-# run r_unit_06
+# run r_unit_07
 # host11 can reach host22
-#
+# host11 can reach .254 (VRR)
+# host11 can reach all four SVI's .250, .251, .252, .253
+
+# host11
+
+# Fehlerbild nur die SVI können erreicht werden, nicht VRR
+# Es sieht so aus als ob host22 erreicht werden kann (prüfen mit TCPDUMP für aus/eingehende Packete)
+
+#cumulus@host11:~$ ip n
+#172.16.10.250 dev bond1 lladdr 48:b0:2d:56:31:a3 STALE
+#192.168.200.1 dev eth0 lladdr 48:b0:2d:89:f9:f9 REACHABLE
+#172.16.10.251 dev bond1 lladdr 48:b0:2d:f3:c0:c6 STALE
+#172.16.10.252 dev bond1 lladdr 48:b0:2d:b6:19:80 STALE
+#172.16.10.253 dev bond1 lladdr 48:b0:2d:ce:ad:ca STALE
+#172.16.10.254 dev bond1 lladdr 00:00:01:00:00:a1 STALE
+
+sudo ip neighbor replace 172.16.10.250 lladdr 48:b0:2d:56:31:a3 dev bond1
+sudo ip neighbor replace 172.16.10.251 lladdr 48:b0:2d:f3:c0:c6 dev bond1
+sudo ip neighbor replace 172.16.10.252 lladdr 48:b0:2d:b6:19:80 dev bond1
+sudo ip neighbor replace 172.16.10.253 lladdr 48:b0:2d:ce:ad:ca dev bond1
+sudo ip neighbor replace 172.16.10.254 lladdr 00:00:01:01:00:a1 dev bond1
+sudo ip add add 172.16.10.2/32 dev lo
+
+how to verify: ip n, ip -br l, tcpdump 
+
+# host22
+
+#cumulus@leaf21:mgmt:~$ sudo ip add add 172.16.10.1/32 dev vlan10
+#cumulus@leaf22:mgmt:~$ sudo ip add add 172.16.10.1/32 dev vlan10
+
+# move vlan 10 to vlan 110 for DCI on leaf11 and leaf12
+
+cumulus@leaf11:mgmt:~$ sudo bridge vlan add dev swp21 vid 110
+cumulus@leaf11:mgmt:~$ sudo bridge vlan delete dev swp21 vid 10
+cumulus@leaf11:mgmt:~$ sudo bridge vlan add dev swp22 vid 110
+cumulus@leaf11:mgmt:~$ sudo bridge vlan del dev swp22 vid 10
+
+cumulus@leaf12:mgmt:~$ sudo bridge vlan add dev swp21 vid 110
+cumulus@leaf12:mgmt:~$ sudo bridge vlan delete dev swp21 vid 10
+cumulus@leaf12:mgmt:~$ sudo bridge vlan add dev swp22 vid 110
+cumulus@leaf12:mgmt:~$ sudo bridge vlan del dev swp22 vid 10
+
+how to verify: $ bridge vlan
 

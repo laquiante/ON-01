@@ -6,7 +6,10 @@
             '1': {}
             '10':
               vni:
-                '10': {}
+                '1010': {}
+            '11':
+              vni:
+                '10'{}
     evpn:
       enable: on
       multihoming:
@@ -54,14 +57,14 @@
         bridge:
           domain:
             br_default:
-              access: 10
+              access: 11
         evpn:
           multihoming:
             segment:
               df-preference: 1000
               enable: on
-              local-id: 1
-              mac-address: 44:38:39:FF:00:01
+              local-id: 10
+              mac-address: 44:38:39:FF:00:10
         type: bond
       lo:
         ip:
@@ -69,13 +72,10 @@
             172.16.100.11/32: {}
         type: loopback
       swp21-22:
-        evpn:
-          multihoming:
-            uplink: on
         type: swp
       vlan10:
         ip:
           address:
             172.16.10.252/24: {}
         type: svi
-        vlan: 10
+        vlan: 11

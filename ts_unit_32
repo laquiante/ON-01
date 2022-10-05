@@ -16,16 +16,18 @@ ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-32-ts/main.
 clear
 
 echo
-echo "########################"
-echo "########################"
-echo "##                    ##"
-echo "##  Linux Networking  ##"
-echo "##                    ##"
-echo "##   Wittdün,  2022   ##"
-echo "##                    ##"
-echo "########################"
-echo "########################"
+echo "############################"
+echo "############################"
+echo "##                        ##"
+echo "##    Linux Networking    ##"
+echo "##                        ##"
+echo "##     Wittdün,  2022     ##"
+echo "##                        ##"
+echo "############################"
+echo "############################"
 echo
 echo
 
-echo "CEO: Please fix my network"
+echo "Message from hte CEO: Please fix my network"
+echo 
+echo

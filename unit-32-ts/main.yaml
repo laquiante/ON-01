@@ -10,3 +10,9 @@
     # aktivieren
     - name: activate changes 
       shell: nv config apply startup
+      
+    # kick frr 05-OCT-2022
+    - name: frr
+      ansible.builtin.service:
+        name: frr
+        state: restarted

@@ -1,4 +1,4 @@
-- hosts: leaf11
+- hosts: leaf11 leaf12
   name: e/n/i
   become: yes
   gather_facts: no

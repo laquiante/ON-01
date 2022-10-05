@@ -1,0 +1,91 @@
+#!/bin/bash
+#
+# ALQ, Hamburg 2022
+#
+# Layer 2 Troubleshooting
+# based on unit-12: EVPN-MH
+#
+
+TS32
+
+leaf11:
+vlan mapping wrong
+	   10:10 -> 10:1010, 11:10
+evpn mh local-id 1->10
+evpn mh mac 44:38:39:FF:00:01 -> 44:38:39:FF:00:10
+
+      swp21-22:
+        evpn:
+          multihoming:
+            uplink: on
+        type: swp
+
+removed the uplink config
+
+      swp21-22:
+        type: swp
+
+    interface:
+      bond01:
+        bond:
+          member:
+            swp25: {}
+        bridge:
+          domain:
+            br_default:
+              access: 10
+
+changed access 10 -> 11
+
+      vlan10:
+        ip:
+          address:
+            172.16.10.252/24: {}
+        type: svi
+        vlan: 10
+
+changed SVI vlan attachment 10 -> 11
+
+*************************************
+leaf12:
+
+vlan mapping wrong
+	   10:10 -> 10:1010, 11:10
+    evpn:
+      enable: on
+      multihoming:
+        enable: on
+disabled evpn mh on -> off
+
+    interface:
+      bond01:
+        bond:
+          member:
+            swp25: {}
+        bridge:
+          domain:
+            br_default:
+              access: 10
+changed access 10 -> 11
+
+      swp21-22:
+        evpn:
+          multihoming:
+            uplink: on
+        type: swp
+
+removed uplink config
+
+      swp21-22:
+        type: swp
+
+      vlan10:
+        ip:
+          address:
+            172.16.10.253/24: {}
+        type: svi
+        vlan: 10
+
+changed vlan 10 -> 11
+
+

@@ -10,6 +10,11 @@ if [ -f /home/cumulus/ON-01/additional.conf ]; then
         . /home/cumulus/ON-01/additional.conf
 fi
 
+ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-12-role/playbooks/main.yaml
+ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-32-ts/main.yaml
+
+clear
+
 echo
 echo "########################"
 ehco "########################"
@@ -18,10 +23,7 @@ echo "##  Linux Networking  ##"
 echo "##                    ##"
 echo "########################"
 echo "########################"
-
-ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-12-role/playbooks/main.yaml
-ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-32-ts/main.yaml
-
-clear
+echo
+echo
 
 echo "CEO: Please fix my network"

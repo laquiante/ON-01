@@ -1,0 +1,12 @@
+- hosts: leaf11
+  name: e/n/i
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: unit-32-ts-leaf11
+      copy:
+        src: /home/cumulus/ON-01/unit-32-ts/{{ inventory_hostname }}.yaml
+        dest: /etc/nvue.d/startup.yaml
+    # aktivieren
+    - name: activate changes 
+      shell: nv config apply startup

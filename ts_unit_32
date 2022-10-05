@@ -10,6 +10,15 @@ if [ -f /home/cumulus/ON-01/additional.conf ]; then
         . /home/cumulus/ON-01/additional.conf
 fi
 
+echo
+echo "########################"
+ehco "########################"
+echo "##                    ##"
+echo "##  Linux Networking  ##"
+echo "##                    ##"
+echo "########################"
+echo "########################"
+
 ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-12-role/playbooks/main.yaml
 ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-32-ts/main.yaml
 

@@ -1,0 +1,18 @@
+#!/bin/bash
+# ex:ts=4:sw=4:sts=4:et
+# -*- tab-width: 4; c-basic-offset: 4; indent-tabs-mode: nil -*-
+
+# ALQ, Hamburg 2022
+# 
+# sudo ./ts_unit_32
+
+if [ -f /home/cumulus/ON-01/additional.conf ]; then
+        . /home/cumulus/ON-01/additional.conf
+fi
+
+ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-12-role/playbooks/main.yaml
+#ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-31-ts/main.yaml
+
+clear
+
+echo "CEO: Please fix my network"

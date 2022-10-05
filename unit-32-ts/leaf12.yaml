@@ -6,14 +6,11 @@
             '1': {}
             '10':
               vni:
-                '1010': {}
-            '11':
-              vni:
                 '10': {}
     evpn:
       enable: on
       multihoming:
-        enable: off
+        enable: on
     nve:
       vxlan:
         enable: on
@@ -57,7 +54,7 @@
         bridge:
           domain:
             br_default:
-              access: 11
+              access: 10
         evpn:
           multihoming:
             segment:
@@ -72,10 +69,13 @@
             172.16.100.12/32: {}
         type: loopback
       swp21-22:
+        evpn:
+          multihoming:
+            uplink: on
         type: swp
       vlan10:
         ip:
           address:
             172.16.10.253/24: {}
         type: svi
-        vlan: 11
+        vlan: 10

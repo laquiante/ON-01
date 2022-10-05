@@ -28,6 +28,7 @@ echo "############################"
 echo
 echo
 
-echo "Message from hte CEO: Please fix my network"
+echo "Message from the CEO:" 
+echo "Please fix my network"
 echo 
 echo

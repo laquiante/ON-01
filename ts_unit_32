@@ -11,7 +11,7 @@ if [ -f /home/cumulus/ON-01/additional.conf ]; then
 fi
 
 ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-12-role/playbooks/main.yaml
-#ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-31-ts/main.yaml
+ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-32-ts/main.yaml
 
 clear
 

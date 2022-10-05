@@ -69,9 +69,6 @@
             172.16.100.12/32: {}
         type: loopback
       swp21-22:
-        evpn:
-          multihoming:
-            uplink: on
         type: swp
       vlan10:
         ip:

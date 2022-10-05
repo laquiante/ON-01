@@ -28,6 +28,11 @@
      - add dev swp22 vid 110
      - delete dev swp22 vid 10      
 
+# bridge vlan add vid 10 dev swp21 pvid untagged
+# bridge vlan del dev swp21 vid 110
+# bridge vlan add vid 10 dev swp21 pvid untagged
+# bridge vlan del dev swp22 vid 110
+
 - hosts: leaf21 leaf22
   become: true
   user: cumulus

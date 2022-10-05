@@ -11,16 +11,4 @@
     - name: activate changes 
       shell: nv config apply startup
       
-    # timing
-    - name: fehlersuche
-      ansible.builtin.pause:
-        seconds: 5
-      
-    # kick frr 05-OCT-2022
-    #- name: frr
-    #  ansible.builtin.service:
-    #    name: frr
-    #    state: restarted
 
-    - name: frr
-      shell: systemctl restart frr

@@ -1,9 +1,9 @@
-- hosts: leaf11 leaf12 leaf21 leaf22
+- hosts: leaf11 leaf12 leaf21 leaf22 spine13 spine14 spine23 spine24
   name: e/n/i
   become: yes
   gather_facts: no
   tasks:
-    - name: unit-32-ts DC01
+    - name: unit-33-ts 
       copy:
         src: /home/cumulus/ON-01/unit-33-ts/{{ inventory_hostname }}.yaml
         dest: /etc/nvue.d/startup.yaml

@@ -10,8 +10,34 @@ if [ -f /home/cumulus/ON-01/additional.conf ]; then
         . /home/cumulus/ON-01/additional.conf
 fi
 
-ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-12-role/playbooks/main.yaml
-ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-32-ts/main.yaml
+PS3='TS 32| EVPN-L2 Troubleshooting. Please enter your choice: '
+options=("DC-01" "DC-02" "Restore" "Quit")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "DC-01")
+            echo "Host11 reports connectivity loss to Host22"
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-12-role/playbooks/main.yaml
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-32-ts/main1.yaml
+            break
+            ;;
+        "DC-02")
+            echo "Host22 reports connectivity loss to Host11"
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-12-role/playbooks/main.yaml
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-32-ts/main2.yaml
+            break
+            ;;
+        "Restore")
+            echo "you chose choice hands-on leaf11 and spine13"
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-12-role/playbooks/main.yaml
+            break
+            ;;
+        "Quit")
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
 
 clear
 

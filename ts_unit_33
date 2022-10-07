@@ -11,7 +11,7 @@ if [ -f /home/cumulus/ON-01/additional.conf ]; then
 fi
 
 PS3='TS 33| EVPN-L3 Troubleshooting. Please enter your choice: '
-options=("EVPN-L3 SYM" "Quit")
+options=("EVPN-L3 SYM" "Restore" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -19,6 +19,11 @@ do
             echo "Host11 reports connectivity loss to Host22"
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-13-role/playbooks/main.yaml
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-33-ts/main1.yaml
+            break
+            ;;
+        "Restore")
+            echo "Fixed"
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-13-role/playbooks/main.yaml
             break
             ;;
         "Quit")

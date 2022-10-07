@@ -17,7 +17,7 @@
       bgp:
         autonomous-system: 65122
         enable: on
-        router-id: 172.16.100.22
+        router-id: 172.16.100.11
       vrr:
         enable: on
     system:
@@ -35,7 +35,7 @@
               ipv4-unicast:
                 enable: on
                 network:
-                  172.16.100.22/32: {}
+                  172.16.100.11/32: {}
               l2vpn-evpn:
                 enable: on
             enable: on
@@ -71,7 +71,7 @@
       lo:
         ip:
           address:
-            172.16.100.22/32: {}
+            172.16.100.11/32: {}
         type: loopback
       swp21-22:
         evpn:

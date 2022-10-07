@@ -18,7 +18,7 @@ do
         "EVPN-L3 SYM")
             echo "Host11 reports connectivity loss to Host22"
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-13-role/playbooks/main.yaml
-            #ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-32-ts/main1.yaml
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-33-ts/main1.yaml
             break
             ;;
         "Quit")

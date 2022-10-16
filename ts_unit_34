@@ -1,0 +1,54 @@
+#!/bin/bash
+# ex:ts=4:sw=4:sts=4:et
+# -*- tab-width: 4; c-basic-offset: 4; indent-tabs-mode: nil -*-
+
+# ALQ, Hamburg/Wittdün 2022
+# 
+# sudo ./ts_unit_34
+
+if [ -f /home/cumulus/ON-01/additional.conf ]; then
+        . /home/cumulus/ON-01/additional.conf
+fi
+
+PS3='TS 34| EVPN-L3 Troubleshooting. Please enter your choice: '
+options=("EVPN-L3 SYM" "Restore" "Quit")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "EVPN-L3 SYM")
+            echo "Host11 reports connectivity loss to Host22"
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-13-role/playbooks/main.yaml
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-34-ts/main1.yaml
+            break
+            ;;
+        "Restore")
+            echo "Fixed"
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-13-role/playbooks/main.yaml
+            break
+            ;;
+        "Quit")
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
+
+clear
+
+echo
+echo "############################"
+echo "############################"
+echo "##                        ##"
+echo "##    Linux Networking    ##"
+echo "##                        ##"
+echo "##     Wittdün,  2022     ##"
+echo "##                        ##"
+echo "############################"
+echo "############################"
+echo
+echo
+
+echo "Message from the CEO:" 
+echo "Please fix my network"
+echo 
+echo

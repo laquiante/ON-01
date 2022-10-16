@@ -10,6 +10,9 @@ if [ -f /home/cumulus/ON-01/additional.conf ]; then
         . /home/cumulus/ON-01/additional.conf
 fi
 
+echo
+echo
+
 PS3='Please enter your choice: '
 options=("move to end of unit-03" "Quit")
 select opt in "${options[@]}"

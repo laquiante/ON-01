@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# ALQ, Wittdün 2022
+# device: customer01
+
+# sudo ./unit-04
+
+show_swp1 () {
+  SWP1=$(ip -br address show dev swp1)
+  echo $SWP1
+
+}
+
+if [[ $HOSTNAME = "customer01" ]]; then
+  echo "found customer01 device, inspecting swp1"
+  show_swp1
+  echo "cleaning up "
+  ip addr flush dev swp1
+  echo "verifying"
+  show_swp1
+  ip link set dev swp1 down
+  show_swp1
+fi
+
+echo

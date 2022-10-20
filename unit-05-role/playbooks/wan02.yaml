@@ -1,0 +1,9 @@
+- set:
+    system:
+      hostname: wan02
+    interface:
+      swp3:
+        ip:
+          address:
+            172.16.10.2/24: {}
+        type: swp

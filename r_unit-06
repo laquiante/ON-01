@@ -20,7 +20,7 @@ echo "expected outcome 03: restriction and optional steps are satisfied"
 echo
 
 PS3='Please enter your choice: '
-options=("move to end of first task of unit-06" "base setup" "base without MLAG" "Quit")
+options=("move to end of first task of unit-06" "base setup" "base setup without MLAG" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -35,11 +35,13 @@ do
             ;;   
         "base setup")
             echo "configuring base setup for troubleshooting"
+            echo "MLAG up and running, but the hosts can't reach each other"
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-06-role/playbooks/main.yaml
             break
             ;;
-        "base without MLAG")
+        "base setup without MLAG")
             echo "hands-on leaf11/12/21/22"
+            echo "MLAG needs to be configured and the connectivity established"
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-06-role/playbooks/main.yaml
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-06-role/playbooks/l11.yaml
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-06-role/playbooks/l21.yaml

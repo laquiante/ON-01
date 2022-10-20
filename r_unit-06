@@ -20,11 +20,11 @@ echo "expected outcome 03: restriction and optional steps are satisfied"
 echo
 
 PS3='Please enter your choice: '
-options=("final" "base setup" "base without MLAG" "Quit")
+options=("move to end of first task of unit-06" "base setup" "base without MLAG" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
-        "final")
+        "move to end of first task of unit-06")
             echo "working without redundancy..."
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-06-role/playbooks/main.yaml
             # set if down

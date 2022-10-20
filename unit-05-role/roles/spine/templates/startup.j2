@@ -10,15 +10,16 @@
           address:
             {{loopback_ip}}: {}
         type: loopback
-      swp1:
+      swp1,5:
         bridge:
           domain:
             br_default: {}
+      swp1,4-5:
         type: swp
-      swp5:
+      swp4:
         bridge:
           domain:
-            br_default: {}
-        type: swp
+            br_default:
+              access: 10
     system:
       hostname: {{host_name}}

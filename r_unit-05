@@ -28,6 +28,7 @@ do
             echo "configuring final status"
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/main.yaml
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/wan-02.yaml
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/customer01.yaml
             break
             ;;
         "hands-on leaf11")
@@ -35,6 +36,7 @@ do
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/main.yaml
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/l11.yaml
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/wan-02.yaml
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/customer01.yaml
             break
             ;;
         "hands-on leaf11 and spine24")
@@ -43,6 +45,7 @@ do
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/l11.yaml
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/s24.yaml
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/wan-02.yaml
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/customer01.yaml
             break
             ;;
         "Quit")

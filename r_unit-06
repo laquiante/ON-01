@@ -27,7 +27,9 @@ do
         "final")
             echo "working without redundancy..."
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-06-role/playbooks/main.yaml
+            # set if down
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-06-role/playbooks/s24.yaml
+            # set filter
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-06-role/playbooks/s23.yaml
             break
             ;;   

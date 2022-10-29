@@ -27,7 +27,7 @@ options=("Final state of unit-05" "Hands-on leaf11" "Hands-on leaf11 and spine24
 select opt in "${options[@]}"
 do
     case $opt in
-        "Final state of unit-03")
+        "Final state of unit-05")
             echo "configuring final status"
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/main.yaml
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/wan-02.yaml

@@ -26,6 +26,9 @@ if [[ $HOSTNAME = "customer01" ]]; then
   show_swp1
   ip link set dev swp1 down
   show_swp1
+else
+  echo "This script is supposed to run on a node named customer01"
+  echo "But this nodes name is $HOSTNAME"
 fi
 
 echo

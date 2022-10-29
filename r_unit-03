@@ -14,12 +14,12 @@ echo
 echo
 
 PS3='Please enter your choice: '
-options=("move to end of unit-03" "Quit")
+options=("Final state of unit-03" "Quit")
 select opt in "${options[@]}"
 
 do
     case $opt in
-         "move to end of unit-03")
+         "Final state of unit-03")
             echo
             echo "moving to end of unit-03 taks"
             echo "configuring host11 and host22"

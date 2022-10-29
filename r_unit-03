@@ -11,6 +11,19 @@ if [ -f /home/cumulus/ON-01/.additional.conf ]; then
 fi
 
 echo
+
+echo
+echo "===         description            ==="
+echo
+echo "moving to end of unit-03 taks"
+echo "configuring host11 and host22"
+echo "configuring router01 and router02"
+echo "configuring customer01"
+
+echo
+echo "===            end                ==="
+echo 
+
 echo
 
 PS3='Please enter your choice: '
@@ -20,11 +33,6 @@ select opt in "${options[@]}"
 do
     case $opt in
          "Final state of unit-03")
-            echo
-            echo "moving to end of unit-03 taks"
-            echo "configuring host11 and host22"
-            echo "configuring router01 and router02"
-            echo "configuring customer01"
             echo
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-03-role/playbooks/main.yaml
             break

@@ -21,7 +21,7 @@ echo "expected outcome 03: restriction and optional steps are satisfied"
 echo
 echo "base setup includes a working MLAG configuration and provides a starting point for troubleshooting"
 echo "base setup without MLAG requires you to setup MLAG on leaf11 and leaf12 (leaf21 and leaf22 MLAG is working for reference"
-echo "Move to hte end of first task provides a working solution but leafs room for improvement"
+echo "Move to the end of the first task which provides a working solution but leafs room for improvement"
 echo "===            end                ==="
 echo
 

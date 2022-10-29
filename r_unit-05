@@ -6,10 +6,12 @@
 # 
 # sudo ./r_unit-05
 
-if [ -f /home/cumulus/ON-01/additional.conf ]; then
-        . /home/cumulus/ON-01/additional.conf
+if [ -f /home/cumulus/ON-01/.additional.conf ]; then
+        . /home/cumulus/ON-01/.additional.conf
 fi
 
+echo
+echo "===         description            ==="
 echo
 echo "configuring for unit-05 IF and Bridges"
 echo "creating L2 end-to-end connectivity"
@@ -18,20 +20,21 @@ echo "expected outcome 01: host11 (172.16.10.1) can reach host22 (172.16.10.2)"
 echo "expected outcome 02: customer01 can reach wan02"
 echo "expected outcome 03: all access-ports use vlan 10 but host11/22 are isolated form customer01/wan02"
 echo
-
+echo "===            end                ==="
+echo 
 PS3='Please enter your choice: '
-options=("move to final unit status" "hands-on leaf11" "hands-on leaf11 and spine24" "Quit")
+options=("Final state of unit-05" "Hands-on leaf11" "Hands-on leaf11 and spine24" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
-        "move to final unit status")
+        "Final state of unit-03")
             echo "configuring final status"
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/main.yaml
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/wan-02.yaml
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/customer01.yaml
             break
             ;;
-        "hands-on leaf11")
+        "Hands-on leaf11")
             echo "hands-on leaf11"
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/main.yaml
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/l11.yaml
@@ -39,7 +42,7 @@ do
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/customer01.yaml
             break
             ;;
-        "hands-on leaf11 and spine24")
+        "Hands-on leaf11 and spine24")
             echo "you chose choice hands-on leaf11 and spine24"
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/main.yaml
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/l11.yaml

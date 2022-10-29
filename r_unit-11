@@ -6,22 +6,24 @@
 # 
 # sudo ./r_unit-11
 
-if [ -f /home/cumulus/ON-01/additional.conf ]; then
-        . /home/cumulus/ON-01/additional.conf
+if [ -f /home/cumulus/ON-01/.additional.conf ]; then
+        . /home/cumulus/ON-01/.additional.conf
 fi
-
+echo "===         description            ==="
+echo
 echo
 echo "configuring for unit-11 tunnel"
-echo "Tunnel type vxlan"
+echo "Tunnel type vxlan between leaf11 and leaf22"
 echo "Control static"
+echo "===            end                ==="
 echo
 
 PS3='Please enter your choice: '
-options=("final" "hands-on" "Quit")
+options=("Final state of unit-11" "hands-on" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
-         "final")
+         "Final state of unit-11")
             echo "the working solution"
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-11-role/playbooks/main.yaml
             break

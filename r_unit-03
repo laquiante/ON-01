@@ -6,8 +6,8 @@
 # 
 # sudo ./r_unit-03
 
-if [ -f /home/cumulus/ON-01/additional.conf ]; then
-        . /home/cumulus/ON-01/additional.conf
+if [ -f /home/cumulus/ON-01/.additional.conf ]; then
+        . /home/cumulus/ON-01/.additional.conf
 fi
 
 echo

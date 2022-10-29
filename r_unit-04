@@ -8,8 +8,14 @@
 show_swp1 () {
   SWP1=$(ip -br address show dev swp1)
   echo $SWP1
-
 }
+
+if [ -f /home/cumulus/ON-01/.additional.conf ]; then
+        . /home/cumulus/ON-01/.additional.conf
+fi
+
+echo
+echo
 
 if [[ $HOSTNAME = "customer01" ]]; then
   echo "found customer01 device, inspecting swp1"

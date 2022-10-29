@@ -6,10 +6,11 @@
 # 
 # sudo ./r_unit-06
 
-if [ -f /home/cumulus/ON-01/additional.conf ]; then
-        . /home/cumulus/ON-01/additional.conf
+if [ -f /home/cumulus/ON-01/.additional.conf ]; then
+        . /home/cumulus/ON-01/.additional.conf
 fi
-
+echo
+echo "===         description            ==="
 echo
 echo "configuring for unit-06 MLAG"
 echo "creating L2 end-to-end connectivity"
@@ -18,13 +19,18 @@ echo "expected outcome 01: host11 (172.16.10.1) can reach host22 (172.16.10.2)"
 echo "expected outcome 02: MLAG is setup"
 echo "expected outcome 03: restriction and optional steps are satisfied"
 echo
+echo "base setup includes a working MLAG configuration and provides a starting point for troubleshooting"
+echo "base setup without MLAG requires you to setup MLAG on leaf11 and leaf12 (leaf21 and leaf22 MLAG is working for reference"
+echo "Move to hte end of first task provides a working solution but leafs room for improvement"
+echo "===            end                ==="
+echo
 
 PS3='Please enter your choice: '
-options=("move to end of first task of unit-06" "base setup" "base setup without MLAG" "Quit")
+options=("Move to end of first task of unit-06" "base setup" "base setup without MLAG" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
-        "move to end of first task of unit-06")
+        "Move to end of first task of unit-06")
             echo "working without redundancy..."
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-06-role/playbooks/main.yaml
             # set if down

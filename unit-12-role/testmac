@@ -1,0 +1,19 @@
+#! /usr/bin/python3
+#
+# 2022 ALQ Hamburg, Germany
+
+#       Imporing needed modules
+import sys, re, argparse, os.path, os
+
+try:
+    from paramiko import SSHClient, AutoAddPolicy
+except ImportError:
+    print ("Required Module(s) not available")
+    sys.exit()
+
+#       Constants
+CONFIG_FILE = '/home/cumulus/ON-10/unit-12-role/config_file'
+HKEY = '/home/cumulus/.ssh/known_hosts'
+USER = 'cumulus'
+NODES = ['192.168.200.2','192.168.200.3','192.168.200.4','192.168.200.5','192.168.200.9','192.168.200.10','192.168.200.11','192.168.200.12','192.168.200.13']
+HOSTS = ['192.168.200.8','192.168.200.14']

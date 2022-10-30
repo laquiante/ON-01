@@ -6,9 +6,18 @@
 # 
 # sudo ./r_unit-03
 
-if [ -f /home/cumulus/ON-01/additional.conf ]; then
-        . /home/cumulus/ON-01/additional.conf
+if [ -f /home/cumulus/ON-01/.additional.conf ]; then
+        . /home/cumulus/ON-01/.additional.conf
 fi
+
+echo
+echo "===         description            ==="
+echo
+echo "moving to end of unit-12 taks"
+echo "option to configure leaf11"
+echo "option to configure leaf11 and leaf22"
+echo
+echo "===            end                ==="
 
 PS3='Unit 12| EVPN-L2. Please enter your choice: '
 options=("move to final unit status" "hands-on leaf11" "hands-on leaf11 and leaf22" "Quit")

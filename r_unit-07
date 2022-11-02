@@ -9,9 +9,10 @@
 if [ -f /home/cumulus/ON-01/.additional.conf ]; then
         . /home/cumulus/ON-01/.additional.conf
 fi
-
+cho "===         description            ==="
 echo
 echo "configuring for unit-07 some L3 interfaces"
 echo
+echo "===            end                ==="
 
 ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-07-role/playbooks/main.yaml

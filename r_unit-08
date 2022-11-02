@@ -10,12 +10,17 @@ if [ -f /home/cumulus/ON-01/.additional.conf ]; then
         . /home/cumulus/ON-01/.additional.conf
 fi
 
+echo "===         description            ==="
 echo
 echo "configuring for unit-08 BGP unnumbered"
 echo "creating L3 end-to-end connectivity"
 echo
 echo "expected outcome 01: announcing all loopbacks"
+echo "however, host11 can not or no longer reach host22"
+echo "both hosts in the same broadcast domain"
+echo "are seperated by a layer 3 data center fabric"
 echo
+echo "===            end                ==="
 
 PS3='Please enter your choice: '
 options=("move to final unit status" "hands-on leaf11" "hands-on leaf11 and spine13" "Quit")

@@ -9,7 +9,7 @@
 if [ -f /home/cumulus/ON-01/.additional.conf ]; then
         . /home/cumulus/ON-01/.additional.conf
 fi
-cho "===         description            ==="
+echo "===         description            ==="
 echo
 echo "configuring for unit-07 some L3 interfaces"
 echo 

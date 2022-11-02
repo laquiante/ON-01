@@ -12,6 +12,8 @@ fi
 cho "===         description            ==="
 echo
 echo "configuring for unit-07 some L3 interfaces"
+echo "
+echo " using the nv patch functionality via Ansible"
 echo
 echo "===            end                ==="
 

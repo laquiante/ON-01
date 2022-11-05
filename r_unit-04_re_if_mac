@@ -1,0 +1,26 @@
+# Kundenfrage, wie schneide ich ein evtl gegebenes interface mit der MAC Adresse raus?
+
+import re
+
+string = """
+VLAN      Master      Interface   MAC                TunnelDest  State      Flags  LastSeen
+--------  ----------  ----------  -----------------  ----------  ---------  -----  --------
+1         br_default  bond1       2e:86:08:25:67:ad                                00:00:53
+1         br_default  bond1       48:b0:2d:39:d3:71                                00:00:35
+1         br_default  bond1       48:b0:2d:b5:f3:e5                                00:00:03
+1         br_default  peerlink    48:b0:2d:0f:df:9c                                00:00:35
+1         br_default  peerlink    48:b0:2d:9c:01:ed                                00:00:35
+1         br_default  peerlink    48:b0:2d:9c:8e:8d                                00:00:35
+1         br_default  swp21       48:b0:2d:1f:1d:30                                00:00:11
+1         br_default  swp22       48:b0:2d:02:91:8d                                00:00:11
+1         br_default  swp22       48:b0:2d:cb:01:29                                00:00:53
+untagged  br_default  bond1       48:b0:2d:bd:dd:11              permanent         05:06:39
+untagged  br_default  br_default  48:b0:2d:21:a8:43              permanent         12:22:40
+untagged  br_default  peerlink    48:b0:2d:e1:ea:aa              permanent         05:06:40
+untagged  br_default  swp21       48:b0:2d:eb:48:dd              permanent         05:06:40
+untagged  br_default  swp22       48:b0:2d:20:24:59              permanent         05:06:40
+"""
+
+result = re.findall(r"(\sbond1\s*)(\w{2}:\w{2}:\w{2}:\w{2}:\w{2}:\w{2})", string)
+
+print(result)

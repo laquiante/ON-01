@@ -19,13 +19,15 @@ echo "===            end                ==="
 echo
 
 PS3='Please enter your choice: '
-options=("Final state of unit-11" "hands-on" "Quit")
+options=("Final state of unit-11 step-1" "hands-on" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
-         "Final state of unit-11")
+         "Final state of unit-11 step-1")
             echo "the working solution"
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-11-role/playbooks/main.yaml
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-11-role/playbooks/leaf11-step-1.yaml
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-11-role/playbooks/leaf21-step-1.yaml
             break
             ;;
         "hands-on")

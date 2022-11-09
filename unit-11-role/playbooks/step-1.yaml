@@ -6,7 +6,7 @@
   tasks:
     - name: unit-11 Tunnel step-1
       copy:
-        src: /home/cumulus/ON-01/unit-11-role/playbooks/{{ inventory_hostname }}-step-1.yaml
+        src: /home/cumulus/ON-01/unit-11-role/{{ inventory_hostname }}-step-1.yaml
         dest: /etc/nvue.d/startup.yaml
     # aktivieren
     - name: activate changes for all cumulus nodes

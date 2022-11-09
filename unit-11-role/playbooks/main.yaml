@@ -46,6 +46,8 @@
       shell: ifreload -a
 
 # done 26-SEP fixed eth3
+# host11-unit-06-mlag
+# host22-unit-06-mlag
 - hosts: host
   become: true
   user: cumulus
@@ -53,7 +55,7 @@
   tasks:
     - name: copy netplan yaml
       copy:
-        src: /home/cumulus/ON-01/inventory/files/{{ inventory_hostname }}-unit-11
+        src: /home/cumulus/ON-01/inventory/files/{{ inventory_hostname }}-unit-06-mlag
         dest: /etc/netplan/config.yaml
     - name: apply netplan yaml
       shell: netplan apply

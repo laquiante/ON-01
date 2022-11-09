@@ -12,11 +12,26 @@ except ImportError:
     sys.exit()
 
 #       Constants
-CONFIG_FILE = '/home/cumulus/ON-10/unit-12-role/config_file'
+CONFIG_FILE = '/home/cumulus/ON-01/unit-12-role/config_file.yaml'
 HKEY = '/home/cumulus/.ssh/known_hosts'
+DEBUG = False
 USER = 'cumulus'
 NODES = ['192.168.200.2','192.168.200.3','192.168.200.4','192.168.200.5','192.168.200.9','192.168.200.10','192.168.200.11','192.168.200.12','192.168.200.13']
 HOSTS = ['192.168.200.8','192.168.200.14']
+
+def ssh_service(cmd,target):
+    client = SSHClient()
+    client.load_host_keys(HKEY)
+    client.load_system_host_keys()
+    client.set_missing_host_key_policy(AutoAddPolicy())
+    client.connect(target, username='cumulus')
+    stdin, stdout, stderr = client.exec_command(cmd)
+    result_str = stdout.read().decode("utf8")
+    stdin.close()
+    stdout.close()
+    stderr.close()
+    client.close()
+    return result_str
 
 def test_config_file():
     if os.path.isfile(CONFIG_FILE) == True:
@@ -25,9 +40,33 @@ def test_config_file():
         print("Config File missing")
         sys.exit()
 
-        
+def scan(nodes,l2_addr):
+    print('=== scanning hostnames ===')
+    for n in nodes:
+        print(ssh_service('hostname',n).split())
+    print('=== scanning the FDB ===')
+    for n in nodes:
+        result = ssh_service('/usr/sbin/bridge fdb', n).splitlines()
+        for line in result:
+            if (re.findall(l2_addr,line)): print(n,'knows ',l2_addr)
+
+def test_reachability(nodes):
+        for n in nodes:
+            answer = os.popen(f"ping -c 2 {n}").read()
+            if "Received = 2" or "Received = 1":
+                print(f"{n} \treachble via OOB")
+            else:
+                print(f"{n} \tnot reachable via OOB")
+
+def main(test_address):
+    test_config_file()
+    if DEBUG: test_reachability(HOSTS)
+    if DEBUG: test_reachability(NODES)
+    scan(NODES,test_address)
+
+
 if __name__ == "__main__":
-    pretty.install()
+    # pretty.install()
     # Parameter
     parser = argparse.ArgumentParser()
     parser.add_argument("l2_addr")

@@ -1,6 +1,8 @@
 #! /usr/bin/python3
 #
 # 2022 ALQ Hamburg, Germany
+#
+# a start for our class/training to work on
 
 #       Imporing needed modules
 import sys, re, argparse, os.path, os

@@ -24,3 +24,12 @@ def test_config_file():
     else:
         print("Config File missing")
         sys.exit()
+
+        
+if __name__ == "__main__":
+    pretty.install()
+    # Parameter
+    parser = argparse.ArgumentParser()
+    parser.add_argument("l2_addr")
+    args = parser.parse_args()
+    main(args.l2_addr)

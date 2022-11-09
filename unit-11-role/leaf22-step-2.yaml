@@ -1,0 +1,65 @@
+- set:
+    bridge:
+      domain:
+        br_default:
+          vlan:
+            '1': {}
+            '10':
+              vni:
+                '10': {}
+        vxlan_static:
+          vlan:
+            '10':
+              vni:
+                '10010':
+                  flooding:
+                    enable: on
+                    head-end-replication:
+                      172.16.100.11: {}
+                  mac-learning: on
+    nve:
+      vxlan:
+        enable: on
+    router:
+      bgp:
+        autonomous-system: 65122
+        enable: on
+        router-id: 172.16.100.22
+    system:
+      hostname: leaf22
+    vrf:
+      default:
+        router:
+          bgp:
+            address-family:
+              ipv4-unicast:
+                enable: on
+                network:
+                  172.16.100.22/32: {}
+            enable: on
+            neighbor:
+              swp21:
+                address-family:
+                  ipv4-unicast:
+                    soft-reconfiguration: on
+                remote-as: external
+                type: unnumbered
+              swp22:
+                address-family:
+                  ipv4-unicast:
+                    soft-reconfiguration: on
+                remote-as: external
+                type: unnumbered
+    interface:
+      lo:
+        ip:
+          address:
+            172.16.100.22/32: {}
+        type: loopback
+      swp21-22,31:
+        type: swp
+      swp31:
+        bridge:
+          domain:
+            vxlan_static:
+              access: 10

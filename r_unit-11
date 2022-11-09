@@ -13,13 +13,14 @@ echo "===         description            ==="
 echo
 echo
 echo "configuring for unit-11 tunnel"
-echo "Tunnel type vxlan between leaf11 and leaf22"
+echo "Step-1: Tunnel type vxlan between leaf11 and leaf21"
+echo "Step-2: Tunnel type vxlan between leaf11 and leaf22"
 echo "Control static"
 echo "===            end                ==="
 echo
 
 PS3='Please enter your choice: '
-options=("Final state of unit-11 step-1" "hands-on" "Quit")
+options=("Final state of unit-11 step-1" "Final state of unit-11 step-2" "hands-on" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -29,11 +30,17 @@ do
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-11-role/playbooks/step-1.yaml
             break
             ;;
+         "Final state of unit-11 step-2")
+            echo "the working solution"
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-11-role/playbooks/main.yaml
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-11-role/playbooks/step-2.yaml
+            break
+            ;;
         "hands-on")
             echo "hands-on Leaf11 and Leaf22"
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-11-role/playbooks/main.yaml
-            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-10-role/playbooks/L11.yaml
-            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-10-role/playbooks/L22.yaml
+#            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-10-role/playbooks/L11.yaml
+#            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-10-role/playbooks/L22.yaml
             break
             ;;
         "Quit")

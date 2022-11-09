@@ -29,7 +29,7 @@ do
             break
             ;;
         "hands-on")
-            echo "configuring final status"
+            echo "hands-on Leaf11 and Leaf22"
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-11-role/playbooks/main.yaml
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-10-role/playbooks/L11.yaml
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-10-role/playbooks/L22.yaml

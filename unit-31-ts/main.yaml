@@ -53,10 +53,10 @@
    - name: optimize host11
      shell: ip neighbor replace {{ item }}
      with_items:
-     #- 172.16.10.250 lladdr 00:00:00:00:AA:AA dev bond1
-     #- 172.16.10.251 lladdr 00:00:00:00:AA:AB dev bond1
-     #- 172.16.10.252 lladdr 00:00:00:00:AA:AC dev bond1
-     #- 172.16.10.253 lladdr 00:00:00:00:AA:AD dev bond1
+     - 172.16.10.250 lladdr 00:00:00:00:AA:AC dev bond1
+     - 172.16.10.251 lladdr 00:00:00:00:AA:AD dev bond1
+     - 172.16.10.252 lladdr 00:00:00:00:AA:AA dev bond1
+     - 172.16.10.253 lladdr 00:00:00:00:AA:AB dev bond1
      # die ist jetzt fast prima :-)
      - 172.16.10.254 lladdr 00:00:01:01:00:a1 dev bond1
    - name: fix host22 with 172.16.10.2 on bond1

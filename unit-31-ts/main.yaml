@@ -5,10 +5,14 @@
   gather_facts: false
   ignore_errors: yes
   tasks:
+   - name: reboot
+     reboot:
+       reboot_timeout: 120
    - name: setzen der globalen L2
      shell: nv set system global system-mac 00:00:00:00:AA:AA
    - name: aktivieren
      shell: nv config apply -y   
+     
 
 - hosts: leaf12      
   become: true

@@ -1,4 +1,15 @@
 ---
+- hosts: leaf11      
+  become: true
+  user: cumulus
+  gather_facts: false
+  ignore_errors: yes
+  tasks:
+   - name: setzen der globalen L2
+     shell: nv set system global system-mac 00:00:00:00:AA:AC
+   - name: aktivieren
+     shell: nv config apply -y   
+
 - hosts: host11      
   become: true
   user: cumulus

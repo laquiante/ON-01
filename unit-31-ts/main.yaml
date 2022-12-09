@@ -6,9 +6,42 @@
   ignore_errors: yes
   tasks:
    - name: setzen der globalen L2
-     shell: nv set system global system-mac 00:00:00:00:AA:AC
+     shell: nv set system global system-mac 00:00:00:00:AA:AA
    - name: aktivieren
      shell: nv config apply -y   
+
+- hosts: leaf12      
+  become: true
+  user: cumulus
+  gather_facts: false
+  ignore_errors: yes
+  tasks:
+   - name: setzen der globalen L2
+     shell: nv set system global system-mac 00:00:00:00:AA:AB
+   - name: aktivieren
+     shell: nv config apply -y 
+     
+- hosts: leaf21      
+  become: true
+  user: cumulus
+  gather_facts: false
+  ignore_errors: yes
+  tasks:
+   - name: setzen der globalen L2
+     shell: nv set system global system-mac 00:00:00:00:AA:AC
+   - name: aktivieren
+     shell: nv config apply -y 
+     
+- hosts: leaf22     
+  become: true
+  user: cumulus
+  gather_facts: false
+  ignore_errors: yes
+  tasks:
+   - name: setzen der globalen L2
+     shell: nv set system global system-mac 00:00:00:00:AA:AD
+   - name: aktivieren
+     shell: nv config apply -y 
 
 - hosts: host11      
   become: true
@@ -19,11 +52,14 @@
    - name: optimize host11
      shell: ip neighbor replace {{ item }}
      with_items:
-     - 172.16.10.250 lladdr 48:b0:2d:56:31:a3 dev bond1
-     - 172.16.10.251 lladdr 48:b0:2d:f3:c0:c6 dev bond1
-     - 172.16.10.252 lladdr 48:b0:2d:b6:19:80 dev bond1
-     - 172.16.10.253 lladdr 48:b0:2d:ce:ad:ca dev bond1
+     - 172.16.10.250 lladdr 00:00:00:00:AA:AA dev bond1
+     - 172.16.10.251 lladdr 00:00:00:00:AA:AB dev bond1
+     - 172.16.10.252 lladdr 00:00:00:00:AA:AC dev bond1
+     - 172.16.10.253 lladdr 00:00:00:00:AA:AD dev bond1
+     # die ist jetzt fast prima :-)
      - 172.16.10.254 lladdr 00:00:01:01:00:a1 dev bond1
+   - name: fix host22 with 172.16.10.2 on bond1
+     shell: ip add add 172.16.10.2/32 dev lo
 
 - hosts: leaf11 leaf12    
   become: true
@@ -55,6 +91,7 @@
      with_items:
      -  172.16.10.1/32 dev vlan10
 
-      
+  # wenn host11 zuerste die Auflösung started, sollte es funktionieren
+  # wenn host22 zuerst die Auflösung started, dann nicht
       
       

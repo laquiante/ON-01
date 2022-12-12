@@ -1,7 +1,7 @@
 - set:
     router:
       bgp:
-        autonomous-system: 65101
+        autonomous-system: 65111
         enable: on
         router-id: 172.16.100.13
     system:

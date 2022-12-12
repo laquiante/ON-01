@@ -28,7 +28,7 @@ do
             break
             ;;
         "Restore")
-            echo "you chose choice hands-on leaf11 and spine13"
+            echo "restore"
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-12-role/playbooks/main.yaml
             break
             ;;

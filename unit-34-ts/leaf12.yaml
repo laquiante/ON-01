@@ -35,7 +35,7 @@
               ipv4-unicast:
                 enable: on
                 network:
-                  172.16.100.12/32: {}
+                  173.16.100.12/32: {}
               l2vpn-evpn:
                 enable: on
             enable: on

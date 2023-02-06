@@ -1,0 +1,41 @@
+- hosts: leaf11
+  name: Leaf11 Interfaces
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: IF clean up
+      copy: 
+        src: /home/cumulus/unit-51/ON-01/leaf11-eni
+        dest: /etc/network/interfaces
+    # aktivieren
+    - name: activate changes on Leaf11
+      shell: /sbin/ifreload -a
+    # frr daemons
+    - name: daemons
+      copy:
+        src: /home/cumulus/ON-01/unit-51/daemons
+        dest: /etc/frr/daemons
+      notify:
+        - frr_restart
+        
+     # frr config
+    - name: frr config
+      copy:
+        src: /home/cumulus/ON-01/unit-51/frr_config
+        dest: /etc/frr/frr.config
+      notify:
+        - frr_reload
+ 
+ 
+  handlers:
+    - name: frr_restart
+      service:
+        name=frr
+        state=restart
+      listen: "frr_restart"
+    - name: frr_reload
+      service:
+        name=frr
+        state=reloaded
+      listen: "frr_reload"
+      

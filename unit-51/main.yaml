@@ -5,7 +5,7 @@
   tasks:
     - name: IF clean up
       copy: 
-        src: /home/cumulus/unit-51/ON-01/leaf11-eni
+        src: /home/cumulus/unit-51/ON-01/unit51/leaf11-eni
         dest: /etc/network/interfaces
     # aktivieren
     - name: activate changes on Leaf11
@@ -13,7 +13,7 @@
     # frr daemons
     - name: daemons
       copy:
-        src: /home/cumulus/ON-01/unit-51/leaf11-daemons
+        src: /home/cumulus/ON-01/unit-51/unit51/leaf11-daemons
         dest: /etc/frr/daemons
       notify:
         - frr_restart

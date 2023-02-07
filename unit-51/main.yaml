@@ -20,10 +20,9 @@
         name: frr
         state: restarted
        
-    - name: Sleep for 300 seconds and continue with play
-      ansible.builtin.wait_for:
-        timeout: 300
-        delegate_to: localhost
+    - name: pause 1 min to allow frr reset
+      ansible.builtin.pause:
+        minutes: 1
    
       # frr config
     - name: frr config

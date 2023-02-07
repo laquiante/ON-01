@@ -28,7 +28,7 @@
     - name: frr config
       copy:
         src: /home/cumulus/ON-01/unit-51/leaf11-frr_conf
-        dest: /etc/frr/frr.config
+        dest: /etc/frr/frr.conf
       notify:
         - frr_reload
  

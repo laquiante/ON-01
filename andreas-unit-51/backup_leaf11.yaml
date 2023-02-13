@@ -1,0 +1,12 @@
+---
+- hosts: leaf11
+  become: yes
+  tasks:
+    - name: Fetch interfaces Configuration
+      fetch: dest=backup/{{ansible_hostname}}/interfaces src=/etc/network/interfaces flat=yes
+
+    - name: Fetch FRR daemons file
+      fetch: dest=backup/{{ansible_hostname}}/daemons src=/etc/frr/daemons flat=yes
+
+    - name: Fetch frr.conf
+      fetch: dest=backup/{{ansible_hostname}}/frr.conf src=/etc/frr/frr.conf flat=yes

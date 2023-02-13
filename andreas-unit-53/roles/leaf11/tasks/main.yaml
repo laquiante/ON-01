@@ -1,0 +1,17 @@
+- name: render eni
+  template:
+    src: "eni.j2"
+    dest: /etc/network/interfaces
+
+- name: activate interfaces
+  shell:  /sbin/ifreload -a
+
+- name: render frr
+  template:
+    src: "frr.j2"
+    dest: /etc/frr/frr.conf
+
+- name: activere routing
+  service:
+    name=ffr
+    state=reloaded

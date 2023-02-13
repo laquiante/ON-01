@@ -1,0 +1,40 @@
+- hosts: leaf11
+  name: Leaf11 Interfaces
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: Interfaces
+      copy:
+        src: /home/cumulus/ON-01/andreas-unit-51/leaf11-eni
+        dest: /etc/network/interfaces
+    # aktivieren
+    - name: activate changes on Leaf11
+      shell: /sbin/ifreload -a
+    # frr daemons
+    - name: start bdpd
+      copy:
+        src: /home/cumulus/ON-01/andreas-unit-51/leaf11-daemons
+        dest: /etc/frr/daemons
+    - name: Restart service frr
+      ansible.builtin.service:
+        name: frr
+        state: restarted
+
+    - name: pause 1 min to allow frr reset
+      ansible.builtin.pause:
+        minutes: 1
+
+      # frr config
+    - name: frr config
+      copy:
+        src: /home/cumulus/ON-01/andreas-unit-51/leaf11-frr_conf
+        dest: /etc/frr/frr.conf
+      notify:
+        - frr_reload
+
+  handlers:
+    - name: frr_reload
+      service:
+        name=frr
+        state=reloaded
+      listen: "frr_reload"

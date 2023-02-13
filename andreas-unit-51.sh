@@ -4,7 +4,7 @@
 
 # ALQ, Wittdün 2023
 # 
-# sudo ./r_unit-51
+# sudo ./andreas-unit-51
 
 if [ -f /home/cumulus/ON-01/additional.conf ]; then
         . /home/cumulus/ON-01/additional.conf

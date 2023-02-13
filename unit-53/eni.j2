@@ -1,0 +1,75 @@
+source /etc/network/interfaces.d/*.intf
+
+auto lo
+iface lo inet loopback
+    address 172.16.100.11/32
+    vxlan-local-tunnelip 172.16.100.11
+
+auto mgmt
+iface mgmt
+    address 127.0.0.1/8
+    address ::1/128
+    vrf-table auto
+
+auto A1
+iface A1
+    vrf-table auto
+
+auto eth0
+iface eth0 inet dhcp
+    ip-forward off
+    ip6-forward off
+    vrf mgmt
+
+auto bond01
+iface bond01
+    es-sys-mac 44:38:39:FF:00:01
+    bond-slaves swp25
+    bond-mode 802.3ad
+    bond-lacp-bypass-allow no
+    bridge-access 10
+
+auto swp21
+iface swp21
+
+auto swp22
+iface swp22
+
+auto vlan10
+iface vlan10
+    address 172.16.10.252/24
+    address-virtual 00:00:5e:00:01:01 172.16.10.254/24
+    hwaddress 48:b0:2d:12:cc:68
+    vrf A1
+    vlan-raw-device br_default
+    vlan-id 10
+
+auto vxlan48
+iface vxlan48
+    bridge-vlan-vni-map 10=10
+    bridge-learning off
+
+auto vlan115_l3
+iface vlan115_l3
+    vrf A1
+    vlan-raw-device br_l3vni
+    vlan-id 115
+
+auto vxlan99
+iface vxlan99
+    bridge-vlan-vni-map 115=4001
+    bridge-learning off
+
+auto br_default
+iface br_default
+    bridge-ports bond01 vxlan48
+    hwaddress 48:b0:2d:12:cc:68
+    bridge-vlan-aware yes
+    bridge-vids 10
+    bridge-pvid 1
+
+auto br_l3vni
+iface br_l3vni
+    bridge-ports vxlan99
+    hwaddress 48:b0:2d:12:cc:68
+    bridge-vlan-aware yes

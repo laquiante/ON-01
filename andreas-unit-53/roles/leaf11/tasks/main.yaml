@@ -9,9 +9,7 @@
 - name: render frr
   template:
     src: "frr.j2"
-    dest: /etc/frr/frr.conf
+    dest: /etc/frr/ffr.conf
 
-- name: activere routing
-  service:
-    name=ffr
-    state=reloaded
+- name: activiere routing
+  service: name=frr state=restarted

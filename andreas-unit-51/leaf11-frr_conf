@@ -1,0 +1,47 @@
+evpn mh mac-holdtime 1080
+evpn mh neigh-holdtime 1080
+evpn mh startup-delay 180
+interface bond01
+evpn mh es-df-pref 32767
+evpn mh es-id 1
+evpn mh es-sys-mac 44:38:39:FF:00:01
+interface swp21
+evpn mh uplink
+interface swp22
+evpn mh uplink
+vrf A1
+vni 4001
+exit-vrf
+vrf default
+exit-vrf
+vrf mgmt
+exit-vrf
+router bgp 65111 vrf default
+bgp router-id 172.16.100.11
+timers bgp 3 9
+bgp deterministic-med
+! Neighbors
+neighbor swp21 interface remote-as external
+neighbor swp21 timers 3 9
+neighbor swp21 timers connect 10
+neighbor swp21 advertisement-interval 0
+neighbor swp21 capability extended-nexthop
+neighbor swp22 interface remote-as external
+neighbor swp22 timers 3 9
+neighbor swp22 timers connect 10
+neighbor swp22 advertisement-interval 0
+neighbor swp22 capability extended-nexthop
+! Address families
+address-family ipv4 unicast
+network 172.16.100.11/32
+maximum-paths ibgp 64
+maximum-paths 64
+distance bgp 20 200 200
+neighbor swp21 activate
+neighbor swp22 activate
+exit-address-family
+address-family l2vpn evpn
+advertise-all-vni
+neighbor swp21 activate
+neighbor swp22 activate
+exit-address-family

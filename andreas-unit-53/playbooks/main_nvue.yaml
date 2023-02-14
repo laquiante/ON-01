@@ -3,6 +3,32 @@
   user: cumulus
   gather_facts: false
   
+    - name: "Approve NVUE re-enablement"
+      delegate_to: localhost
+      pause:
+        prompt: |
+          ============================================
+          This playbook starts and enables NVUE
+          Do you want to execture (yes|[no])?
+          ============================================
+      register: answer_1
+
+    - name: Exit
+      delegate_to: localhost
+      meta: end_play
+      when: (answer_1.user_input is defined) and (answer_1.user_input in ["exit", "no", "n", "q", "false"])
+
+    - name: Test positive
+      delegate_to: localhost
+      local_action: shell ls
+      register: ls
+      when: (answer_1.user_input is defined) and (answer_1.user_input in ["yes", "y", "true"])
+
+    - name: list the content
+      delegate_to: localhost
+      debug:
+        msg: "{{ ls.stdout }}"
+      when: (answer_1.user_input is defined) and (answer_1.user_input in ["yes", "y", "true"])
   
   tasks:
     - name: start service nvued

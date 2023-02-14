@@ -3,6 +3,8 @@
   user: cumulus
   gather_facts: false
   
+  tasks:
+  
     - name: "Approve NVUE re-enablement"
       delegate_to: localhost
       pause:
@@ -30,7 +32,7 @@
         msg: "{{ ls.stdout }}"
       when: (answer_1.user_input is defined) and (answer_1.user_input in ["yes", "y", "true"])
   
-  tasks:
+ 
     - name: start service nvued
       ansible.builtin.service:
         name: nvued

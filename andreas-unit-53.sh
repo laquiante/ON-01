@@ -11,7 +11,7 @@ if [ -f /home/cumulus/ON-01/additional.conf ]; then
 fi
 
 PS3='Unit 51| Playbook lab. Please enter your choice: '
-options=("run playbook for leaf11" "run playbook for leaf11_vars" "Quit")
+options=("run playbook for leaf11" "run playbook for leaf11_vars" "enable NVUE on leaf11" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -23,6 +23,11 @@ do
         "run playbook for leaf11_vars")
             echo "configuring final status"
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./andreas-unit-53/playbooks/main_vars.yaml
+            break
+            ;;
+        "enable NVUE on leaf11")
+            echo "enabling and starting nvue daemons"
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./andreas-unit-53/playbooks/main_nvue.yaml
             break
             ;;
         "Quit")

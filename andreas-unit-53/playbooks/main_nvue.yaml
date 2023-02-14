@@ -1,0 +1,17 @@
+- hosts: leaf11
+  become: true
+  user: cumulus
+  gather_facts: false
+  
+  
+  tasks:
+    - name: start service nvued
+      ansible.builtin.service:
+        name: nvued
+        state: started
+        enabled: yes
+
+    - name: enable serivce nvue-startup
+      ansible.builtin.service:
+        name: nvue-startup
+        enabled: yes

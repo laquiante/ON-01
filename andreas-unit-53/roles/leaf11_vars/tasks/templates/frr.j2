@@ -3,21 +3,21 @@ evpn mh neigh-holdtime 1080
 evpn mh startup-delay 180
 interface bond01
 evpn mh es-df-pref 32767
-evpn mh es-id 1
-evpn mh es-sys-mac 44:38:39:FF:00:01
+evpn mh es-id {{es_id}}
+evpn mh es-sys-mac {{mac_bond}}
 interface swp21
 evpn mh uplink
 interface swp22
 evpn mh uplink
-vrf A1
+vrf {{vrf_1}}
 vni 4001
 exit-vrf
 vrf default
 exit-vrf
 vrf mgmt
 exit-vrf
-router bgp 65111 vrf default
-bgp router-id 172.16.100.11
+router bgp {{asn}} vrf default
+bgp router-id {{router_id}}
 timers bgp 3 9
 bgp deterministic-med
 ! Neighbors

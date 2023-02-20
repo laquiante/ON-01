@@ -10,7 +10,7 @@ if [ -f /home/cumulus/ON-01/additional.conf ]; then
         . /home/cumulus/ON-01/additional.conf
 fi
 
-PS3='Unit 51| Playbook lab. Please enter your choice: '
+PS3='Unit 53| Playbook lab. Please enter your choice: '
 options=("run playbook for leaf11" "run playbook for leaf11_vars" "run playbook with tags" "enable NVUE on leaf11" "Quit")
 select opt in "${options[@]}"
 do

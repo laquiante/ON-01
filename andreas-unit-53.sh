@@ -11,7 +11,7 @@ if [ -f /home/cumulus/ON-01/additional.conf ]; then
 fi
 
 PS3='Unit 53| Playbook lab. Please enter your choice: '
-options=("run playbook for leaf11" "run playbook for leaf11_vars" "run playbook with tags" "enable NVUE on leaf11" "Quit")
+options=("run playbook for leaf11" "run playbook for leaf11_vars" "run playbook with tags" "enable NVUE on leaf11" "run playbook with role j2 and defined" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -35,6 +35,12 @@ do
             echo "which tag should we use?"
             read varname
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./andreas-unit-53/playbooks/main_tag.yaml --tags $varname
+            break
+            ;;
+         "run playbook with role j2 and defined")
+            echo "practice tag use, defined in j2 templates"
+            echo "which tag should we use?"
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./andreas-unit-53/playbooks/main_defined.yaml
             break
             ;;
         "Quit")

@@ -32,7 +32,7 @@ do
             ;;
          "run playbook with tags")
             echo "practice tag use"
-            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./andreas-unit-53/playbooks/main_tag --tags expert.yaml
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./andreas-unit-53/playbooks/main_tag.yaml --tags expert.yaml
             break
             ;;
         "Quit")

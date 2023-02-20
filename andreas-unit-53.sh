@@ -31,8 +31,10 @@ do
             break
             ;;
          "run playbook with tags")
-            echo "practice tag use"
-            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./andreas-unit-53/playbooks/main_tag.yaml --tags expert.yaml
+            echo "practice tag use, expecting 'expert'"
+            echo "which tag should we use?"
+            read varname
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./andreas-unit-53/playbooks/main_tag.yaml --tags $varname
             break
             ;;
         "Quit")

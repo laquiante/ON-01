@@ -10,13 +10,13 @@ if [ -f /home/cumulus/ON-01/.additional.conf ]; then
         . /home/cumulus/ON-01/.additional.conf
 fi
 
-
-echo "===         description            ==="
-echo
-echo "configuring for unit-07 some L3 interfaces"
-echo 
-echo " using the nv patch functionality via Ansible"
-echo
-echo "===            end                ==="
+echo "*************** description ********************"
+echo "*                                              *"
+echo "*  configuring for unit-07 some L3 interface   *"
+echo "* using the nv patch functionality via Ansible *"
+echo "*                                              *"
+echo "*                                              *"
+echo "*                                              *"
+echo "******************* end ************************"
 
 ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-07-role/playbooks/main.yaml

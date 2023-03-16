@@ -9,12 +9,18 @@
 if [ -f /home/cumulus/ON-01/.additional.conf ]; then
         . /home/cumulus/ON-01/.additional.conf
 fi
+
+echo "*************** description *********************************************************"
+echo "*                                                                                   *"
+echo "* configuring for unit-10 filter                                                    *"
+echo "* creating forward-looking infrastructure based on unit-12 EVPN-L2                  *"
+echo "*                                                                                   *"
+echo "*                                                                                   *"
+echo "*                                                                                   *"
+echo "******************* end *************************************************************"
 echo "===         description            ==="
 echo
-echo "configuring for unit-10 filter"
-echo "creating forward-looking infrastructure based on unit-12 EVPN-L2"
-echo
-echo "===            end                ==="
+
 echo
 
 PS3='Please enter your choice: '

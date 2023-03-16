@@ -19,7 +19,6 @@ echo "* moving to end of unit-03 taks      *"
 echo "* configuring host11 and host22      *"
 echo "* configuring router01 and router02  *"
 echo "* configuring customer01             *"
-
 echo "*                                    *"
 echo "************** end *******************"
 echo 

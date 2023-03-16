@@ -10,10 +10,14 @@ if [ -f /home/cumulus/ON-01/.additional.conf ]; then
         . /home/cumulus/ON-01/.additional.conf
 fi
 echo
-echo "===         description            ==="
-echo
-echo "configuring for unit-06 MLAG"
-echo "creating L2 end-to-end connectivity"
+echo "********** description *******************"
+echo "*                                        *"
+echo "*      configuring for unit-06 MLAG      *"
+echo "*   creating L2 end-to-end connectivity  *"
+echo "*                                        *"
+echo "*                                        *"
+echo "*                                        *"
+echo "************** end ***********************"
 echo
 echo "expected outcome 01: host11 (172.16.10.1) can reach host22 (172.16.10.2)"
 echo "expected outcome 02: MLAG is setup"
@@ -22,7 +26,6 @@ echo
 echo "base setup includes a working MLAG configuration and provides a starting point for troubleshooting"
 echo "base setup without MLAG requires you to setup MLAG on leaf11 and leaf12 (leaf21 and leaf22 MLAG is working for reference"
 echo "Move to the end of the first task which provides a working solution but leafs room for improvement"
-echo "===            end                ==="
 echo
 
 PS3='Please enter your choice: '

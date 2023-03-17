@@ -26,7 +26,7 @@
         state: absent
     - name: copy netplan yaml
       copy:
-        src: /home/cumulus/ON-01/unit-53-ts/{{ inventory_hostname }}.yaml
+        src: /home/cumulus/ON-01/unit-35-ts/{{ inventory_hostname }}.yaml
         dest: /etc/netplan/config.yaml
     - name: apply netplan yaml
       shell: netplan apply

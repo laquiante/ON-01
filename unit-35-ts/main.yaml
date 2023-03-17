@@ -3,7 +3,7 @@
   become: yes
   gather_facts: no
   tasks:
-    - name: unit-34-ts 
+    - name: unit-35-ts 
       copy:
         src: /home/cumulus/ON-01/unit-35-ts/{{ inventory_hostname }}.yaml
         dest: /etc/nvue.d/startup.yaml

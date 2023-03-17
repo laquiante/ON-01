@@ -1,0 +1,39 @@
+- set:
+    bridge:
+      domain:
+        br_A:
+          vlan:
+            '10': {}
+        br_default:
+          vlan:
+            '10': {}
+    interface:
+      lo:
+        ip:
+          address: 
+            172.16.100.11/32: {}
+        type: loopback
+      swp21:
+        bridge:
+          domain:
+            br_default: {}
+        type: swp
+      swp22:
+        bridge:
+          domain:
+            br_A: {}
+        type: swp
+      swp25:
+        bridge:
+          domain:
+            br_default:
+              access: 10
+        type: swp
+      swp31:
+        bridge:
+          domain:
+            br_A:
+              access: 10
+        type: swp
+    system:
+      hostname: leaf11

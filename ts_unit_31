@@ -16,7 +16,7 @@ ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-31-ts/main.
 
 clear
 
-echo "*************** description *********************************************************"
+echo "*************** description *Layer 2 Troubleshooting Ticket 31***********************"
 echo "*                                                                                   *"
 echo "*  Task based on unit-07 setup with MLAG and L3 interfaces as test points           *"
 echo "*                                                                                   *"
@@ -42,5 +42,14 @@ echo "*  $ ip n                                                                 
 echo "*  $ sudo tcpdump -i <if> icmp                                                      *"
 echo "*  $ bridge vlan                                                                    *"
 echo "*                                                                                   *"
+echo "******************* end *************************************************************"
+echo ""
+echo "****************** goal *************************************************************"
+echo "*                                                                                   *"
+echo "*  Host11 should be able to reach:                                                  *"
+echo "*                                                                                   *"
+echo "*  - host22                                                                         *"
+echo "*  - SVI's of leaf11,12,21,and 22                                                   *"
+echo "*  - VRR (172.16.10.254)                                                            *"
 echo "*                                                                                   *"
 echo "******************* end *************************************************************"

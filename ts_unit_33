@@ -36,15 +36,14 @@ done
 clear
 
 echo
-echo "############################"
-echo "############################"
-echo "##                        ##"
-echo "##    Linux Networking    ##"
-echo "##                        ##"
-echo "##     Hamburg,  2022     ##"
-echo "##                        ##"
-echo "############################"
-echo "############################"
+echo "****************** description Ticket 33 ********************************************"
+echo "*                                                                                   *"
+echo "*  Host11 uses 172.16.10.1/24 on bond1                                              *"
+echo "*  Host22 uses 172.16.20.2/24 on bond1                                              *"
+echo "*  both hosts are multi-homed and are able to ping 'their gw'                       *"
+echo "*                                                                                   *"
+echo "*                                                                                   *"
+echo "******************* end *************************************************************"
 echo
 echo
 

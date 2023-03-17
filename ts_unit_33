@@ -48,7 +48,9 @@ echo "############################"
 echo
 echo
 
-echo "Message from the CEO:" 
-echo "Please fix my network"
-echo 
-echo
+echo "****************** goal *************************************************************"
+echo "*                                                                                   *"
+echo "*  Host11 should be able to reach host22                                            *"
+echo "*                                                                                   *"
+echo "*                                                                                   *"
+echo "******************* end *************************************************************"

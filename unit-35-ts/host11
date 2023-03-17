@@ -8,4 +8,4 @@ network:
       dhcp4: false
       addresses:
       - 172.16.10.1/24
-      macaddress: 00:00:01:AA:AA:AA
+      macaddress: 48:b0:2d:f3:43:61

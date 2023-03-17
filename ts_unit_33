@@ -47,9 +47,12 @@ echo "******************* end **************************************************
 echo
 echo
 
-echo "****************** goal *************************************************************"
+echo "****************** goal and useful commands *****************************************"
 echo "*                                                                                   *"
 echo "*  Host11 should be able to reach host22                                            *"
+echo "*  cumulus@leaf11:mgmt:~$ ip route show vrf A1                                      *"
+echo "*      172.16.20.2 nhid 100 proto bgp metric 20                                     *"
 echo "*                                                                                   *"
+echo "*  cumulus@leaf11:mgmt:~$ sudo vtysh -c "show bgp sum"                              *"
 echo "*                                                                                   *"
 echo "******************* end *************************************************************"

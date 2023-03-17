@@ -1,0 +1,11 @@
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    eth0:
+      dhcp4: true
+    eth1:
+      dhcp4: false
+      addresses:
+      - 172.16.10.2/24
+      macaddress: 00:00:01:AA:AA:AA

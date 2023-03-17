@@ -2,14 +2,21 @@
 # ex:ts=4:sw=4:sts=4:et
 # -*- tab-width: 4; c-basic-offset: 4; indent-tabs-mode: nil -*-
 
-# ALQ, Hamburg 2022
+# ALQ, Hamburg 2022, 2023
 # 
 # sudo ./r_unit-13
 
 if [ -f /home/cumulus/ON-01/additional.conf ]; then
         . /home/cumulus/ON-01/additional.conf
 fi
-
+echo "*************** description *********************************************************"
+echo "*                                                                                   *"
+echo "*  moving to end of unit-13 taks                                                    *"
+echo "*                                                                                   *"
+echo "*  option to configure leaf11                                                       *"
+echo "*  option to configure leaf11 and leaf13                                            *"
+echo "*                                                                                   *"
+echo "******************* end *************************************************************"
 PS3='Unit 13| EVPN-L3. Please enter your choice: '
 options=("move to final unit status" "hands-on leaf11" "hands-on leaf11 and leaf22" "Quit")
 select opt in "${options[@]}"

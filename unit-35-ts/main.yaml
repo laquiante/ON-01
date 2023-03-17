@@ -10,6 +10,8 @@
     # aktivieren
     - name: activate changes 
       shell: nv config apply startup
+    # TS-35
+   
 
 - hosts: host
   name: netplan

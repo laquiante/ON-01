@@ -7,33 +7,34 @@
         br_default:
           vlan:
             '10': {}
+    system:
+      global:
+        system-mac: 48:b0:2d:f3:43:61
+      hostname: leaf11
     interface:
       lo:
         ip:
-          address: 
+          address:
             172.16.100.11/32: {}
         type: loopback
       swp21:
         bridge:
           domain:
             br_default: {}
+      swp21-22,25,31:
         type: swp
       swp22:
         bridge:
           domain:
             br_A: {}
-        type: swp
       swp25:
         bridge:
           domain:
             br_default:
               access: 10
-        type: swp
       swp31:
         bridge:
           domain:
             br_A:
               access: 10
-        type: swp
-    system:
-      hostname: leaf11
+

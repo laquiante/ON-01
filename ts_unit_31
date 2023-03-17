@@ -16,4 +16,12 @@ ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-31-ts/main.
 
 clear
 
-echo "CEO: Please fix my network"
+echo "*************** description *********************************************************"
+echo "*                                                                                   *"
+echo "*  Task based on unit-07                                                            *"
+echo "*                                                                                   *"
+echo "*  CEO: "please fix my network"                                                     *"
+echo "*                                                                                   *"
+echo "*                                                                                   *"
+echo "******************* end *************************************************************"
+echo ""

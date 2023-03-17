@@ -1,0 +1,51 @@
+
+# ALQ, Hamburg/Wittdün 2023
+# 
+# sudo ./ts_unit_35
+
+if [ -f /home/cumulus/ON-01/additional.conf ]; then
+        . /home/cumulus/ON-01/additional.conf
+fi
+
+
+PS3='TS 35| Layer 2 additional ticket. Please enter your choice: '
+options=("Layer 2" "Restore" "Quit")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Layer 2")
+            echo "Host11 reports connectivity loss to Host22"
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/main.yaml
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-35-ts/main.yaml
+            break
+            ;;
+        "Restore")
+            echo "Fixed"
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-05-role/playbooks/main.yaml
+            break
+            ;;
+        "Quit")
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
+
+clear
+
+echo "*************** description *********************************************************"
+echo "*                                                                                   *"
+echo "*  Host11 single homed via an access port (VID=10)                                  *"
+echo "*  Host22 single homed via an access port (VID=10)                                  *"
+echo "*                                                                                   *"
+echo "*                                                                                   *"
+echo "******************* end *************************************************************"
+echo "*************** helpful commands ****************************************************"
+echo "*                                                                                   *"
+echo "*                                                                                   *"
+echo "*                                                                                   *"
+echo "*                                                                                   *"
+echo "*                                                                                   *"
+echo "******************* end *************************************************************"
+echo 
+echo

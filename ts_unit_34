@@ -9,13 +9,7 @@
 if [ -f /home/cumulus/ON-01/additional.conf ]; then
         . /home/cumulus/ON-01/additional.conf
 fi
-echo "*************** helpful commands ****************************************************"
-echo "*                                                                                   *"
-echo "*  $ net show bgp                                                                   *"
-echo "*  $ ip -br a                                                                       *"
-echo "*  $ net show bgp sum                                                               *"
-echo "*                                                                                   *"
-echo "******************* end *************************************************************"
+
 
 PS3='TS 34| EVPN-L3 Troubleshooting. Please enter your choice: '
 options=("EVPN-L3 SYM" "Restore" "Quit")
@@ -42,20 +36,12 @@ done
 
 clear
 
-echo
-echo "############################"
-echo "############################"
-echo "##                        ##"
-echo "##    Linux Networking    ##"
-echo "##                        ##"
-echo "##     Wittdün,  2022     ##"
-echo "##                        ##"
-echo "############################"
-echo "############################"
-echo
-echo
-
-echo "Message from the CEO:" 
-echo "Please fix my network"
+echo "*************** helpful commands ****************************************************"
+echo "*                                                                                   *"
+echo "*  $ net show bgp                                                                   *"
+echo "*  $ ip -br a                                                                       *"
+echo "*  $ net show bgp sum                                                               *"
+echo "*                                                                                   *"
+echo "******************* end *************************************************************"
 echo 
 echo

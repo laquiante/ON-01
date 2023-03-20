@@ -7,6 +7,12 @@ if [ -f /home/cumulus/ON-01/additional.conf ]; then
         . /home/cumulus/ON-01/additional.conf
 fi
 
+echo "************** note *****************************************************************"
+echo "*                                                                                   *"
+echo "*  Host11 and host 22 reloading, please wait a bit                                  *"
+echo "*  until they return to operation                                                   *"
+echo "*                                                                                   *"
+echo "******************* end *************************************************************"
 
 PS3='TS 35| Layer 2 additional ticket. Please enter your choice: '
 options=("Layer 2" "Restore" "Quit")

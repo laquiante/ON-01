@@ -9,8 +9,8 @@ fi
 
 echo "************** note *****************************************************************"
 echo "*                                                                                   *"
-echo "*  Host11 and host 22 reloading, please wait a bit                                  *"
-echo "*  until they return to operation                                                   *"
+echo "*  Host11 and host 22 will be reloading, please wait a bit                          *"
+echo "*  until they return to operation after selecting option 1                          *"
 echo "*                                                                                   *"
 echo "******************* end *************************************************************"
 

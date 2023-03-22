@@ -7,4 +7,4 @@
     - name: copy motd 
       copy:
         src: /home/cumulus/ON-01/inventory/files/motd.sh
-        dest: /home
+        dest: /etc/profile.d

@@ -54,7 +54,7 @@ echo " "
 
 echo -e "╔═══════════════════════════════════════════════╗"
 echo -e "║                                               ║"
-echo -e "║        \\e[0;21mDC-01 Hamburg\\e[0m      \\e[0;21mDC-02 Wittdün\\e[0m      ║"
+echo -e "║        \\e[0;21mDC-01 Hamburg\\e[0m      \\e[0;21mDC-02 Wittdün\\e[0m       ║"
 echo -e "║                                               ║"
 echo -e "║                                               ║"
 echo -ne "║ \\e[0;31mRACK-A\\e[0m "

@@ -54,6 +54,9 @@ echo " "
 
 echo -e "╔═══════════════════════════════════════════════╗"
 echo -e "║                                               ║"
+echo -e "║       DC-01 Hamburg      DC-02 Paris          ║"
+echo -e "║                                               ║"
+echo -e "║                                               ║"
 echo -ne "║ \\e[0;31mRACK-A\\e[0m "
 for i in leaf11 spine13 spine23 leaf21; do
   if [[ $i == $HOSTNAME ]]; then

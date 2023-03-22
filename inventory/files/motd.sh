@@ -6,7 +6,7 @@ STADT=$HOSTNAME
 CITY=${STADT: -2:1}
 if [[ "$CITY" == 1 ]]; then DC='DC-01 Hamburg'
 elif [[ "$CITY" == 2 ]]; then DC='DC-02 Wittdün'
-elfi [[ "$CITY" == 0 ]]; then DC='Service Provider'
+elif [[ "$CITY" == 0 ]]; then DC='Service Provider'
 else DC=N/A
 fi
 OS=$(grep -E '^VERSION=' /etc/os-release | cut -d "\"" -f 2)

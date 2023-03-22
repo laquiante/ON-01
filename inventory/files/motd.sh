@@ -5,7 +5,7 @@
 STADT=$HOSTNAME
 CITY=${STADT: -2:1}
 if [[ "$CITY" == 1 ]]; then DC='DC-01 Hamburg'
-elif [[ "$CITY" == 2 ]]; then DC='DC-02 Paris'
+elif [[ "$CITY" == 2 ]]; then DC='DC-02 Wittdün'
 else DC=N/A
 fi
 OS=$(grep -E '^VERSION=' /etc/os-release | cut -d "\"" -f 2)
@@ -54,7 +54,7 @@ echo " "
 
 echo -e "╔═══════════════════════════════════════════════╗"
 echo -e "║                                               ║"
-echo -e "║        \\e[0;21mDC-01 Hamburg\\e[0m      \\e[0;21mDC-02 Paris\\e[0m         ║"
+echo -e "║        \\e[0;21mDC-01 Hamburg\\e[0m      \\e[0;21mDC-02 Wittdün\\e[0m      ║"
 echo -e "║                                               ║"
 echo -e "║                                               ║"
 echo -ne "║ \\e[0;31mRACK-A\\e[0m "

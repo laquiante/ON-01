@@ -17,6 +17,9 @@ KERNEL=$(uname -r)
 
 # Clear
 clear
+
+# schwarz, rot, grün, gelb, blau, magenta, cyan und weiß: 30, 31, 32, 33, 34, 35, 36, 37.
+
 # Banner
 echo -e " \e[0;32m
 ########   #######   ######  ##    ## ######## ######## 

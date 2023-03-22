@@ -7,6 +7,16 @@
   roles:
     - /home/cumulus/ON-01/unit-03-role/roles/cl5
     
+- hosts: cumulus-5x-nodes
+  name: rocket turtle forever
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: copy motd 
+      copy:
+        src: /home/cumulus/ON-01/inventory/files/motd.sh
+        dest: /etc/profile.d
+    
 - hosts: cumulus-4x-nodes
   name: e/n/i
   become: yes

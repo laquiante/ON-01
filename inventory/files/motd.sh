@@ -68,8 +68,20 @@ done
 echo -n " "
 echo -e "║             "
 echo -e "║                                               ║"
+echo -ne "║ \\e[0;33mSP\\e[0m                "
+for i in wan01 wan02; do
+  if [[ $i == $HOSTNAME ]]; then
+    echo -ne "\\e[0;41m\\e[1;33m[$i]\\e[0m "
+  else
+    echo -ne "[$i] "
+  fi
+done
+echo -n " "
+echo -e "           ║             "
 
 
+
+echo -e "║                                               ║"
 echo -ne "║ \\e[0;31mRACK-B\\e[0m "
 for i in leaf12 spine14 spine24 leaf22; do
   if [[ $i == $HOSTNAME ]]; then
@@ -79,7 +91,8 @@ for i in leaf12 spine14 spine24 leaf22; do
   fi
 done
 echo -n " "
+echo -e "║             "
 echo -e "║                                               ║"
 echo -e "║                                               ║"
-echo -e "╚═════════════════════════════════Hamburg 2023══╝"
+echo -e "╚═══════════════════════════════════════════════╝"
 echo ""

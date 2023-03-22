@@ -32,7 +32,7 @@ echo "*        snippet:                                                         
 echo "*          motd-flexible-snippet:                                                                    *"
 echo "*            content: |                                                                              *"
 echo "*              # Adding a line                                                                       *"
-echo "*              echo "<customer name> 2023"                                                           *"
+echo "*              'echo <customer name> 2023'                                                           *"
 echo "*            file: /etc/profile.d/motd.sh                                                            *"
 echo "*                                                                                                    *"
 echo "************************************* end ************************************************************"

@@ -1,0 +1,10 @@
+---
+- hosts: cumulus-5x-nodes
+  name: Flexible Snippet
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: copy motd 
+      copy:
+        src: /home/cumulus/ON-01/inventory/files/motd.sh
+        dest: /home

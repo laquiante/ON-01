@@ -20,6 +20,8 @@ echo "* configuring host11 and host22      *"
 echo "* configuring router01 and router02  *"
 echo "* configuring customer01             *"
 echo "*                                    *"
+echo "* preparing CL 5.x devices           *"
+echo "*                                    *"
 echo "************** end *******************"
 echo 
 

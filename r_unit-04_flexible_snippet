@@ -1,0 +1,44 @@
+#!/bin/bash
+# ex:ts=4:sw=4:sts=4:et
+# -*- tab-width: 4; c-basic-offset: 4; indent-tabs-mode: nil -*-
+
+# ALQ, Hamburg 2023
+# 
+# sudo ./r_unit-04_flexible_snippet
+
+if [ -f /home/cumulus/ON-01/.additional.conf ]; then
+        . /home/cumulus/ON-01/.additional.conf
+fi
+
+echo
+echo "********** description *******************"
+echo "*                                        *"
+echo "* preparing the CL 5.x nodes for         *"
+echo "* an optional hands-on excersise         *"
+echo "*                                        *"
+echo "*                                        *"
+echo "*                                        *"
+echo "************** end ***********************"
+echo
+echo "********************************* description ********************************************************"
+echo "*                                                                                                    *"
+echo "* copied motd.sh to /home                                                                            *"
+echo "*                                                                                                    *"
+echo "************************************* end ************************************************************"
+echo
+echo 
+PS3='Please enter your choice: '
+options=("copy motd" "Quit")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "copy motd")
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-04/main.yaml
+            break
+            ;;
+        "Quit")
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done

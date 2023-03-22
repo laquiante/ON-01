@@ -40,13 +40,13 @@ echo "
 
 "
 
-echo "You are working now in: " $DC
-echo "On device:              " $HOSTNAME
-echo "Operating System:       " $OS
-echo "Kernel:                 " $KERNEL
-echo "Uptime:                 " $UP
-echo "Managemnt via eth0:     " $IPv4_mgmt
-echo "Loopback:               " $IPv4_lo
+echo -e "You are working now in: \e[0;32m" $DC" \e[0m"
+echo -e "On device:              \e[0;32m" $HOSTNAME" \e[0m"
+echo -e "Operating System:       \e[0;34m" $OS" \e[0m"
+echo -e "Kernel:                 \e[0;34m" $KERNEL" \e[0m"
+echo -e "Uptime:                 " $UP
+echo -e "Managemnt via eth0:     " $IPv4_mgmt
+echo -e "Loopback:               " $IPv4_lo
 
 echo " "
 echo " "
@@ -54,7 +54,7 @@ echo " "
 
 echo -e "╔═══════════════════════════════════════════════╗"
 echo -e "║                                               ║"
-echo -e "║        DC-01 Hamburg      DC-02 Paris         ║"
+echo -e "║        \\e[0;21mDC-01 Hamburg\\e[0m      \\e[0;21mDC-02 Paris\\e[0m         ║"
 echo -e "║                                               ║"
 echo -e "║                                               ║"
 echo -ne "║ \\e[0;31mRACK-A\\e[0m "

@@ -1,0 +1,78 @@
+- set:
+    router:
+      bgp:
+        autonomous-system: 65121
+        enable: on
+        router-id: 172.16.100.21
+    system:
+      hostname: leaf21
+    vrf:
+      A:
+        loopback:
+          ip:
+            address:
+              172.16.100.21/32: {}
+        router:
+          bgp:
+            address-family:
+              ipv4-unicast:
+                enable: on
+                network:
+                  172.16.100.21/32: {}
+            autonomous-system: 65121
+            enable: on
+            neighbor:
+              FD80::2:
+                remote-as: external
+                type: numbered
+              swp21.10:
+                remote-as: external
+                type: unnumbered
+      default:
+        router:
+          bgp:
+            address-family:
+              ipv4-unicast:
+                enable: on
+                network:
+                  172.16.100.21/32: {}
+            enable: on
+            neighbor:
+              172.16.21.2:
+                remote-as: external
+                type: numbered
+              swp21:
+                address-family:
+                  ipv4-unicast:
+                    soft-reconfiguration: on
+                remote-as: external
+                type: unnumbered
+              swp22:
+                address-family:
+                  ipv4-unicast:
+                    soft-reconfiguration: on
+                remote-as: external
+                type: unnumbered
+    interface:
+      lo:
+        ip:
+          address:
+            172.16.100.21/32: {}
+        type: loopback
+      swp21-22,25,32:
+        type: swp
+      swp21.10:
+        base-interface: swp21
+        type: sub
+        vlan: 10
+      swp21.10,swp32:
+        ip:
+          vrf: A
+      swp25:
+        ip:
+          address:
+            172.16.21.21/24: {}
+      swp32:
+        ip:
+          address:
+            FD80::21/64: {}

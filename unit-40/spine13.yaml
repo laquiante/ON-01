@@ -62,6 +62,9 @@
         type: swp
       swp1.10:
         base-interface: swp1
+        ip:
+          address:
+            10.11.13.13/24: {}
       swp1.10,swp5.10:
         ip:
           vrf: A

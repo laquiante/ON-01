@@ -1,0 +1,53 @@
+- set:
+    router:
+      bgp:
+        autonomous-system: 65122
+        enable: on
+        router-id: 172.16.100.22
+    system:
+      hostname: leaf22
+    vrf:
+      default:
+        router:
+          bgp:
+            address-family:
+              ipv4-unicast:
+                enable: on
+                network:
+                  172.16.100.22/32: {}
+            enable: on
+            neighbor:
+              172.16.22.2:
+                remote-as: external
+                type: numbered
+              172.16.23.2:
+                remote-as: external
+                type: numbered
+              swp21:
+                address-family:
+                  ipv4-unicast:
+                    soft-reconfiguration: on
+                remote-as: external
+                type: unnumbered
+              swp22:
+                address-family:
+                  ipv4-unicast:
+                    soft-reconfiguration: on
+                remote-as: external
+                type: unnumbered
+    interface:
+      lo:
+        ip:
+          address:
+            172.16.100.22/32: {}
+        type: loopback
+      swp21-22,25,31:
+        type: swp
+      swp25:
+        ip:
+          address:
+            172.16.22.22/24: {}
+      swp31:
+        ip:
+          address:
+            172.16.23.22/24: {}

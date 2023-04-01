@@ -1,0 +1,22 @@
+!
+frr version 8.5
+frr defaults traditional
+hostname host22
+log file /var/log/frr/andreas.log
+log syslog
+no ip forwarding
+no ipv6 forwarding
+service integrated-vtysh-config
+!
+router bgp 22
+ no bgp ebgp-requires-policy
+ bgp bestpath as-path multipath-relax
+ neighbor 172.16.21.21 remote-as external
+ neighbor 172.16.22.22 remote-as external
+ neighbor 172.16.23.22 remote-as external
+ !
+ address-family ipv4 unicast
+  network 172.16.100.122/32
+ exit-address-family
+exit
+!

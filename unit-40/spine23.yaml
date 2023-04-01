@@ -12,6 +12,9 @@
           bgp:
             enable: on
             neighbor:
+              swp1.10:
+                remote-as: external
+                type: unnumbered
               swp5.10:
                 remote-as: external
                 type: unnumbered
@@ -57,13 +60,19 @@
         type: loopback
       swp1-2,4-5:
         type: swp
+      swp1.10:
+        base-interface: swp1
+        ip:
+          address:
+            10.21.23.23/24: {}
+      swp1.10,swp5.10:
+        ip:
+          vrf: A
+        type: sub
+        vlan: 10
       swp4:
         ip:
           address:
             192.168.42.4/30: {}
       swp5.10:
         base-interface: swp5
-        ip:
-          vrf: A
-        type: sub
-        vlan: 10

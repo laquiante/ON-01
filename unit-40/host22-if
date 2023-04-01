@@ -1,0 +1,22 @@
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    eth0:
+      dhcp4: true
+    eth1:
+      dhcp4: false
+      addresses:
+        - 172.16.21.2/24
+    eth2:
+      dhcp4: false
+      addresses:
+        - 172.16.22.2/24
+    eth3:
+      dhcp4: false
+      addresses:
+        - 172.16.23.2/24
+    lo:
+      match:
+        name: lo
+      addresses: [ 172.16.100.122/32 ]

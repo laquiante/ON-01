@@ -59,15 +59,15 @@
             autonomous-system: 65111
             enable: on
             neighbor:
-              17.11.13.13:
-                remote-as: external
-                type: numbered
               172.16.10.1:
                 remote-as: external
                 type: numbered
               172.16.11.1:
                 remote-as: external
                 type: numbered
+              swp21.10:
+                remote-as: external
+                type: unnumbered
       default:
         router:
           bgp:
@@ -79,6 +79,9 @@
             enable: on
             neighbor:
               172.16.10.1:
+                remote-as: external
+                type: numbered
+              172.16.11.1:
                 remote-as: external
                 type: numbered
               swp21:

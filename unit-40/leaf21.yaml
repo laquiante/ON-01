@@ -22,7 +22,7 @@
             autonomous-system: 65121
             enable: on
             neighbor:
-              FD80::2:
+              10.2.21.2:
                 remote-as: external
                 type: numbered
               swp21.10:
@@ -63,6 +63,9 @@
         type: swp
       swp21.10:
         base-interface: swp21
+        ip:
+          address:
+            10.21.23.21/24: {}
         type: sub
         vlan: 10
       swp21.10,swp32:
@@ -75,4 +78,5 @@
       swp32:
         ip:
           address:
+            10.2.21.21/24: {}
             FD80::21/64: {}

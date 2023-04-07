@@ -1,0 +1,64 @@
+---
+- hosts: cumulus-5x-nodes
+  name: rocket turtle forever
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: copy motd 
+      copy:
+        src: /home/cumulus/ON-01/inventory/files/motd.sh
+        dest: /etc/profile.d
+    
+- hosts: cumulus-4x-nodes
+  name: e/n/i
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: Daemons
+      copy:
+        src: /home/cumulus/ON-01/unit-40/daeomons
+        dest: /etc/frr/daemons
+    # aktivieren
+    - name: activate changes for all cumulus nodes
+      shell: systemctl restart frr
+    - name: Interface
+      copy:
+        src: /home/cumulus/ON-01/unit-40/{{ inventory_hostname }}.eni
+        dest: /etc/network/interfaces
+    # aktivieren
+    - name: activate changes for all cumulus nodes
+      shell: ifreload -a
+    - name: FRR
+      copy:
+        src: /home/cumulus/ON-01/unit-40/{{ inventory_hostname }}.frr
+        dest: /etc/network/interfaces
+    # aktivieren
+    - name: activate changes for all cumulus nodes
+      shell: systemctl reload frr
+
+           
+- hosts: host
+  name: netplan
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: cloud file entfernen
+      ansible.builtin.file:
+        path: /etc/netplan/50-cloud-init.yaml
+        state: absent
+    - name: cloud file entfernen
+      ansible.builtin.file:
+        path: /etc/netplan/config.yaml
+        state: absent
+    - name: copy netplan yaml
+      copy:
+        src: /home/cumulus/ON-01/unit-40/{{ inventory_hostname }}.yaml
+        dest: /etc/netplan/config.yaml
+    - name: apply netplan yaml
+      shell: netplan apply
+       
+    - name: Check interface 2
+      shell: /sbin/ip -br -4 a | grep 'bond'
+      ignore_errors: yes
+      register: result
+    - debug: msg={{ result.stdout }}

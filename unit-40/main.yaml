@@ -10,7 +10,20 @@
         src: /home/cumulus/ON-01/inventory/files/motd.sh
         dest: /etc/profile.d
         
-# ENI und FRR    
+- hosts: leaf11 leaf12 leaf21 leaf22 spine13 spine14 spine23 spine24
+  name: startup L3-Fabric
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: unit-40 
+      copy:
+        src: /home/cumulus/ON-01/unit-40/{{ inventory_hostname }}.yaml
+        dest: /etc/nvue.d/startup.yaml
+    # aktivieren
+    - name: activate changes 
+      shell: nv config apply startup
+        
+# ENI, Daemons und FRR    
 - hosts: cumulus-4x-nodes
   name: e/n/i daemons und frr
   become: yes
@@ -18,7 +31,7 @@
   tasks:
     - name: Daemons
       copy:
-        src: /home/cumulus/ON-01/unit-40/daeomons
+        src: /home/cumulus/ON-01/unit-40/daemons
         dest: /etc/frr/daemons
     # aktivieren
     - name: activate changes for all cumulus nodes
@@ -48,16 +61,52 @@
       ansible.builtin.file:
         path: /etc/netplan/50-cloud-init.yaml
         state: absent
+        
+    - name: copy daemons
+      copy:
+        src: /home/cumulus/ON-01/unit-40/daemons
+        dest: /etc/frr/daemons
+        
+    - name: copy frr
+      copy:
+        src: /home/cumulus/ON-01/unit-40/{{ inventory_hostname }}.frr
+        dest: /etc/frr/frr.conf
+        
     - name: cloud file entfernen
       ansible.builtin.file:
         path: /etc/netplan/config.yaml
         state: absent
+        
     - name: copy netplan yaml
       copy:
         src: /home/cumulus/ON-01/unit-40/{{ inventory_hostname }}.yaml
         dest: /etc/netplan/config.yaml
+        
     - name: apply netplan yaml
       shell: netplan apply
+      
+    - name: apt
+      ansible.builtin.apt_key:
+        url: https://deb.frrouting.org/frr/keys.asc
+        state: present
+    - name: get os
+      shell: /lsb_release -s -c
+      register: lsb
+    - debug: msg={{ lsb }}
+    - name: apt add
+      apt_repository:
+      repo: deb https://deb.frrouting.org/frr $(lsb_release -s -c) frr-stable
+      state: present
+      
+    - name: Update repositories cache and install frr
+      ansible.builtin.apt:
+        name: frr frr-pythontools
+        update_cache: yes    
+        
+    - name: systemctl
+      ansible.builtin.systemd:
+        state: restarted
+        name: frr
       
     # Prüfen ob BGP Routen liefert
     - name: Check interface 2

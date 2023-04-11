@@ -81,14 +81,14 @@
       ansible.builtin.apt_key:
         url: https://deb.frrouting.org/frr/keys.asc
         state: present
-    - name: get os
-      shell: /lsb_release -s -c
-      register: lsb
+ #   - name: get os
+ #     shell: /lsb_release -s -c
+ #     register: lsb
  #   - debug: msg={{ lsb }}
 
     - name: apt add
       apt_repository:
-        repo: deb https://deb.frrouting.org/frr {{ lsb }} frr-stable
+        repo: deb https://deb.frrouting.org/frr focal frr-stable
         state: present
       
     - name: Update repositories cache and install frr

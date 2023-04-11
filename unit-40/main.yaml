@@ -88,7 +88,8 @@
 
     - name: apt add
       apt_repository:
-        repo: deb https://deb.frrouting.org/frr focal frr-stable
+#        repo: deb https://deb.frrouting.org/frr focal frr-stable
+        repo: deb https://deb.frrouting.org/frr/dists/focal/frr-stable/
         state: present
       
     - name: Update repositories cache and install frr

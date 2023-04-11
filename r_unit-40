@@ -10,7 +10,7 @@ if [ -f /home/cumulus/ON-01/additional.conf ]; then
         . /home/cumulus/ON-01/additional.conf
 fi
 
-ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./cleanup/main.yaml
+# ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./cleanup/main.yaml
 ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-40/main.yaml
 
 clear

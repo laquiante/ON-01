@@ -94,10 +94,10 @@
       register: lsb
  #   - debug: msg={{ lsb }}
 
-- name: apt add
+    - name: apt add
       apt_repository:
-      repo: deb https://deb.frrouting.org/frr {{ lsb }} frr-stable
-      state: present
+        repo: deb https://deb.frrouting.org/frr {{ lsb }} frr-stable
+        state: present
       
     - name: Update repositories cache and install frr
       ansible.builtin.apt:

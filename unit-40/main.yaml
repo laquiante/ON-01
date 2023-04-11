@@ -78,13 +78,14 @@
       shell: netplan apply
       
     - name: apt
-      ansible.builtin.apt_key:
-        url: https://deb.frrouting.org/frr/keys.asc
-        state: present
+ #     ansible.builtin.apt_key:
+ #       url: https://deb.frrouting.org/frr/keys.asc
+ #       state: present
  #   - name: get os
  #     shell: /lsb_release -s -c
  #     register: lsb
  #   - debug: msg={{ lsb }}
+      shell: curl -s https://deb.frrouting.org/frr/keys.asc | sudo apt-key add -
 
     - name: apt add
       apt_repository:

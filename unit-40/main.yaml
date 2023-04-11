@@ -21,7 +21,7 @@
         dest: /etc/nvue.d/startup.yaml
     # aktivieren
     - name: activate changes 
-      shell: nv config apply startup
+      shell: nv config apply startup -y
         
 # ENI, Daemons und FRR    
 - hosts: cumulus-4x-nodes

@@ -62,15 +62,7 @@
         path: /etc/netplan/50-cloud-init.yaml
         state: absent
         
-    - name: copy daemons
-      copy:
-        src: /home/cumulus/ON-01/unit-40/daemons
-        dest: /etc/frr/daemons
-        
-    - name: copy frr
-      copy:
-        src: /home/cumulus/ON-01/unit-40/{{ inventory_hostname }}.frr
-        dest: /etc/frr/frr.conf
+
         
     - name: cloud file entfernen
       ansible.builtin.file:
@@ -103,6 +95,16 @@
       ansible.builtin.apt:
         name: frr frr-pythontools
         update_cache: yes    
+        
+    - name: copy daemons
+      copy:
+        src: /home/cumulus/ON-01/unit-40/daemons
+        dest: /etc/frr/daemons
+        
+    - name: copy frr
+      copy:
+        src: /home/cumulus/ON-01/unit-40/{{ inventory_hostname }}.frr
+        dest: /etc/frr/frr.conf
         
     - name: systemctl
       ansible.builtin.systemd:

@@ -92,10 +92,11 @@
     - name: get os
       shell: /lsb_release -s -c
       register: lsb
-    - debug: msg={{ lsb }}
-    - name: apt add
+ #   - debug: msg={{ lsb }}
+
+- name: apt add
       apt_repository:
-      repo: deb https://deb.frrouting.org/frr $(lsb_release -s -c) frr-stable
+      repo: deb https://deb.frrouting.org/frr {{ lsb }} frr-stable
       state: present
       
     - name: Update repositories cache and install frr

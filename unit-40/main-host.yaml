@@ -5,7 +5,7 @@
   tasks:
     - name: copy daemons
       copy:
-        src: /home/cumulus/ON-01/unit-40/daemons
+        src: /home/cumulus/ON-01/unit-40/dh
         dest: /etc/frr/daemons
         
     - name: copy frr

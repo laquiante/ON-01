@@ -11,12 +11,36 @@ if [ -f /home/cumulus/ON-01/additional.conf ]; then
 fi
 
 # ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./cleanup/main.yaml
-ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-40/main.yaml
+# ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-40/main.yaml
 
 clear
 
-echo "*************** description *Layer 3 setup ******************************************"
+echo "*************** description *********************************************************"
 echo "*                                                                                   *"
+echo "*  configuring for unit-40 pure L3-Fabric                                           *"
+echo "*  To do : FRR installation on hosts                                                *"
 echo "*                                                                                   *"
 echo "******************* end *************************************************************"
-echo ""
+
+
+PS3='Please enter your choice: '
+options=("Switches" "Host-Config" "Quit")
+select opt in "${options[@]}"
+do
+    case $opt in
+         "Switches")
+            echo "CL 4 and CL 5 setup"
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-40/main.yaml
+            break
+            ;;
+         "Host-Config")
+            echo "Copy Daemons and Config to Hosts"
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-40/main-host.yaml
+            break
+            ;;
+        "Quit")
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done

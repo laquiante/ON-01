@@ -51,7 +51,7 @@
     - name: FRR config
       copy:
         src: /home/cumulus/ON-01/unit-40/{{ inventory_hostname }}.frr
-        dest: /etc/network/interfaces
+        dest: /etc/frr/frr.conf
     # aktivieren
     - name: activate changes for all cumulus nodes
       shell: systemctl reload frr

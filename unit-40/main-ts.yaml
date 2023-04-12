@@ -13,15 +13,14 @@
       shell: nv config apply startup -y
         
 # ENI, Daemons und FRR    
-- hosts: cumulus-4x-nodes
+- hosts: router01 customer01
   name: e/n/i daemons und frr
   become: yes
   gather_facts: no
   tasks:
-        
     - name: Daemons
       copy:
-        src: /home/cumulus/ON-01/unit-40/daemons-ts
+        src: /home/cumulus/ON-01/unit-40/daemons
         dest: /etc/frr/daemons
         
     # aktivieren
@@ -41,6 +40,41 @@
       copy:
         src: /home/cumulus/ON-01/unit-40/{{ inventory_hostname }}-ts.frr
         dest: /etc/frr/frr.conf
+        
     # aktivieren
     - name: activate changes for all cumulus nodes
       shell: systemctl reload frr
+      
+# ENI, Daemons und FRR    
+- hosts: router02
+  name: e/n/i daemons und frr
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: Daemons
+      copy:
+        src: /home/cumulus/ON-01/unit-40/daemons-ts
+        dest: /etc/frr/daemons
+        
+    # aktivieren
+    - name: router02 restart frr
+      shell: systemctl restart frr
+      
+    - name: Interface
+      copy:
+        src: /home/cumulus/ON-01/unit-40/{{ inventory_hostname }}-ts.eni
+        dest: /etc/network/interfaces
+        
+    # aktivieren
+    - name: activate changes for all cumulus nodes
+      shell: ifreload -a
+        
+    - name: FRR config
+      copy:
+        src: /home/cumulus/ON-01/unit-40/{{ inventory_hostname }}-ts.frr
+        dest: /etc/frr/frr.conf
+        
+    # aktivieren
+    - name: activate changes for all cumulus nodes
+      shell: systemctl reload frr
+

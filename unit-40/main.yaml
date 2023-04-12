@@ -55,3 +55,26 @@
     # aktivieren
     - name: activate changes for all cumulus nodes
       shell: systemctl reload frr
+      
+      ###################################
+      
+      
+- hosts: host
+  name: netplan
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: cloud file entfernen
+      ansible.builtin.file:
+        path: /etc/netplan/50-cloud-init.yaml
+        state: absent
+
+    - name: copy netplan yaml
+      copy:
+        src: /home/cumulus/ON-01/unit-40/{{ inventory_hostname }}.yaml
+        dest: /etc/netplan/config.yaml
+        
+    - name: apply netplan yaml
+      shell: netplan apply
+      
+      

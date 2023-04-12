@@ -9,10 +9,15 @@ iface swp1.10
 auto swp1.11
 iface swp1.11
         address 172.16.11.1/24
-        vrf A
+        vrf A11
 
 auto A
 iface A
+        address 172.16.100.121/32
+        vrf-table auto
+        
+auto A11
+iface A11
         address 172.16.100.121/32
         vrf-table auto
 

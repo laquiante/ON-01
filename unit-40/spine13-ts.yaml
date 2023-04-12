@@ -1,0 +1,78 @@
+- set:
+    router:
+      bgp:
+        autonomous-system: 65101
+        enable: on
+        router-id: 172.16.100.13
+    system:
+      hostname: spine13
+    vrf:
+      A:
+        router:
+          bgp:
+            enable: on
+            neighbor:
+              swp1.10:
+                remote-as: external
+                type: unnumbered
+              swp5.10:
+                remote-as: internal
+                type: unnumbered
+      default:
+        router:
+          bgp:
+            address-family:
+              ipv4-unicast:
+                enable: on
+                network:
+                  172.16.100.13/32: {}
+            enable: on
+            neighbor:
+              192.168.42.2:
+                address-family:
+                  ipv4-unicast:
+                    soft-reconfiguration: on
+                remote-as: external
+                type: numbered
+              swp1:
+                address-family:
+                  ipv4-unicast:
+                    soft-reconfiguration: on
+                remote-as: external
+                type: unnumbered
+              swp2:
+                address-family:
+                  ipv4-unicast:
+                    soft-reconfiguration: on
+                remote-as: external
+                type: unnumbered
+              swp5:
+                address-family:
+                  ipv4-unicast:
+                    soft-reconfiguration: on
+                remote-as: external
+                type: unnumbered
+    interface:
+      lo:
+        ip:
+          address:
+            172.16.100.13/32: {}
+        type: loopback
+      swp1-2,4-5:
+        type: swp
+      swp1.10:
+        base-interface: swp1
+        ip:
+          address:
+            10.11.13.13/24: {}
+      swp1.10,swp5.10:
+        ip:
+          vrf: A
+        type: sub
+        vlan: 10
+      swp4:
+        ip:
+          address:
+            192.168.42.1/30: {}
+      swp5.10:
+        base-interface: swp5

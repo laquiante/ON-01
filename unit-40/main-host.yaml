@@ -8,7 +8,7 @@
         src: /home/cumulus/ON-01/unit-40/daemons
         dest: /etc/frr/daemons
         
-     - name: copy frr
+    - name: copy frr
       copy:
         src: /home/cumulus/ON-01/unit-40/{{ inventory_hostname }}.frr
         dest: /etc/frr/frr.conf      

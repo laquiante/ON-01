@@ -24,7 +24,7 @@ echo "******************* end **************************************************
 
 
 PS3='Please enter your choice: '
-options=("Switches" "Host-Config" "Quit")
+options=("Switches" "Host-FRR" "Host-Config" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -36,6 +36,11 @@ do
          "Host-Config")
             echo "Copy Daemons and Config to Hosts"
             ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-40/main-host.yaml
+            break
+            ;;
+         "Host-FRR")
+            echo "FRR on Hosts"
+            ansible-playbook -i /home/cumulus/ON-01/inventory/files/hosts ./unit-40/main-host-frr.yaml
             break
             ;;
         "Quit")

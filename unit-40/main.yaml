@@ -29,29 +29,35 @@
   become: yes
   gather_facts: no
   tasks:
+        
     - name: Daemons
       copy:
         src: /home/cumulus/ON-01/unit-40/daemons
         dest: /etc/frr/daemons
+        
     # aktivieren
     - name: activate changes for all cumulus nodes
       shell: systemctl restart frr
+      
     - name: Interface
       copy:
         src: /home/cumulus/ON-01/unit-40/{{ inventory_hostname }}.eni
         dest: /etc/network/interfaces
+        
     # aktivieren
     - name: activate changes for all cumulus nodes
       shell: ifreload -a
-    - name: FRR
+      
+    - name: FRR config
       copy:
         src: /home/cumulus/ON-01/unit-40/{{ inventory_hostname }}.frr
         dest: /etc/network/interfaces
     # aktivieren
     - name: activate changes for all cumulus nodes
       shell: systemctl reload frr
-
-           
+       
+########################################################################       
+       
 - hosts: host
   name: netplan
   become: yes
@@ -62,9 +68,7 @@
         path: /etc/netplan/50-cloud-init.yaml
         state: absent
         
-
-        
-    - name: cloud file entfernen
+    - name: config file entfernen
       ansible.builtin.file:
         path: /etc/netplan/config.yaml
         state: absent
@@ -85,18 +89,62 @@
  #     shell: /lsb_release -s -c
  #     register: lsb
  #   - debug: msg={{ lsb }}
-      shell: curl -s https://deb.frrouting.org/frr/keys.asc | sudo apt-key add -
+ #    shell: curl -s https://deb.frrouting.org/frr/keys.asc | sudo apt-key add -
 
-    - name: apt add
-      apt_repository:
-#        repo: deb https://deb.frrouting.org/frr focal frr-stable
-        repo: deb https://deb.frrouting.org/frr/dists/focal/frr-stable/
+      ansible.builtin.apt_key:
+        url: https://deb.frrouting.org/frr/keys.asc
         state: present
+      become: true
+      register: add_repository_key
+      ignore_errors: true
       
+    - name: Debian | Ensure curl & gnupg is present (on older systems without SNI).
+      ansible.builtin.package:
+        name:
+          - curl
+          - gnupg
+        state: present
+      become: true
+      when: add_repository_key is failed
+
+    - name: Debian | Add FRR apt key (alternative for older systems without SNI).
+      ansible.builtin.shell:
+        cmd: |
+          set -o pipefail
+          curl -sSL https://deb.frrouting.org/frr/keys.asc | sudo apt-key add -
+      args:
+        executable: "/bin/bash"
+      become: true
+      changed_when: false
+      when: add_repository_key is failed     
+      
+    - name: Debian | Ensure apt-transport-https is present to enable https repositories
+      ansible.builtin.package:
+        name: apt-transport-https
+        state: present
+      become: true
+
+    - name: Debian | Install FRR apt repo
+      ansible.builtin.apt_repository:
+        repo: "{{ frr_apt_repository }}"
+        state: present
+        mode: "0644"     
+    
+ #   - name: Debian | Install FRR
+ #     ansible.builtin.package:
+ #       name: "{{ frr_packages }}"
+ #       state: latest  # noqa package-latest
+ #       become: true    
+    
     - name: Update repositories cache and install frr
       ansible.builtin.apt:
-        name: frr frr-pythontools
+        name: frr
         update_cache: yes    
+        
+    - name: Update repositories cache and install frr
+      ansible.builtin.apt:
+        name: frr-pythontools
+        update_cache: yes   
         
     - name: copy daemons
       copy:
